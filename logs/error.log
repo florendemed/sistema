@@ -1,0 +1,902 @@
+2015-04-10 01:24:35 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Paginas could not be found.
+Exception Attributes: array (
+  'class' => 'Paginas',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:25:40 Error: [Cake\Controller\Exception\MissingActionException] Action PaginasController::index() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'PaginasController',
+  'action' => 'index',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PaginasController))
+#2 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-04-10 01:26:06 Error: [Cake\View\Exception\MissingTemplateException] Template file "Paginas\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Paginas\\index.ctp',
+)
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PaginasController))
+#4 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-04-10 01:27:18 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/js/jquery-1.11.2.min.js
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:27:18 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Js could not be found.
+Exception Attributes: array (
+  'class' => 'Js',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/js/bootstrap.min.js
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:27:18 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/css/tema.css
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:27:19 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Css could not be found.
+Exception Attributes: array (
+  'class' => 'Css',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/css/bootstrap.min.css
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:27:20 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/img/logo.png
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:38:12 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/img/logo.png
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:38:13 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:38:14 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:39:36 Warning: Warning (2): Illegal offset type in isset or empty in [C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\View\ViewBlock.php, line 157]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 138
+Cake\View\ViewBlock::get() - CORE\src\View\ViewBlock.php, line 157
+Cake\View\View::fetch() - CORE\src\View\View.php, line 623
+include - APP/Template\Layout\default.ctp, line 14
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 815
+Cake\View\View::_render() - CORE\src\View\View.php, line 775
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 509
+Cake\View\View::render() - CORE\src\View\View.php, line 471
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 575
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-04-10 01:39:38 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/img/logo.png
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:39:39 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/fonts/glyphicons-halflings-regular.woff
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:39:40 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Fonts could not be found.
+Exception Attributes: array (
+  'class' => 'Fonts',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/fonts/glyphicons-halflings-regular.ttf
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:40:43 Warning: Warning (2): Illegal offset type in isset or empty in [C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\View\ViewBlock.php, line 157]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 138
+Cake\View\ViewBlock::get() - CORE\src\View\ViewBlock.php, line 157
+Cake\View\View::fetch() - CORE\src\View\View.php, line 623
+include - APP/Template\Layout\default.ctp, line 14
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 815
+Cake\View\View::_render() - CORE\src\View\View.php, line 775
+Cake\View\View::renderLayout() - CORE\src\View\View.php, line 509
+Cake\View\View::render() - CORE\src\View\View.php, line 471
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 575
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2015-04-10 01:40:45 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/img/logo.png
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:41:36 Error: Fatal Error (4): syntax error, unexpected '?>' in [C:\Xampp\htdocs\florencecake\src\Template\Layout\default.ctp, line 14]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-10 01:41:37 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '?>'
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 14)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-10 01:42:15 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Img could not be found.
+Exception Attributes: array (
+  'class' => 'Img',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florencecake/img/logo.png
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-10 01:46:37 Error: Fatal Error (4): syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';' in [C:\Xampp\htdocs\florencecake\src\Template\Layout\default.ctp, line 83]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-10 01:46:38 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting ',' or ';'
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 83)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-10 01:51:46 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\Xampp\htdocs\florencecake\src\Template\Layout\default.ctp, line 37]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-10 01:51:47 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 37)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-10 01:51:54 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\Xampp\htdocs\florencecake\src\Template\Layout\default.ctp, line 37]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-10 01:51:55 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 37)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-10 01:52:44 Error: Fatal Error (4): syntax error, unexpected ''escape'' (T_CONSTANT_ENCAPSED_STRING) in [C:\Xampp\htdocs\florencecake\src\Template\Layout\default.ctp, line 37]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-04-10 01:52:45 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ''escape'' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /florencecake/
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 37)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-04-10 02:06:38 Error: [Cake\View\Exception\MissingTemplateException] Template file "Paginas\teste.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Paginas\\teste.ctp',
+)
+Request URL: /florencecake/paginas/teste
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PaginasController))
+#4 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-04-10 02:14:41 Error: [Cake\Controller\Exception\MissingActionException] Action PaginasController::teste() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'PaginasController',
+  'action' => 'teste',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /florencecake/paginas/teste
+Stack Trace:
+#0 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\florencecake\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PaginasController))
+#2 C:\Xampp\htdocs\florencecake\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-04-12 20:12:42 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Florence.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Florence.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br/florence.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 20:12:43 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Florence.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Florence.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br/florence.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 20:12:45 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Florence.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Florence.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br/florence.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 20:12:47 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Florence.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Florence.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br/florence.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 20:22:39 Error: [Cake\Controller\Exception\MissingActionException] Action UsuariosController::login() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'login',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /app.florence.med.br/usuarios/login
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#2 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-04-12 20:31:51 Error: [Cake\View\Exception\MissingLayoutException] Layout file "Layout\login.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Layout\\login.ctp',
+)
+Request URL: /app.florence.med.br/usuarios/login
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(490): Cake\View\View->_getLayoutFileName('login')
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(471): Cake\View\View->renderLayout('', 'login')
+#2 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#3 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#4 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#5 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#6 {main}
+
+
+2015-04-12 20:50:32 Error: [Cake\Controller\Exception\MissingActionException] Action UsuariosController::Paginas() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'Paginas',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /app.florence.med.br/usuarios/Paginas/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#2 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-04-12 21:20:35 Error: [Cake\Controller\Exception\MissingActionException] Action UsuariosController::editar() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'editar',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /usuarios/editar
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#2 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-04-12 21:20:37 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 21:20:38 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 21:20:39 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 21:20:40 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-12 22:39:54 Error: [Cake\View\Exception\MissingTemplateException] Template file "Usuarios\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Usuarios\\index.ctp',
+)
+Request URL: /usuarios/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#4 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-04-12 22:40:14 Error: [Cake\View\Exception\MissingTemplateException] Template file "Usuarios\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Usuarios\\index.ctp',
+)
+Request URL: /usuarios
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#4 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-04-12 22:51:52 Error: [Cake\View\Exception\MissingTemplateException] Template file "Usuarios\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Usuarios\\index.ctp',
+)
+Request URL: /usuarios/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#4 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-04-12 23:48:15 Error: [Cake\Controller\Exception\MissingActionException] Action UsuariosController::deletar() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'UsuariosController',
+  'action' => 'deletar',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /usuarios/deletar
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#2 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-04-12 23:49:18 Error: [Cake\View\Exception\MissingTemplateException] Template file "Usuarios\deletar.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Usuarios\\deletar.ctp',
+)
+Request URL: /usuarios/deletar
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#4 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-04-12 23:51:25 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Login could not be found.
+Exception Attributes: array (
+  'class' => 'Login',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /login
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-04-13 22:05:05 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Login could not be found.
+Exception Attributes: array (
+  'class' => 'Login',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /login
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:42:45 Error: [Cake\Routing\Exception\MissingControllerException] Controller class App.florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'App.florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:43:08 Error: [Cake\Routing\Exception\MissingControllerException] Controller class App.florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'App.florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:43:11 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:43:13 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:43:15 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:43:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-03 00:43:18 Error: [Cake\Routing\Exception\MissingControllerException] Controller class App.florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'App.florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:46:54 Error: [Cake\Routing\Exception\MissingControllerException] Controller class App.florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'App.florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:47:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class App.florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'App.florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:47:20 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:47:22 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:47:25 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:47:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'Florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:47:29 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:49:50 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Florence could not be found.
+Exception Attributes: array (
+  'class' => 'Florence',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /Florence
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:50:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class App.florence.med.br could not be found.
+Exception Attributes: array (
+  'class' => 'App.florence.med.br',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /app.florence.med.br
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-23 23:51:57 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Login could not be found.
+Exception Attributes: array (
+  'class' => 'Login',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /login
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-24 00:15:08 Error: [Cake\View\Exception\MissingTemplateException] Template file "Usuarios\index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Usuarios\\index.ctp',
+)
+Request URL: /usuarios/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\app.florence.med.br\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\UsuariosController))
+#4 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-05-24 00:15:20 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Colaboradores could not be found.
+Exception Attributes: array (
+  'class' => 'Colaboradores',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /colaboradores/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-24 00:40:42 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Doencas could not be found.
+Exception Attributes: array (
+  'class' => 'Doencas',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /doencas/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-24 19:43:55 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Permissoes could not be found.
+Exception Attributes: array (
+  'class' => 'Permissoes',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /permissoes/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-05-24 23:11:37 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Grupos could not be found.
+Exception Attributes: array (
+  'class' => 'Grupos',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /grupos/index
+Stack Trace:
+#0 C:\Xampp\htdocs\app.florence.med.br\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
