@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+    AddType application/x-httpd-php56  php
     RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
