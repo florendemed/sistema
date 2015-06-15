@@ -10,6 +10,7 @@ class ColaboradoresController extends AppController{
 	
 	public function login(){
 		$this->layout = 'login';
+		$this->set('title', 'Login');
     }
 	
 	public function editar(){
