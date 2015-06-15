@@ -2,7 +2,7 @@
 <html>
   <head>
 		<?= $this->Html->charset() ?>
-		<title><?= $this->fetch('title') ?></title>
+		<title><?= $title ?></title>
 		<?= $this->Html->meta('icon', '/florence.png') ?>
 		<?= $this->Html->css('bootstrap.min') ?>
 		<?= $this->Html->css('tema') ?>
