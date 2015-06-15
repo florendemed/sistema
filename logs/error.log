@@ -67,3 +67,484 @@ Stack Trace:
 #17 {main}
 
 
+2015-06-14 15:53:06 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Driver\PDODriverTrait.php, line 118]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 15:53:08 Error: [Cake\Error\FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Maximum executi...', 'C:\\Xampp\\htdocs...', 118)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 15:53:11 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 15:53:14 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 15:53:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 15:53:23 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 16:03:20 Error: Fatal Error (1): Call to undefined method App\Controller\ColaboradoresController::assign() in [C:\Xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php, line 13]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 16:03:23 Error: [Cake\Error\FatalErrorException] Call to undefined method App\Controller\ColaboradoresController::assign()
+Request URL: /
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'C:\\Xampp\\htdocs...', 13)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 16:03:25 Error: Fatal Error (1): Call to undefined method App\Controller\ColaboradoresController::assign() in [C:\Xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php, line 13]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 16:03:26 Error: [Cake\Error\FatalErrorException] Call to undefined method App\Controller\ColaboradoresController::assign()
+Request URL: /
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(1, 'Call to undefin...', 'C:\\Xampp\\htdocs...', 13)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 17:14:36 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Agenda could not be found.
+Exception Attributes: array (
+  'class' => 'Agenda',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /agenda
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 17:15:05 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Agenda could not be found.
+Exception Attributes: array (
+  'class' => 'Agenda',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /agenda
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 17:15:10 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Agenda could not be found.
+Exception Attributes: array (
+  'class' => 'Agenda',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /agenda
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 17:15:41 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Agenda could not be found.
+Exception Attributes: array (
+  'class' => 'Agenda',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /agenda
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 17:16:03 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Agenda could not be found.
+Exception Attributes: array (
+  'class' => 'Agenda',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /agenda
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 17:16:50 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\index.ctp, line 9]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 17:16:50 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '}'
+Request URL: /agendas
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 9)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 17:18:11 Error: Fatal Error (4): syntax error, unexpected 'weekends' (T_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\index.ctp, line 6]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 17:18:12 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'weekends' (T_STRING)
+Request URL: /agendas
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 6)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 17:19:06 Error: Fatal Error (4): syntax error, unexpected 'weekends' (T_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\index.ctp, line 6]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 17:19:07 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'weekends' (T_STRING)
+Request URL: /agendas
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 6)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 17:19:26 Error: Fatal Error (4): syntax error, unexpected 'weekends' (T_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\index.ctp, line 8]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 17:19:27 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'weekends' (T_STRING)
+Request URL: /agendas
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 8)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 17:20:11 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\index.ctp, line 9]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 17:20:12 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '}'
+Request URL: /agendas
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 9)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 17:21:52 Error: Fatal Error (4): syntax error, unexpected '}' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\index.ctp, line 5]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 17:21:53 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '}'
+Request URL: /agendas
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 5)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 19:46:30 Error: [Cake\View\Exception\MissingTemplateException] Template file "Agendas\adicionar.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Agendas\\adicionar.ctp',
+)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName(NULL)
+#1 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#2 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#3 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\AgendasController))
+#4 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#5 {main}
+
+
+2015-06-14 19:46:31 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 20:23:24 Error: Fatal Error (4): syntax error, unexpected ',' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 7]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 20:23:25 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ','
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 7)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 20:25:54 Error: Fatal Error (4): syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 5]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 20:25:55 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 5)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 20:26:10 Error: Fatal Error (4): syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 5]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 20:26:10 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 5)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 20:26:27 Error: Fatal Error (4): syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 5]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 20:26:28 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 5)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 20:27:13 Error: Fatal Error (4): syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 5]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 20:27:13 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 5)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 20:27:19 Error: Fatal Error (4): syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 5]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 20:27:20 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '').on('' (T_CONSTANT_ENCAPSED_STRING)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/1
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 5)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-14 22:42:24 Error: [Cake\Controller\Exception\MissingActionException] Action PacientesController::adicionar-ajax() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'PacientesController',
+  'action' => 'adicionar-ajax',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /pacientes/adicionar-ajax
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PacientesController))
+#2 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-06-14 22:50:54 Error: [Cake\View\Exception\MissingTemplateException] Template file "Pacientes\adicionar_modal.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Pacientes\\adicionar_modal.ctp',
+)
+Request URL: /pacientes/adicionar/adicionar-modal/
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(460): Cake\View\View->_getViewFileName('adicionar-modal')
+#1 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render('adicionar-modal', NULL)
+#2 C:\Xampp\htdocs\florence-sistema\trunk\src\Controller\PacientesController.php(20): Cake\Controller\Controller->render('adicionar-modal')
+#3 [internal function]: App\Controller\PacientesController->adicionar('adicionar-modal')
+#4 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#5 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#6 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PacientesController))
+#7 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#8 {main}
+
+
+2015-06-14 23:06:48 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Favicon.ico could not be found.
+Exception Attributes: array (
+  'class' => 'Favicon.ico',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /favicon.ico
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-06-14 23:07:54 Error: [Cake\Controller\Exception\MissingActionException] Action PacientesController::adicionar_modal() could not be found, or is not accessible.
+Exception Attributes: array (
+  'controller' => 'PacientesController',
+  'action' => 'adicionar_modal',
+  'prefix' => '',
+  'plugin' => NULL,
+)
+Request URL: /pacientes/adicionar_modal/
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#1 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\PacientesController))
+#2 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 {main}
+
+
+2015-06-14 23:37:52 Error: [Cake\View\Exception\MissingHelperException] Helper class paramsHelper could not be found.
+Exception Attributes: array (
+  'class' => 'paramsHelper',
+  'plugin' => NULL,
+)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/3
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Core\ObjectRegistry.php(86): Cake\View\HelperRegistry->_throwMissingClassError('params', NULL)
+#1 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\HelperRegistry.php(66): Cake\Core\ObjectRegistry->load('params')
+#2 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(732): Cake\View\HelperRegistry->__isset('params')
+#3 C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp(23): Cake\View\View->__get('params')
+#4 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(815): include('C:\\Xampp\\htdocs...')
+#5 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(775): Cake\View\View->_evaluate('C:\\Xampp\\htdocs...', Array)
+#6 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(463): Cake\View\View->_render('C:\\Xampp\\htdocs...')
+#7 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#8 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#9 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\AgendasController))
+#10 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#11 {main}
+
+
+2015-06-14 23:48:23 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Agendas\adicionar.ctp, line 37]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-14 23:48:24 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /agendas/adicionar/15-06-2015%2006:00/3
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 37)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
