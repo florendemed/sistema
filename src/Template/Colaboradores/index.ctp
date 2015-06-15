@@ -13,13 +13,19 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
-							<input name="nome" placeholder="Nome" class="form-control" type="text" id="colaboradorNome"/>
+							<?php 
+								echo $this->Form->password('nome', ['class' => 'form-control', 'id' => 'colaboradorNome', 'placeholder' => 'Nome']);
+							?>
 						</div>
 						<div class="col-md-2">
-							<input name="login" placeholder="Data de Nascimento" class="form-control" type="text" id="colaboradorNascimento"/>
+							<?php 
+								echo $this->Form->password('nascimento', ['class' => 'form-control', 'id' => 'colaboradorNascimento', 'placeholder' => 'Data de Nascimento']);
+							?>
 						</div>
 						<div class="col-md-2">
-							<input name="cpf" placeholder="CPF" class="form-control" type="text" id="colaboradorCpf"/>
+							<?php 
+								echo $this->Form->password('cpf', ['class' => 'form-control', 'id' => 'colaboradorCpf', 'placeholder' => 'CPF']);
+							?>
 						</div>
 						<div class="col-md-1">
 							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>

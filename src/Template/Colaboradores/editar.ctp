@@ -13,46 +13,57 @@
 					<fieldset>
 						<input type="hidden" name="data[colaborador][id]" class="form-control" value="1" id="colaboradorId"/>
 						<div class="form-group required">
-							<label for="colaboradorNome" class="col-md-3 control-label">Nome</label>
+							<?php echo $this->Form->label('colaboradorNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][nome]" maxlength="255" class="form-control" type="text" value="teste" id="colaboradorNome" required="required"/>
+								<?php 
+									echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'colaboradorNome', 'required' => 'required', 'value' => 'Teste']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="colaboradorSenha" class="col-md-3 control-label">Senha</label>
+							<?php echo $this->Form->label('colaboradorSenha', 'Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][senha]" class="form-control" type="password" id="colaboradorSenha"/>
+								<?php 
+									echo $this->Form->password('senha', ['class' => 'form-control', 'id' => 'colaboradorSenha']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="colaboradorRptSenha" class="col-md-3 control-label">Repita Senha</label>
+							<?php echo $this->Form->label('colaboradorRptSenha', 'Repita Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][rpt_senha]" class="form-control" type="password" id="colaboradorRptSenha"/>
+								<?php 
+									echo $this->Form->password('rpt_senha', ['class' => 'form-control', 'id' => 'colaboradorRptSenha']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="colaboradorLogin" class="col-md-3 control-label">Login</label>
+							<?php echo $this->Form->label('colaboradorLogin', 'Login', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][login]" maxlength="120" class="form-control" type="text" value="teste" id="colaboradorLogin"/>
+								<?php 
+									echo $this->Form->password('rpt_senha', ['class' => 'form-control', 'id' => 'colaboradorRptSenha']);
+								?>
 							</div>
 						</div>
 						<div class="form-group required">
-							<label for="colaboradorEmail" class="col-md-3 control-label">Email</label>
+							<?php echo $this->Form->label('email', 'Email', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][email]" maxlength="255" class="form-control" type="email" value="teste@teste.com.br" id="colaboradorEmail" required="required"/>
+								<?php 
+									echo $this->Form->text('Email', ['class' => 'form-control', 'id' => 'colaboradorEmail', 'value' => 'teste@teste.com.br']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="colaboradorNascimento" class="col-md-3 control-label">Nascimento</label>
+							<?php echo $this->Form->label('colaboradorNascimento', 'Nascimento', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][nascimento]" class="form-control" type="text" value="27/12/1982" id="colaboradorNascimento"/>
+								<?php 
+									echo $this->Form->text('nascimento', ['class' => 'form-control', 'id' => 'colaboradorNascimento', 'value' => '27/12/1982']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="colaboradorStatus" class="col-md-3 control-label">Ativa</label>
+							<?php echo $this->Form->label('colaboradorStatus', 'Ativa', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input type="hidden" name="data[colaborador][status]" id="colaboradorStatus_" value="0"/>
-								<input type="checkbox" name="data[colaborador][status]"  value="a" class="" id="colaboradorStatus" checked="checked"/>
+								<?php echo $this->Form->checkbox('status', ['value' => 'a', 'id' => 'colaboradorStatus', 'checked' => 'checked']); ?>
 							</div>
 						</div>		
 					</fieldset>
@@ -61,7 +72,7 @@
 			<hr />
 			<div class="row">
 				<div class="col-md-12">
-					<input  class="btn btn-lg btn-primary btn" type="submit" value="Salvar"/>
+					<?php echo $this->Form->submit('Salvar', ['class' => 'btn btn-lg btn-primary btn', 'value' => 'Salvar']); ?>
 				</div>
 			</div>
 		</form>		

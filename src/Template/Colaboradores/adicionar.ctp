@@ -12,45 +12,45 @@
 				<div class="col-md-6">
 					<fieldset>
 						<div class="form-group required">
-							<label for="ColaboradorNome" class="col-md-3 control-label">Nome</label>
+							<?php echo $this->Form->label('ColaboradorNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][nome]" maxlength="255" class="form-control" type="text" id="ColaboradorNome" required="required"/>
+								<?php echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'ColaboradorNome', 'required' => 'required']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="ColaboradorEmail" class="col-md-3 control-label">E-mail</label>
+							<?php echo $this->Form->label('ColaboradorEmail', 'E-mail', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][email]" maxlength="255" class="form-control" type="text" id="ColaboradorEmail" required="required"/>
+								<?php echo $this->Form->text('email', ['class' => 'form-control', 'id' => 'ColaboradorEmail', 'required' => 'required']); ?>
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="ColaboradorLogin" class="col-md-3 control-label">Login</label>
+							<?php echo $this->Form->label('ColaboradorLogin', 'Login', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][login]" maxlength="120" class="form-control" id="ColaboradorLogin" type="text">
+								<?php echo $this->Form->text('login', ['class' => 'form-control', 'id' => 'ColaboradorLogin']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
-							<label for="ColaboradorSenha" class="col-md-3 control-label">Senha</label>
+							<?php echo $this->Form->label('ColaboradorSenha', 'Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][senha]" class="form-control" id="ColaboradorSenha" required="required" type="password">
+								<?php echo $this->Form->password('senha', ['class' => 'form-control', 'id' => 'ColaboradorSenha', 'required' => 'required']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="ColaboradorRptSenha" class="col-md-3 control-label">Repita Senha</label>
+							<?php echo $this->Form->label('ColaboradorRptSenha', 'Repita Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Colaborador][rpt_senha]" class="form-control" id="ColaboradorRptSenha" required="required" type="password">
+								<?php echo $this->Form->password('rpt_senha', ['class' => 'form-control', 'id' => 'ColaboradorRptSenha', 'required' => 'required']); ?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="ColaboradorNascimento" class="col-md-3 control-label">Nascimento</label>
+							<?php echo $this->Form->label('ColaboradorNascimento', 'Nascimento', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[colaborador][nascimento]" class="form-control" value="" id="ColaboradorNascimento" type="text">
+								<?php echo $this->Form->text('nascimento', ['class' => 'form-control', 'id' => 'ColaboradorNascimento']); ?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="ColaboradorStatus" class="col-md-3 control-label">Ativo</label>
+							<?php echo $this->Form->label('ColaboradorStatus', 'Ativo', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8"><input name="data[colaborador][status]" id="ColaboradoreStatus" value="0" type="hidden">
-								<input name="data[colaborador][status]" value="a" class="" id="ColaboradoreStatus" checked="checked" type="checkbox">
+								<?php echo $this->Form->checkbox('status', ['value' => 'a', 'id' => 'colaboradorStatus']); ?>
 							</div>
 						</div>
 					</fieldset>
@@ -59,7 +59,7 @@
 			<hr />
 			<div class="row">
 				<div class="col-md-12">
-					<input  class="btn btn-lg btn-primary btn" type="submit" value="Salvar"/>
+					<?php echo $this->Form->submit('Salvar', ['class' => 'btn btn-lg btn-primary btn', 'value' => 'Salvar']); ?>
 				</div>
 			</div>
 		</form>				
