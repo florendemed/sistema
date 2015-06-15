@@ -25,6 +25,7 @@
 						<li><a href=""><button type="button" class="btn btn-default btn-sm btn-danger">Sair</button></a></li>
 					</ul>
 					<ul class="nav navbar-nav">
+						<li><a href="/agendas">Agenda</a></li>
 						<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Dados<b class="caret"></b></a>
 							<ul class="dropdown-menu" role="menu">
 								<li class=""><a href="/colaboradores/index">Colaboradores</a></li>
