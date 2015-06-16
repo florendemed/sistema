@@ -548,3 +548,40 @@ Stack Trace:
 #2 {main}
 
 
+2015-06-15 01:30:09 Error: [Cake\View\Exception\MissingHelperException] Helper class passwordHelper could not be found.
+Exception Attributes: array (
+  'class' => 'passwordHelper',
+  'plugin' => NULL,
+)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Core\ObjectRegistry.php(86): Cake\View\HelperRegistry->_throwMissingClassError('password', NULL)
+#1 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\HelperRegistry.php(66): Cake\Core\ObjectRegistry->load('password')
+#2 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(732): Cake\View\HelperRegistry->__isset('password')
+#3 C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Colaboradores\adicionar.ctp(35): Cake\View\View->__get('password')
+#4 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(815): include('C:\\Xampp\\htdocs...')
+#5 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(775): Cake\View\View->_evaluate('C:\\Xampp\\htdocs...', Array)
+#6 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\View\View.php(463): Cake\View\View->_render('C:\\Xampp\\htdocs...')
+#7 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(575): Cake\View\View->render(NULL, NULL)
+#8 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(120): Cake\Controller\Controller->render()
+#9 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#10 C:\Xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#11 {main}
+
+
+2015-06-15 01:31:52 Error: Fatal Error (4): syntax error, unexpected '=>' (T_DOUBLE_ARROW) in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Colaboradores\adicionar.ctp, line 62]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-15 01:31:52 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '=>' (T_DOUBLE_ARROW)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 62)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
