@@ -14,21 +14,23 @@
 					<div class="row">
 						<div class="col-md-3">
 							<?php 
-								echo $this->Form->password('nome', ['class' => 'form-control', 'id' => 'colaboradorNome', 'placeholder' => 'Nome']);
+								echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'colaboradorNome', 'placeholder' => 'Nome']);
 							?>
 						</div>
 						<div class="col-md-2">
 							<?php 
-								echo $this->Form->password('nascimento', ['class' => 'form-control', 'id' => 'colaboradorNascimento', 'placeholder' => 'Data de Nascimento']);
+								echo $this->Form->text('nascimento', ['class' => 'form-control', 'id' => 'colaboradorNascimento', 'placeholder' => 'Data de Nascimento']);
 							?>
 						</div>
 						<div class="col-md-2">
 							<?php 
-								echo $this->Form->password('cpf', ['class' => 'form-control', 'id' => 'colaboradorCpf', 'placeholder' => 'CPF']);
+								echo $this->Form->text('cpf', ['class' => 'form-control', 'id' => 'colaboradorCpf', 'placeholder' => 'CPF']);
 							?>
 						</div>
 						<div class="col-md-1">
-							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
+							<?php 
+								echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']);
+							?>
 						</div>
 					</div>
 				</fieldset>
