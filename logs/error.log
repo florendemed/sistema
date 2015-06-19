@@ -585,3 +585,99 @@ Stack Trace:
 #2 {main}
 
 
+2015-06-16 23:05:17 Error: Fatal Error (4): syntax error, unexpected ''2'' (T_CONSTANT_ENCAPSED_STRING), expecting ']' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Permissoes\adicionar.ctp, line 45]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-16 23:05:18 Error: [Cake\Error\FatalErrorException] syntax error, unexpected ''2'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'
+Request URL: /permissoes/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 45)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-16 23:05:45 Error: Fatal Error (4): syntax error, unexpected 'PermissaoPermissoesId' (T_STRING), expecting ']' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Permissoes\adicionar.ctp, line 53]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-16 23:05:46 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'PermissaoPermissoesId' (T_STRING), expecting ']'
+Request URL: /permissoes/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 53)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-16 23:07:08 Error: Fatal Error (4): syntax error, unexpected 'PermissaoPermissoesId' (T_STRING), expecting ']' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Permissoes\adicionar.ctp, line 43]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-16 23:07:09 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'PermissaoPermissoesId' (T_STRING), expecting ']'
+Request URL: /permissoes/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 43)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-16 23:07:40 Error: Fatal Error (4): syntax error, unexpected 'PermissaoPermissoesId' (T_STRING), expecting ']' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Permissoes\adicionar.ctp, line 43]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-16 23:07:41 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'PermissaoPermissoesId' (T_STRING), expecting ']'
+Request URL: /permissoes/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 43)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-17 00:12:02 Error: Fatal Error (4): syntax error, unexpected '2' (T_LNUMBER), expecting ']' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Grupos\adicionar.ctp, line 38]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-17 00:12:03 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '2' (T_LNUMBER), expecting ']'
+Request URL: /grupos/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 38)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
+2015-06-17 00:23:11 Error: Fatal Error (4): syntax error, unexpected 'de' (T_STRING), expecting ']' in [C:\Xampp\htdocs\florence-sistema\trunk\src\Template\Grupos\adicionar.ctp, line 35]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-06-17 00:23:12 Error: [Cake\Error\FatalErrorException] syntax error, unexpected 'de' (T_STRING), expecting ']'
+Request URL: /grupos/adicionar
+Stack Trace:
+#0 C:\Xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\Xampp\\htdocs...', 35)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+
