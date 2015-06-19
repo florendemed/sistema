@@ -38,7 +38,7 @@
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="AgendasPaciente" class="col-md-3 control-label">Paciente</label>
+							<label for="AgendasPaciente" class="col-md-3 control-label">CPF Paciente</label>
 							<div class="col-md-8">
 								<div class="input-group">
 									<?php 

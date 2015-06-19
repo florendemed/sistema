@@ -14,7 +14,9 @@
 					<fieldset>
 						<div class="form-group required">
 							<div class="col-md-8">
-								<input type="file" name="data[exame][arquivo]" id="ExamesArquivo">
+								<?php
+									echo $this->Form->input('', ['type' => 'file', 'name' => 'ExameArquivo', 'id' => 'ExameArquivo']);
+								?>
 							</div>
 						</div>	
 					</fieldset>
@@ -23,7 +25,9 @@
 			<hr />
 			<div class="row">
 				<div class="col-md-12">
-					<input  class="btn btn-lg btn-primary btn" type="submit" value="Enviar"/>
+					<?php 
+						echo $this->Form->submit('Enviar', ['class' => 'btn btn-primary btn', 'value' => 'enviar']);
+					?>
 				</div>
 			</div>
 		</form>				

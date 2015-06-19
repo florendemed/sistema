@@ -10,32 +10,32 @@
 		<form action="/permissoes/adicionar" class="form-horizontal" id="permissoesAdicionarForm" method="post" accept-charset="utf-8">
 			<div class="row">
 				<div class="col-md-6">
+					<h3>Dados</h3>
 					<fieldset>
 						<div class="form-group required">
-							<label for="PermissaoNome" class="col-md-3 control-label">Nome</label>
+							<?php echo $this->Form->label('PermissaoNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Permissao][nome]" maxlength="120" class="form-control" type="text" value="Configurações" id="PermissaoNome" required="required"/>
+								<?php 
+									echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'PermissaoNome', 'required' => 'required', 'value' => 'Configurações']);
+								?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="PermissaoStatus" class="col-md-3 control-label">Ativa</label>
+							<?php echo $this->Form->label('PermissaoStatus', 'Ativa', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input type="hidden" name="data[Permissao][status]" id="PermissaoStatus_" value="0"/>
-								<input type="checkbox" name="data[Permissao][status]"  value="a" class="" id="PermissaoStatus" checked="checked"/>
+								<?php echo $this->Form->checkbox('status', ['value' => 'a', 'id' => 'PermissaoStatus', 'checked' => 'checked']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="PermissaoMenu" class="col-md-3 control-label">Menu</label>
+							<?php echo $this->Form->label('PermissaoMenu', 'Menu', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input type="hidden" name="data[Permissao][menu]" id="PermissaoMenu_" value="0"/>
-								<input type="checkbox" name="data[Permissao][menu]"  value="1" class="" id="PermissaoMenu" checked="checked"/>
+								<?php echo $this->Form->checkbox('menu', ['value' => '1', 'id' => 'PermissaoMenu', 'checked' => 'checked']); ?>
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="PermissaoLista" class="col-md-3 control-label">Lista</label>
+							<?php echo $this->Form->label('PermissaoLista', 'Lista', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input type="hidden" name="data[Permissao][lista]" id="PermissaoLista_" value="0"/>
-								<input type="checkbox" name="data[Permissao][lista]"  value="1" class="" id="PermissaoLista" checked="checked"/>
+								<?php echo $this->Form->checkbox('lista', ['value' => '1', 'id' => 'PermissaoLista', 'checked' => 'checked']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -45,37 +45,22 @@
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="PermissaoPermissoesId" class="col-md-3 control-label">Permissão Pai</label>
+							<?php echo $this->Form->label('PermissaoPermissoesId', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<select name="data[Permissao][permissoes_id]" class="form-control" id="PermissaoPermissoesId">
-									<option value="0">Nenhum</option>
-									<option value="2" selected="selected">Acessos</option>
-									<option value="145">Acessos</option>
-									<option value="68">Acompanhamento de Eventos</option>
-									<option value="127">Adesivos</option>
-									<option value="115">Ajuste Smart</option>
-									<option value="76">Alteração de Dados - Endereço</option>
-									<option value="117">Alteração de Dados Financeiros</option>
-									<option value="162">Alteração de Data de Corte</option>
-									<option value="84">Alteração de Modo de Cobrança</option>
-									<option value="52">Alteração de Status de Cadeiras</option>
-									<option value="172">Alterar Vencimento da Parcela </option>
-									<option value="16">Anéis</option>
-									<option value="136">Arrecadação</option>
-									<option value="18">Associação</option>
-									<option value="130">Associações</option>
-									<option value="79">Atendimento Jogos</option>
-									<option value="114">Auditoria</option>
-									<option value="42">Autoriza Reativação de Títulos</option>
-									<option value="26">Bancos</option>
-									<option value="174">Biometria</option>
-									<option value="83">Blocos</option>
-									<option value="24">Bloqueio CPF/CNPJ</option>
-									<option value="55">Bloqueio de Cadeiras</option>
-									<option value="151">Boletos Bancários</option>
-									<option value="38">Busca de Cadeira</option>
-									<option value="95">Busca de Parcelas</option>
-								</select>
+								<?php 
+									$options = [ 
+										'0' => 'Nenhum',  
+										'1' => 'Permissão 1', 
+										'2' => 'Permissão 2', 
+										'3' => 'Permissão 3', 
+										'4' => 'Permissão 4', 
+										'5' => 'Permissão 5', 
+										'6' => 'Permissão 6', 
+										'7' => 'Permissão 7', 
+										'8' => 'Permissão 8' 
+									];
+									echo $this->Form->select('PermissaoPermissoesId', $options, [ 'class' => 'form-control' ]);
+								?>
 							</div>
 						</div>
 					</fieldset>
@@ -84,27 +69,35 @@
 					<h3>URL/Rota/Endereçamento</h3>
 					<fieldset>
 						<div class="form-group">
-							<label for="PermissaoPlugin" class="col-md-3 control-label">Plugin</label>
+							<?php echo $this->Form->label('PermissaoPlugin', 'Plugin', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Permissao][plugin]" maxlength="120" class="form-control" type="text" id="PermissaoPlugin"/>
+								<?php 
+									echo $this->Form->text('plugin', ['class' => 'form-control', 'id' => 'PermissaoPlugin', 'value' => '']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="PermissaoController" class="col-md-3 control-label">Controlador</label>
+							<?php echo $this->Form->label('PermissaoController', 'Controlador', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Permissao][controller]" maxlength="120" value="Controlador" class="form-control" type="text" id="PermissaoController"/>
+								<?php 
+									echo $this->Form->text('controlador', ['class' => 'form-control', 'id' => 'PermissaoController', 'value' => 'Controlador']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="PermissaoAction" class="col-md-3 control-label">Ação</label>
+							<?php echo $this->Form->label('PermissaoAction', 'Ação', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Permissao][action]" maxlength="120" class="form-control" type="text" id="PermissaoAction"/>
+								<?php 
+									echo $this->Form->text('ação', ['class' => 'form-control', 'id' => 'PermissaoAction', 'value' => '']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="PermissaoRoute" class="col-md-3 control-label">Rota</label>
+							<?php echo $this->Form->label('PermissaoRoute', 'Rota', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Permissao][route]" maxlength="150" class="form-control" type="text" id="PermissaoRoute"/>
+								<?php 
+									echo $this->Form->text('ação', ['class' => 'form-control', 'id' => 'PermissaoRoute', 'value' => '']);
+								?>
 							</div>
 						</div>
 					</fieldset>
@@ -113,7 +106,7 @@
 			<hr />
 			<div class="row">
 				<div class="col-md-12">
-					<input  class="btn btn-lg btn-primary btn" type="submit" value="Salvar"/>
+					<?php echo $this->Form->submit('Salvar', ['class' => 'btn btn-lg btn-primary btn', 'value' => 'Salvar']); ?>
 				</div>
 			</div>
 		</form>

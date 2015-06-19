@@ -12,16 +12,18 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
-							<input name="nome" placeholder="Nome" class="form-control" type="text" id="permissaoNome"/>
+							<?php echo $this->Form->text('Nome', ['class' => 'form-control', 'id' => 'permissaoNome', 'placeholder' => 'Nome permissão']); ?>
 						</div>
 						<div class="col-md-3">
-							<input name="controlador" placeholder="Controlador" class="form-control" type="text" id="permissaoControlador"/>
+							<?php echo $this->Form->text('Controlador', ['class' => 'form-control', 'id' => 'permissaoControlador', 'placeholder' => 'Controlador']); ?>
 						</div>
 						<div class="col-md-3">
-							<input name="acao" placeholder="Ação" class="form-control" type="text" id="permissaoAcao"/>
+							<?php echo $this->Form->text('Ação', ['class' => 'form-control', 'id' => 'permissaoAcao', 'placeholder' => 'Ação']); ?>
 						</div>
 						<div class="col-md-1">
-							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
+							<?php 
+								echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']);
+							?>
 						</div>
 					</div>
 				</fieldset>

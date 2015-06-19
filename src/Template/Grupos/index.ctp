@@ -13,10 +13,10 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-2">
-							<input name="nome" placeholder="Nome" class="form-control" type="text" id="grupoNome"/>
+							<?php echo $this->Form->text('Nome', ['class' => 'form-control', 'id' => 'grupoNome', 'placeholder' => 'Nome grupo']); ?>
 						</div>
 						<div class="col-md-1">
-							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
+							<?php echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']); ?>
 						</div>
 					</div>
 				</fieldset>
@@ -27,7 +27,6 @@
 				<tr>
 					<th><a href="/grupos?sort=id&amp;direction=asc">Id</a></th>
 					<th><a href="/grupos?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/grupos?sort=email&amp;direction=asc">Status</a></th>
 					<th><a href="/grupos?sort=status&amp;direction=asc">Público</a></th>
 					<th><a href="/grupos?sort=status&amp;direction=asc">Data Cadastro</a></th>
 					<th><a href="/grupos?sort=created&amp;direction=asc">Última Alteração</a></th>
@@ -38,7 +37,6 @@
 				<tr>
 					<td><a href="/grupos/editar">1</a></td>
 					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">ativo</a></td>
 					<td><a href="/grupos/editar">não</a></td>
 					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
 					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
@@ -50,7 +48,6 @@
 				<tr>
 					<td><a href="/grupos/editar">2</a></td>
 					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">ativo</a></td>
 					<td><a href="/grupos/editar">não</a></td>
 					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
 					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
@@ -62,7 +59,6 @@
 				<tr>
 					<td><a href="/grupos/editar">3</a></td>
 					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">ativo</a></td>
 					<td><a href="/grupos/editar">não</a></td>
 					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
 					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
@@ -74,7 +70,6 @@
 				<tr>
 					<td><a href="/grupos/editar">4</a></td>
 					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">ativo</a></td>
 					<td><a href="/grupos/editar">não</a></td>
 					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
 					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>

@@ -14,16 +14,17 @@
 					<p class="alert alert-info">Configure a seguir as permissões de acesso para este grupo de usuário. Lembre-se que ao alterar os privilégios do grupo, automatica e imediatamente todos os usuários que pertencem à este grupo terão acesso respeitando as políticas alteradas nesta ação.</p>
 					<fieldset>
 						<div class="form-group required">
-							<label for="GrupoNome" class="col-md-3 control-label">Nome</label>
+							<?php echo $this->Form->label('GrupoNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input name="data[Grupo][nome]" maxlength="45" class="form-control" value="Atendente" type="text" id="GrupoNome" required="required"/>
+								<?php 
+									echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'GrupoNome', 'required' => 'required', 'value' => 'Atendente']);
+								?>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="GrupoPublico" class="col-md-3 control-label">Público</label>
+							<?php echo $this->Form->label('GrupoPublico', 'Público', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<input type="hidden" name="data[Grupo][publico]" id="GrupoPublico_" value="0"/>
-								<input type="checkbox" name="data[Grupo][publico]"  value="1" class="" id="GrupoPublico" checked="checked"/></label>
+								<?php echo $this->Form->checkbox('público', ['value' => '1', 'id' => 'GrupoPublico', 'checked' => 'checked']); ?>
 							</div>
 						</div>	
 					</fieldset>

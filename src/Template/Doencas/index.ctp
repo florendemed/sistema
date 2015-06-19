@@ -12,10 +12,14 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
-							<input name="nome" placeholder="Nome" class="form-control" type="text" id="doencaNome"/>
+							<?php 
+								echo $this->Form->text('Nome', ['class' => 'form-control', 'id' => 'doencaNome', 'placeholder' => 'Nome doença']);
+							?>
 						</div>
 						<div class="col-md-1">
-							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
+							<?php 
+								echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']);
+							?>
 						</div>
 					</div>
 				</fieldset>
