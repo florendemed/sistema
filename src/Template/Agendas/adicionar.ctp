@@ -27,27 +27,41 @@
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="AgendasExame" class="col-md-3 control-label">Exame</label>
-							<div class="col-md-8">
-								<div class="input-group">
-									<?php
-										$options = ['1' => 'Exame 1', '2' => 'Exame 2', '3' => 'Exame 3', '4' => 'Exame 4'];
-										echo $this->Form->select('exame', $options,[ 'class' => 'form-control', 'value' => $this->request->params['pass'][1]]);		
-									?>
-								</div>
-							</div>
-						</div>	
-						<div class="form-group required">
 							<label for="AgendasProfissional" class="col-md-3 control-label">Profissional</label>
 							<div class="col-md-8">
 								<div class="input-group">
 									<?php
 										$options = ['1' => 'Profissional 1', '2' => 'Profissional 2', '3' => 'Profissional 3', '4' => 'Profissional 4'];
-										echo $this->Form->select('profissional', $options,[ 'class' => 'form-control', 'value' => $this->request->params['pass'][2]]);		
+										echo $this->Form->select('profissional', $options,[ 'class' => 'form-control', 'value' => $this->request->params['pass'][1]]);		
 									?>
 								</div>
 							</div>
+						</div>
+						<div class="form-group required tipoAgendamento">
+							<?php echo $this->Form->label('', '', ['class' => 'col-md-1 control-label']); ?>
+							<div class="col-md-5">
+								<?php 
+									echo $this->Form->radio(
+										'TipoAgendamento',
+										[
+											['value' => 'consulta', 'text' => 'Consulta'],
+											['value' => 'exame', 'text' => 'Exame']
+										]
+									);
+								?>
+							</div>
 						</div>	
+						<div class="form-group required">
+							<label for="AgendasExame" class="col-md-3 control-label">Exame</label>
+							<div class="col-md-8">
+								<div class="input-group">
+									<?php
+										$options = ['1' => 'Exame 1', '2' => 'Exame 2', '3' => 'Exame 3', '4' => 'Exame 4'];
+										echo $this->Form->select('exame', $options,[ 'class' => 'form-control']);		
+									?>
+								</div>
+							</div>
+						</div>							
 						<div class="form-group required">
 							<label for="AgendasPaciente" class="col-md-3 control-label">CPF Paciente</label>
 							<div class="col-md-8">

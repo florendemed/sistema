@@ -22,7 +22,7 @@ echo $this->Html->scriptBlock("
 			timeFormat: 'HH:mm',
 			dayClick: function(date, jsEvent, view) {
 				var dataHora = date.format('DD-MM-YYYY HH:mm');
-				window.location.href='/agendas/adicionar/'+dataHora+'/'+$('#exame').val()+'/'+$('#profissional').val();
+				window.location.href='/agendas/adicionar/'+dataHora+'/'+$('#profissional').val();
 			},
 			eventClick: function(calEvent, jsEvent, view) {
 				alert('Event: ' + calEvent.title);
@@ -46,29 +46,6 @@ echo $this->Html->scriptBlock("
 				<div class="col-md-6">
 					<form action="/colaboradores/index" class="form-horizontal" id="colaboradorIndexForm" method="get" accept-charset="utf-8">	
 						<fieldset>
-							<div class="form-group required">
-								<?php echo $this->Form->label('', '', ['class' => 'col-md-1 control-label']); ?>
-								<div class="col-md-5">
-									<?php 
-										echo $this->Form->radio(
-											'TipoAgendamento',
-											[
-												['value' => 'consulta', 'text' => 'Consulta'],
-												['value' => 'exame', 'text' => 'Exame']
-											]
-										);
-									?>
-								</div>
-							</div>	
-							<div class="form-group required">
-								<?php echo $this->Form->label('exame', 'Exame', ['class' => 'col-md-3 control-label']); ?>
-								<div class="col-md-5">
-									<?php
-										$options = ['' => '', '1' => 'Exame 1', '2' => 'Exame 2', '3' => 'Exame 3', '4' => 'Exame 4'];
-										echo $this->Form->select('exame', $options,[ 'class' => 'form-control', 'id' => 'exame']);		
-									?>
-								</div>
-							</div>	
 							<div class="form-group required">
 								<?php echo $this->Form->label('profissionais', 'Profissionais', ['class' => 'col-md-3 control-label']); ?>
 								<div class="col-md-5">
