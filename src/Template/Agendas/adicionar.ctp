@@ -1,3 +1,10 @@
+<?php
+	echo $this->Html->scriptBlock("
+		$('input.tipoAgendamento').prop('checked', function(i, val) {
+			disabled: true;
+		});
+	");
+?>
 <div class="modal fade" id="modal">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
@@ -44,8 +51,8 @@
 									echo $this->Form->radio(
 										'TipoAgendamento',
 										[
-											['value' => 'consulta', 'text' => 'Consulta'],
-											['value' => 'exame', 'text' => 'Exame']
+											['value' => 'consulta', 'text' => 'Consulta', 'class' => 'tipoAgendamento'],
+											['value' => 'exame', 'text' => 'Exame', 'class' => 'tipoAgendamento']
 										]
 									);
 								?>

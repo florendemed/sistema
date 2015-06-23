@@ -16,9 +16,6 @@
 							<input name="nome" placeholder="Nome" class="form-control" type="text" id="prontuarioNome"/>
 						</div>
 						<div class="col-md-2">
-							<input name="login" placeholder="Data de Nascimento" class="form-control" type="text" id="prontuarioNascimento"/>
-						</div>
-						<div class="col-md-2">
 							<input name="cpf" placeholder="CPF" class="form-control" type="text" id="prontuarioCpf"/>
 						</div>
 						<div class="col-md-1">
