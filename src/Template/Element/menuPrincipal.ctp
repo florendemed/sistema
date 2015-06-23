@@ -42,22 +42,7 @@
 								<li class=""><a href="/grupos/index">Grupos</a></li>
 							</ul>
 						</li>
-						<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Menu 2<b class="caret"></b></a>
-							<ul class="dropdown-menu" role="menu">
-								<li class=""><a href="">Submenu 1</a></li>
-								<li class=""><a href="">Submenu 2</a></li>
-								<li class=""><a href="">Submenu 3</a></li>
-								<li class=""><a href="">Submenu 4</a></li>
-							</ul>
-						</li>
-						<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Menu 3<b class="caret"></b></a>
-							<ul class="dropdown-menu" role="menu">
-								<li class=""><a href="">Submenu 1</a></li>
-								<li class=""><a href="">Submenu 2</a></li>
-								<li class=""><a href="">Submenu 3</a></li>
-								<li class=""><a href="">Submenu 4</a></li>
-							</ul>
-						</li>
+						<li><a href="#">Relatorios</a></li>
 					</ul>
 				</div>
 			</div>
