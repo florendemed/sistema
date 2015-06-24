@@ -11,34 +11,35 @@
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset>
+					<H2>Dados Pessoais</H2>
 						<div class="form-group required">
 							<label for="prontuarioeNome" class="col-md-3 control-label">Nome</label>
 							<div class="col-md-8">
 								<input name="data[prontuarioe][nome]" maxlength="255" class="form-control" type="text" id="prontuarioeNome" required="required"/>
 							</div>
-						</div>	
-						<div class="form-group required">
-							<label for="prontuarioeEmail" class="col-md-3 control-label">E-mail</label>
-							<div class="col-md-8">
-								<input name="data[prontuarioe][email]" maxlength="255" class="form-control" type="text" id="prontuarioeEmail" required="required"/>
-							</div>
-						</div>	
-						<div class="form-group">
+						</div>
+                        <div class="form-group">
 							<label for="prontuarioeEndereco" class="col-md-3 control-label">Endereço</label>
 							<div class="col-md-8">
-								<input name="data[prontuarioe][login]" maxlength="120" class="form-control" id="prontuarioeLogin" type="text" required="required"/>
+								<input name="data[prontuarioe][login]" maxlength="120" class="form-control" id="prontuarioeEndereco" type="text" required="required"/>
 							</div>
 						</div>
 						<div class="form-group required">
-							<label for="prontuariosenha" class="col-md-3 control-label">Senha</label>
+							<label for="prontuarioeCartaoSaude" class="col-md-3 control-label">Cartão Nacional de Saúde</label>
 							<div class="col-md-8">
-								<input name="data[prontuarioe][senha]" class="form-control" id="prontuariosenha" required="required" type="password">
+								<input name="data[prontuarioe][email]" maxlength="255" class="form-control" type="text" id="prontuarioeCartaoSaude" required="required"/>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="prontuarioeRptSenha" class="col-md-3 control-label">Repita Senha</label>
+							<label for="prontuarioRG" class="col-md-3 control-label">RG</label>
 							<div class="col-md-8">
-								<input name="data[prontuarioe][rpt_senha]" class="form-control" id="prontuarioeRptSenha" required="required" type="password">
+								<input name="data[prontuarioe][senha]" class="form-control" id="prontuarioRG" required="required" type="password">
+							</div>
+						</div>	
+						<div class="form-group required">
+							<label for="prontuarioeCPF" class="col-md-3 control-label">CPF</label>
+							<div class="col-md-8">
+								<input name="data[prontuarioe][rpt_senha]" class="form-control" id="prontuarioeCPF" required="required" type="password">
 							</div>
 						</div>
 						<div class="form-group">
@@ -47,6 +48,25 @@
 								<input name="data[prontuarioe][nascimento]" class="form-control" value="" id="prontuarioeNascimento" type="text">
 							</div>
 						</div>
+						<div class="form-group required">
+							<label for="prontuarioeTelefoneResidencial" class="col-md-3 control-label">Telefone Residencial</label>
+							<div class="col-md-8">
+								<input name="data[prontuarioe][email]" maxlength="255" class="form-control" type="text" id="prontuarioeTelefoneResidencial" required="required"/>
+							</div>
+						</div>
+                        <div class="form-group required">
+							<label for="prontuarioeTelefoneCelular" class="col-md-3 control-label">Telefone Celular</label>
+							<div class="col-md-8">
+								<input name="data[prontuarioe][email]" maxlength="255" class="form-control" type="text" id="prontuarioeTelefoneCelular" required="required"/>
+							</div>
+						</div>							
+						<div class="form-group required">
+							<label for="prontuarioeEmail" class="col-md-3 control-label">E-mail</label>
+							<div class="col-md-8">
+								<input name="data[prontuarioe][email]" maxlength="255" class="form-control" type="text" id="prontuarioeEmail" required="required"/>
+							</div>
+						</div>	
+						
 						<div class="form-group">
 							<label for="prontuariostatus" class="col-md-3 control-label">Ativo</label>
 							<div class="col-md-8"><input name="data[prontuarioe][status]" id="prontuariostatus_" value="0" type="hidden">
