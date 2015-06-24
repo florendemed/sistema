@@ -24,7 +24,7 @@
 							</div>
 						</div>	
 						<div class="form-group">
-							<label for="prontuarioeLogin" class="col-md-3 control-label">Login</label>
+							<label for="prontuarioeLogin" class="col-md-3 control-label">Endereço</label>
 							<div class="col-md-8">
 								<input name="data[prontuarioe][login]" maxlength="120" class="form-control" id="prontuarioeLogin" type="text">
 							</div>
