@@ -4,8 +4,12 @@
 			<li class="active">Dados / Prontuários</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/prontuarios/adicionar">Novo</a></li>
-			<li><a href="/prontuarios/index">Listar</a></li>
+			<li class="active"><a href="/prontuarios/adicionar">Dados Paciente</a></li>
+			<li><a href="/prontuarios/anamnese">Anamnese</a></li>
+			<li><a href="/prontuarios/diagnostico">Diagnóstico</a></li>
+			<li><a href="/prontuarios/prescricao">Prescrição</a></li>
+			<li><a href="/prontuarios/receita">Receita</a></li>
+			<li><a href="/prontuarios/atestado">Atestado</a></li>
 		</ul>
 		<form action="/prontuarios/adicionar" class="form-horizontal" id="prontuariosAdicionarForm" method="post" accept-charset="utf-8">
 			<div class="row">
