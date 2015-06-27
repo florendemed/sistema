@@ -11,7 +11,7 @@
 					<?php 
 						echo $this->Html->link(
 							$this->Html->image('logo.png'),
-							'/',
+							'/agendas',
 							['class' => 'navbar-brand',
 							'escape' => false]
 						);
