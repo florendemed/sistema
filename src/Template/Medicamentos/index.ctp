@@ -29,7 +29,7 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Nome</th>
+					<th>Medicamento</th>
 					<th>Data Cadastro</th>
 					<th>Última Alteração</th>
 				</tr>
