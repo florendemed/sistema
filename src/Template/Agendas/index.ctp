@@ -40,7 +40,7 @@ echo $this->Html->scriptBlock("
 		<ul class="breadcrumb">
 			<li class="active">Agenda</li>
 		</ul>
-		<p class="alert alert-info">Selecione o <strong>tipo de agendamento</strong> para iniciar o agendamento.</p>
+		<p class="alert alert-info">Selecione o <strong>profissional</strong> para carregar a agenda.</p>
 		<div class="well">
 			<div class="row">
 				<div class="col-md-6">
