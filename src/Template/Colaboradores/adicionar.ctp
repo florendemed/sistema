@@ -1,3 +1,13 @@
+<?php
+	echo $this->Html->scriptBlock("
+		$(document).ready(function() {
+			$('div#novoTelefone').hide();
+			$('.btnTelefone').click(function(){
+				$('#novoTelefone').show();
+			});
+		});
+	");
+?>
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
@@ -69,7 +79,7 @@
 							<div class="col-md-2">
 								<?php
 									$options = ['1' => '', '2' => 'Feminino', '3' => 'Masculino'];
-									echo $this->Form->select('sexo', $options,[ 'class' => 'form-control', 'value' => $this->request->params['pass'][1]]);		
+									echo $this->Form->select('sexo', $options,[ 'class' => 'form-control']);		
 								?>
 							</div>
 							<?php echo $this->Form->label('escolaridade', 'Escolaridade', ['class' => 'col-md-2 control-label']); ?>
@@ -168,21 +178,28 @@
 						</div>
 						<hr />
 						<div class="form-group required">
-							<p class="col-md-3 text-right"><a href="#panel-telefone" data-toggle="collapse" title="Cadastrar novo telefone" class="btn btn-danger novo-telefone"><span class="glyphicon glyphicon-plus"></span> Novo Telefone</a></p>
+							<p class="col-md-2"><a href="" data-toggle="collapse" title="Cadastrar novo telefone" class="btn btn-danger btnTelefone"><span class="glyphicon glyphicon-plus"></span> Novo Telefone</a></p>
 						</div>
-						<div class="form-group required">
-							<?php echo $this->Form->label('tipo', 'Tipo', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-4">
-								<?php
-									$options = ['1' => '', '2' => 'Residencial', '3' => 'Celular', '4' => 'Comercial'];
-									echo $this->Form->select('nacionalidade', $options,[ 'class' => 'form-control']);		
-								?>
+						<div id="novoTelefone">
+							<div class="form-group required">
+								<?php echo $this->Form->label('tipo', 'Tipo', ['class' => 'col-md-2 control-label']); ?>
+								<div class="col-md-4">
+									<?php
+										$options = ['1' => '', '2' => 'Residencial', '3' => 'Celular', '4' => 'Comercial'];
+										echo $this->Form->select('tipo', $options,[ 'class' => 'form-control']);		
+									?>
+								</div>
 							</div>
-						</div>
-						<div class="form-group required">
-							<?php echo $this->Form->label('telefone', 'Telefone', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-4">
-								<?php echo $this->Form->text('telefone', ['class' => 'form-control', 'id' => 'telefone', 'required' => 'required']); ?>
+							<div class="form-group required">
+								<?php echo $this->Form->label('telefone', 'Telefone', ['class' => 'col-md-2 control-label']); ?>
+								<div class="col-md-4">
+									<?php echo $this->Form->text('telefone', ['class' => 'form-control', 'id' => 'telefone', 'required' => 'required']); ?>
+								</div>
+							</div>
+							<div class="form-group required">
+								<div class="col-md-2 text-right">
+									<?php echo $this->Form->submit('Inserir', ['class' => 'btn-sm btn btn-danger salvar-telefone btn', 'value' => 'Inserir']); ?>
+								</div>
 							</div>
 						</div>
 					</fieldset>
