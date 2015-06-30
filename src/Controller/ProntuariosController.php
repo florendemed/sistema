@@ -20,4 +20,24 @@ class ProntuariosController extends AppController{
 	public function deletar(){
 		
     }
+	
+	public function anamnese(){
+		
+    }
+	
+	public function diagnostico(){
+		
+    }
+	
+	public function prescricao(){
+		
+    }
+	
+	public function receita(){
+		
+    }
+	
+	public function atestado(){
+		
+    }
 }
