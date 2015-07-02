@@ -42,7 +42,7 @@
 								<li class=""><a href="/grupos/index">Grupos</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Relatorios</a></li>
+						<li><a href="/relatorios/index">Relatorios</a></li>
 					</ul>
 				</div>
 			</div>
