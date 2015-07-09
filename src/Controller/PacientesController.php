@@ -8,19 +8,19 @@ class PacientesController extends AppController{
 
     }
 	
+	public function adicionar(){
+		if (!empty($this->request->data)){
+			pr($this->request->data);
+			
+			//$this->Paciente->save($this->request->data);
+			exit();	
+		}	
+    }
+	
 	public function editar(){
 		
     }
-	
-	public function adicionar($render = 'adicionar'){
-		
-		if ($render != 'adicionar') {
-			$this->layout = "ajax";
-			$this->render($render);	
-			
-		}
-    }
-	
+
 	public function deletar(){
 		
     }

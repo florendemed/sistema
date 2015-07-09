@@ -16,23 +16,28 @@
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="/Pacientes/adicionar">Novo</a></li>
 			<li><a href="/Pacientes/index">Listar</a></li>
+			<li><a href="/Pacientes/index">Listar</a></li>
 		</ul>
-		<form action="/Pacientes/adicionar" class="form-horizontal" id="PacientesAdicionarForm" method="post" accept-charset="utf-8">
+		<?php echo $this->Form->create('Paciente', ['class' => 'form-horizontal']); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Dados Pessoais</h3>
 					<p>&nbsp;</p>
 					<fieldset>
 						<div class="form-group required">
-							<?php echo $this->Form->label('PacienteNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('Paciente.nome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'PacienteNome', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('Paciente.nome', ['class' => 'form-control']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
+							<?php echo $this->Form->label('CartaoSUS', 'Número Prontuário', ['class' => 'col-md-3 control-label']); ?>
+							<div class="col-md-2">
+								<?php echo $this->Form->text('CartaoSUS', ['class' => 'form-control']); ?>
+							</div>
 							<?php echo $this->Form->label('CartaoSUS', 'Número Cartão SUS', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-9">
-								<?php echo $this->Form->text('CartaoSUS', ['class' => 'form-control', 'id' => 'CartaoSUS', 'required' => 'required']); ?>
+							<div class="col-md-4">
+								<?php echo $this->Form->text('CartaoSUS', ['class' => 'form-control', 'id' => 'CartaoSUS']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
@@ -45,9 +50,8 @@
 							</div>
 							<?php echo $this->Form->label('dataNascimento', 'Nascimento', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-5">
-								<?php echo $this->Form->text('dataNascimento', ['class' => 'form-control', 'id' => 'dataNascimento', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('dataNascimento', ['class' => 'form-control', 'id' => 'dataNascimento']); ?>
 							</div>
-							
 						</div>
 						<div class="form-group required">
 							<?php echo $this->Form->label('tipoSanguinio', 'Tipo Sanguinio', ['class' => 'col-md-3 control-label']); ?>
@@ -75,11 +79,11 @@
 						<div class="form-group required">
 							<?php echo $this->Form->label('RG', 'RG', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-5">
-								<?php echo $this->Form->text('RG', ['class' => 'form-control', 'id' => 'RG', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('RG', ['class' => 'form-control', 'id' => 'RG']); ?>
 							</div>
 							<?php echo $this->Form->label('CPF', 'CPF', ['class' => 'col-md-1 control-label']); ?>
 							<div class="col-md-3">
-								<?php echo $this->Form->text('CPF', ['class' => 'form-control', 'id' => 'CPF', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('CPF', ['class' => 'form-control', 'id' => 'CPF']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -103,13 +107,13 @@
 						<div class="form-group required">
 							<?php echo $this->Form->label('nomeMae', 'Nome da Mãe', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->text('nomeMae', ['class' => 'form-control', 'id' => 'nomeMae', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('nomeMae', ['class' => 'form-control', 'id' => 'nomeMae']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
 							<?php echo $this->Form->label('nomePai', 'Nome do Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->text('nomePai', ['class' => 'form-control', 'id' => 'nomePai', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('nomePai', ['class' => 'form-control', 'id' => 'nomePai']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
@@ -131,19 +135,13 @@
 						<div class="form-group required">
 							<?php echo $this->Form->label('email', 'E-mail', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->text('email', ['class' => 'form-control', 'id' => 'email', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('email', ['class' => 'form-control', 'id' => 'email']); ?>
 							</div>
 						</div>	
 						<div class="form-group">
 							<label for="envioSMS" class="col-md-3 control-label">Envio SMS</label>
-							<div class="col-md-8"><input name="data[SMS][status]" id="envioSMS" value="0" type="hidden">
-								<input name="data[SMS][status]" value="a" class="" id="envioSMS" checked="checked" type="checkbox">
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="PacienteStatus" class="col-md-3 control-label">Ativo</label>
-							<div class="col-md-8"><input name="data[Paciente][status]" id="PacienteStatus_" value="0" type="hidden">
-								<input name="data[Paciente][status]" value="a" class="" id="PacienteStatus" checked="checked" type="checkbox">
+							<div class="col-md-8">
+								<?php echo $this->Form->checkbox('sms', ['class' => 'form-control','options' => array('S' => 'Sim', 'N' => 'Não')]); ?>
 							</div>
 						</div>
 					</fieldset>
@@ -155,43 +153,43 @@
 						<div class="form-group required">
 							<?php echo $this->Form->label('cep', 'CEP', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->text('cep', ['class' => 'form-control', 'id' => 'cep', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('cep', ['class' => 'form-control', 'id' => 'cep']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
 							<?php echo $this->Form->label('endereco', 'Endereço', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-10">
-								<?php echo $this->Form->text('endereco', ['class' => 'form-control', 'id' => 'endereco', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('endereco', ['class' => 'form-control', 'id' => 'endereco']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
 							<?php echo $this->Form->label('numero', 'Número', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-2">
-								<?php echo $this->Form->text('numero', ['class' => 'form-control', 'id' => 'numero', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('numero', ['class' => 'form-control', 'id' => 'numero']); ?>
 							</div>
 							<?php echo $this->Form->label('complemento', 'Complemento', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-6">
-								<?php echo $this->Form->text('complemento', ['class' => 'form-control', 'id' => 'complemento', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('complemento', ['class' => 'form-control', 'id' => 'complemento']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
 							<?php echo $this->Form->label('bairro', 'Bairro', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->text('bairro', ['class' => 'form-control', 'id' => 'bairro', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('bairro', ['class' => 'form-control', 'id' => 'bairro']); ?>
 							</div>
 							<?php echo $this->Form->label('cidade', 'Cidade', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->text('cidade', ['class' => 'form-control', 'id' => 'cidade', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('cidade', ['class' => 'form-control', 'id' => 'cidade']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
 							<?php echo $this->Form->label('estado', 'Estado', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->text('estado', ['class' => 'form-control', 'id' => 'estado', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('estado', ['class' => 'form-control', 'id' => 'estado']); ?>
 							</div>
 							<?php echo $this->Form->label('pais', 'País', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->text('pais', ['class' => 'form-control', 'id' => 'pais', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('pais', ['class' => 'form-control', 'id' => 'pais']); ?>
 							</div>
 						</div>
 						<hr />
@@ -211,7 +209,7 @@
 							<div class="form-group required">
 								<?php echo $this->Form->label('telefone', 'Telefone', ['class' => 'col-md-2 control-label']); ?>
 								<div class="col-md-4">
-									<?php echo $this->Form->text('telefone', ['class' => 'form-control', 'id' => 'telefone', 'required' => 'required']); ?>
+									<?php echo $this->Form->text('telefone', ['class' => 'form-control', 'id' => 'telefone']); ?>
 								</div>
 							</div>
 							<div class="form-group required">
@@ -229,6 +227,6 @@
 					<?php echo $this->Form->submit('Salvar', ['class' => 'btn btn-lg btn-primary btn', 'value' => 'Salvar']); ?>
 				</div>
 			</div>
-		</form>				
+		<?php echo $this->Form->end();?>
 	</div>
 </div>

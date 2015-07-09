@@ -14,18 +14,18 @@
 					<p>&nbsp;</p>
 					<fieldset>
 						<div class="form-group required">
-							<?php echo $this->Form->label('profissional', 'Profisisonal', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-9">
-								<?php
-									$options = ['1' => '', '2' => 'Profisisonal 1', '3' => 'Profisisonal 2', '4' => 'Profisisonal 3'];
-									echo $this->Form->select('profissional', $options,[ 'class' => 'form-control']);		
-								?>
-							</div>
-						</div>
-						<div class="form-group required">
 							<?php echo $this->Form->label('colaboradorNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
 								<?php echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'colaboradorNome', 'required' => 'required', 'value' => 'Teste Teste Teste']); ?>
+							</div>
+						</div>
+						<div class="form-group required">
+							<?php echo $this->Form->label('profissao', 'Profissão', ['class' => 'col-md-3 control-label']); ?>
+							<div class="col-md-9">
+								<?php
+									$options = ['1' => '', '2' => 'Profissão 1', '3' => 'Profissão 2', '4' => 'Profissão 3'];
+									echo $this->Form->select('profissao', $options,[ 'class' => 'form-control']);		
+								?>
 							</div>
 						</div>
 						<div class="form-group required">
