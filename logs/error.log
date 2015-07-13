@@ -1564,3 +1564,172 @@ Stack Trace:
 #2 {main}
 
 
+2015-07-12 19:29:41 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Webserver could not be found.
+Exception Attributes: array (
+  'class' => 'Webserver',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /webserver/servidor.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-12 19:29:44 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Webserver could not be found.
+Exception Attributes: array (
+  'class' => 'Webserver',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /webserver/servidor.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-12 19:32:26 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Webserver could not be found.
+Exception Attributes: array (
+  'class' => 'Webserver',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /webserver/servidor.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-12 19:32:36 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Webserver could not be found.
+Exception Attributes: array (
+  'class' => 'Webserver',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /webserver/servidorWebService.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-12 19:37:42 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Webserver could not be found.
+Exception Attributes: array (
+  'class' => 'Webserver',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /webserver/servidorWebService.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-12 19:45:22 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Webserver could not be found.
+Exception Attributes: array (
+  'class' => 'Webserver',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /webserver/webservice.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:08:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:12:06 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/server.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:12:10 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/server.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:12:27 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/webservice.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:13:23 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/wwebservice.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:13:31 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/webservice.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
+2015-07-13 23:19:23 Error: [Cake\Routing\Exception\MissingControllerException] Controller class Vendor could not be found.
+Exception Attributes: array (
+  'class' => 'Vendor',
+  'plugin' => NULL,
+  'prefix' => NULL,
+  '_ext' => NULL,
+)
+Request URL: /vendor/webserver/webservice.php
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#1 {main}
+
+
