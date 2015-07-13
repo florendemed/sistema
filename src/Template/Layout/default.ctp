@@ -8,10 +8,12 @@
 		<?= $this->Html->css('tema') ?>
 		<?= $this->Html->css('fullcalendar.min') ?>
 		<?=$this->Html->script('jquery-1.11.2.min') ?>
+		<?=$this->Html->script('jquery.mask.min') ?>
 		<?=$this->Html->script('fullcalendar-moment.min') ?>
 		<?=$this->Html->script('fullcalendar.min') ?>
 		<?=$this->Html->script('fullcalendar-pt-br') ?>
 		<?=$this->Html->script('bootstrap.min') ?>
+		<?=$this->Html->script('https://www.google.com/jsapi') ?>
 		<?= $this->fetch('meta') ?>
 		<?= $this->fetch('css') ?>
 		<?= $this->fetch('script') ?>

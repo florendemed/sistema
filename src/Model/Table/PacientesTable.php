@@ -10,8 +10,8 @@ class PacientesTable extends Table{
 		$validator 
 			->requirePresence('nome', 'create')
 			->notEmpty('nome', 'nome inválido')
-			->notEmpty('email')
-			->add('email', 'e-mail inválido', ['rule' => 'email']);
+			->add('email', 'e-mail inválido', ['rule' => 'email'])
+			->allowEmpty('email');
 	 
 		return $validator;
 	}

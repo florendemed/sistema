@@ -16,10 +16,10 @@
 							<input name="nome" placeholder="Nome" class="form-control" type="text" id="pacienteNome"/>
 						</div>
 						<div class="col-md-2">
-							<input name="login" placeholder="Data de Nascimento" class="form-control" type="text" id="pacienteNascimento"/>
+							<input name="cpf" placeholder="CPF" class="form-control" type="text" id="pacienteCpf"/>
 						</div>
 						<div class="col-md-2">
-							<input name="cpf" placeholder="CPF" class="form-control" type="text" id="pacienteCpf"/>
+							<input name="cartaoSUS" placeholder="Cartão SUS" class="form-control" type="text" id="cartaoSUS"/>
 						</div>
 						<div class="col-md-1">
 							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
@@ -33,9 +33,10 @@
 				<tr>
 					<th><a href="/pacientes?sort=id&amp;direction=asc">Id</a></th>
 					<th><a href="/pacientes?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/pacientes?sort=email&amp;direction=asc">Email</a></th>
-					<th><a href="/pacientes?sort=status&amp;direction=asc">Status</a></th>
+					<th><a href="/pacientes?sort=email&amp;direction=asc">Cartão SUS</a></th>
+					<th><a href="/pacientes?sort=status&amp;direction=asc">CPF</a></th>
 					<th><a href="/pacientes?sort=status&amp;direction=asc">Data Nascimento</a></th>
+					<th><a href="/pacientes?sort=status&amp;direction=asc">Status</a></th>
 					<th><a href="/pacientes?sort=created&amp;direction=asc">Data Cadastro</a></th>
 					<th><a href="/pacientes?sort=modified&amp;direction=asc">Última Alteração</a></th>
 					<th class="actions"></th>
@@ -44,10 +45,11 @@
 			<tbody>
 				<tr>
 					<td><a href="/pacientes/editar">1</a></td>
-					<td><a href="/pacientes/editar">Teste</a></td>
-					<td><a href="/pacientes/editar">teste@teste.com.br</a></td>
-					<td><a href="/pacientes/editar">ativo</a></td>
+					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
+					<td><a href="/pacientes/editar">123456</a></td>
+					<td><a href="/pacientes/editar">123.456.789-10</a></td>
 					<td><a href="/pacientes/editar">27/12/1982</a></td>
+					<td><a href="/pacientes/editar">Ativo</a></td>
 					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
 					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
@@ -57,10 +59,11 @@
 				</tr>
 				<tr>
 					<td><a href="/pacientes/editar">2</a></td>
-					<td><a href="/pacientes/editar">Teste</a></td>
-					<td><a href="/pacientes/editar">teste@teste.com.br</a></td>
-					<td><a href="/pacientes/editar">ativo</a></td>
+					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
+					<td><a href="/pacientes/editar">123456</a></td>
+					<td><a href="/pacientes/editar">123.456.789-10</a></td>
 					<td><a href="/pacientes/editar">27/12/1982</a></td>
+					<td><a href="/pacientes/editar">Ativo</a></td>
 					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
 					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
@@ -70,10 +73,11 @@
 				</tr>
 				<tr>
 					<td><a href="/pacientes/editar">3</a></td>
-					<td><a href="/pacientes/editar">Teste</a></td>
-					<td><a href="/pacientes/editar">teste@teste.com.br</a></td>
-					<td><a href="/pacientes/editar">ativo</a></td>
+					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
+					<td><a href="/pacientes/editar">123456</a></td>
+					<td><a href="/pacientes/editar">123.456.789-10</a></td>
 					<td><a href="/pacientes/editar">27/12/1982</a></td>
+					<td><a href="/pacientes/editar">Ativo</a></td>
 					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
 					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
@@ -83,10 +87,11 @@
 				</tr>
 				<tr>
 					<td><a href="/pacientes/editar">4</a></td>
-					<td><a href="/pacientes/editar">Teste</a></td>
-					<td><a href="/pacientes/editar">teste@teste.com.br</a></td>
-					<td><a href="/pacientes/editar">ativo</a></td>
+					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
+					<td><a href="/pacientes/editar">123456</a></td>
+					<td><a href="/pacientes/editar">123.456.789-10</a></td>
 					<td><a href="/pacientes/editar">27/12/1982</a></td>
+					<td><a href="/pacientes/editar">Ativo</a></td>
 					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
 					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
