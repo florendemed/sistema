@@ -18,9 +18,6 @@
 						<div class="col-md-2">
 							<input name="cpf" placeholder="CPF" class="form-control" type="text" id="prontuarioCpf"/>
 						</div>
-						<div class="col-md-2">
-							<input name="cpf" placeholder="Cartão Nacional de Saúde" class="form-control" type="text" id="prontuarioCartaoNacionaldeSaude"/>
-						</div>
 						<div class="col-md-1">
 							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
 						</div>

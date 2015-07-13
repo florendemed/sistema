@@ -1,7 +1,7 @@
 <div class="container-fluid">
 	<div id="row">
 		<div class="col-md-12">
-			<form action="/atendimentos/index" class="form-signin" id="" method="post" accept-charset="utf-8">
+			<form action="/agendas/index" class="form-signin" id="" method="post" accept-charset="utf-8">
 				<p><?php echo $this->Html->image('logo_slogan.png');?></p>
 				<?php 
 					echo $this->Form->text('colaborador', ['class' => 'form-control', 'placeholder' => 'E-mail/Login']);

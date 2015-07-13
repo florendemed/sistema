@@ -19,6 +19,11 @@
 						</div>
 						<div class="col-md-2">
 							<?php 
+								echo $this->Form->text('nascimento', ['class' => 'form-control', 'id' => 'colaboradorNascimento', 'placeholder' => 'Data de Nascimento']);
+							?>
+						</div>
+						<div class="col-md-2">
+							<?php 
 								echo $this->Form->text('cpf', ['class' => 'form-control', 'id' => 'colaboradorCpf', 'placeholder' => 'CPF']);
 							?>
 						</div>
@@ -36,10 +41,9 @@
 				<tr>
 					<th><a href="/colaboradores?sort=id&amp;direction=asc">Id</a></th>
 					<th><a href="/colaboradores?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/colaboradores?sort=nome&amp;direction=asc">CPF</a></th>
 					<th><a href="/colaboradores?sort=email&amp;direction=asc">Email</a></th>
-					<th><a href="/colaboradores?sort=status&amp;direction=asc">Data Nascimento</a></th>
 					<th><a href="/colaboradores?sort=status&amp;direction=asc">Status</a></th>
+					<th><a href="/colaboradores?sort=status&amp;direction=asc">Data Nascimento</a></th>
 					<th><a href="/colaboradores?sort=created&amp;direction=asc">Data Cadastro</a></th>
 					<th><a href="/colaboradores?sort=modified&amp;direction=asc">Última Alteração</a></th>
 					<th class="actions"></th>
@@ -48,11 +52,10 @@
 			<tbody>
 				<tr>
 					<td><a href="/colaboradores/editar">1</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">123.456.789-10</a></td>
+					<td><a href="/colaboradores/editar">Teste</a></td>
 					<td><a href="/colaboradores/editar">teste@teste.com.br</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">ativo</a></td>
+					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">09/04/2015 18:31</a></td>
 					<td><a href="/colaboradores/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
@@ -62,11 +65,10 @@
 				</tr>
 				<tr>
 					<td><a href="/colaboradores/editar">2</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">123.456.789-10</a></td>
+					<td><a href="/colaboradores/editar">Teste</a></td>
 					<td><a href="/colaboradores/editar">teste@teste.com.br</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">ativo</a></td>
+					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">09/04/2015 18:31</a></td>
 					<td><a href="/colaboradores/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
@@ -76,11 +78,10 @@
 				</tr>
 				<tr>
 					<td><a href="/colaboradores/editar">3</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">123.456.789-10</a></td>
+					<td><a href="/colaboradores/editar">Teste</a></td>
 					<td><a href="/colaboradores/editar">teste@teste.com.br</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">ativo</a></td>
+					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">09/04/2015 18:31</a></td>
 					<td><a href="/colaboradores/editar">11/04/2015 21:21</a></td>
 					<td class="actions">
@@ -90,11 +91,10 @@
 				</tr>
 				<tr>
 					<td><a href="/colaboradores/editar">4</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">123.456.789-10</a></td>
+					<td><a href="/colaboradores/editar">Teste</a></td>
 					<td><a href="/colaboradores/editar">teste@teste.com.br</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">ativo</a></td>
+					<td><a href="/colaboradores/editar">27/12/1982</a></td>
 					<td><a href="/colaboradores/editar">09/04/2015 18:31</a></td>
 					<td><a href="/colaboradores/editar">11/04/2015 21:21</a></td>
 					<td class="actions">

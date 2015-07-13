@@ -70,11 +70,11 @@
 							</div>
 						</div>							
 						<div class="form-group required">
-							<label for="cartaoSUS" class="col-md-3 control-label">Número Cartão SUS</label>
+							<label for="AgendasPaciente" class="col-md-3 control-label">CPF Paciente</label>
 							<div class="col-md-8">
 								<div class="input-group">
 									<?php 
-										echo $this->Form->text('cartaoSUS', ['class' => 'form-control']);
+										echo $this->Form->text('agendaPaciente', ['class' => 'form-control']);
 									?>
 									<span class="input-group-btn">
 										<a class="btn btn-primary" id="pacientesAdicionar" data-toggle="modal" href="/pacientes/adicionar/adicionar_modal/" data-target="#modal" title="Adicionar novo paciente"><span class="glyphicon glyphicon-plus"></span></a>

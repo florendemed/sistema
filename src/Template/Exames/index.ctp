@@ -29,7 +29,7 @@
 			<thead>
 				<tr>
 					<th>Id</th>
-					<th>Exame</th>
+					<th>Nome</th>
 					<th>Data Cadastro</th>
 					<th>Última Alteração</th>
 				</tr>

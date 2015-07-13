@@ -12,7 +12,6 @@
 		<?=$this->Html->script('fullcalendar.min') ?>
 		<?=$this->Html->script('fullcalendar-pt-br') ?>
 		<?=$this->Html->script('bootstrap.min') ?>
-		<?=$this->Html->script('https://www.google.com/jsapi') ?>
 		<?= $this->fetch('meta') ?>
 		<?= $this->fetch('css') ?>
 		<?= $this->fetch('script') ?>

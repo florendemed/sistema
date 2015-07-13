@@ -8,23 +8,19 @@ class PacientesController extends AppController{
 
     }
 	
-	public function adicionar(){
-		$paciente	= $this->Pacientes->newEntity();
-		if ($this->request->is('post')) {
-			$paciente 	= $this->Pacientes->patchEntity($paciente, $this->request->data());
-			if ($this->Pacientes->save($paciente)) {
-				$this->Flash->success('Registro salvo com sucesso.');
-				return $this->redirect('/pacientes/index');
-			}
-			$this->Flash->error('Não é possível salvar o registro.');
-		}
-		$this->set(compact('paciente'));
-    }
-	
 	public function editar(){
 		
     }
-
+	
+	public function adicionar($render = 'adicionar'){
+		
+		if ($render != 'adicionar') {
+			$this->layout = "ajax";
+			$this->render($render);	
+			
+		}
+    }
+	
 	public function deletar(){
 		
     }
