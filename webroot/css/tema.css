@@ -83,3 +83,26 @@ footer {
   line-height: 90px;
   background:#dddddd;
 }
+
+.message{
+	padding: 9px 13px;
+	border-radius: 3px;
+	margin-bottom: 15px;
+}
+
+.message.error{
+	background: #FFDAB9;
+}
+
+.message.sucess{
+	background: #90EE90;
+}
+
+.error .form-error {
+	border:1px solid red;
+}
+
+.error .error-message {
+	font-size:12px;
+	color:#808080;
+}

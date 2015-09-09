@@ -39,5 +39,20 @@ class AppController extends Controller
         parent::initialize();
         $this->loadComponent('Flash');
     }
-
+	
+	public function busca_cep($cep){
+		$this->autoRender	= false;
+		$this->layout		= 'ajax';
+		$token				= "98b2a0b65d90b36d138e23fb282a1b3f";
+		$url 				= "http://buscacep.k7comunicacao.com.br/cep/$cep/$token";
+		$ch					= curl_init();
+		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$retorno	= curl_exec($ch);
+		curl_close($ch);
+		$this->response->body($retorno);
+	}	
+	
+	
 }

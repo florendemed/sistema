@@ -1,15 +1,31 @@
 <?php
-	echo $this->Html->scriptBlock("
-		$(document).ready(function() {
-			$('div#novoTelefone').hide();
-			$('.btnTelefone').click(function(){
-				$('#novoTelefone').show();
-			});
-			
-			$('.cep').mask('00000-000');
-			  $('.data').mask('00/00/0000');
+echo $this->Html->scriptBlock("
+	$(document).ready(function() {
+		$('.cep').mask('00000-000');
+		$('.date').mask('00/00/0000');
+		$('.telefone').mask('(00) 0000-0000');
+		$('.cpf').mask('00000000000');
+		
+		$('#cep').keyup(function(){
+			if ( $(this).val().length == 9 ) {
+				$('.false-load').load('/app/busca_cep/' + $(this).val(), function(p1){
+					var endereco	= $.parseJSON(p1);
+					if ( endereco.retorno == 'ok' ) {
+						$('#endereco').val(endereco.Endereco.nome);
+						$('#bairro').val(endereco.Bairro.nome);
+						$('#cidade').val(endereco.Cidade.nome);
+						$('#estado').val(endereco.Estado.nome);
+					} else {
+						$('#endereco').val('');
+						$('#bairro').val('');
+						$('#cidade').val('');
+						$('#estado').val('');
+					}
+				});
+			}
 		});
-	");
+	});
+");
 ?>
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
@@ -52,7 +68,7 @@
 							</div>
 							<?php echo $this->Form->label('data_nascimento', 'Nascimento', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-5">
-								<?php echo $this->Form->input('data_nascimento', ['type' => 'text', 'label' => false, 'class' => 'form-control data', 'id' => 'dataNascimento']); ?>
+								<?php echo $this->Form->input('data_nascimento', ['type' => 'text', 'label' => false, 'class' => 'form-control date', 'id' => 'dataNascimento']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -80,12 +96,12 @@
 						</div>
 						<div class="form-group required">
 							<?php echo $this->Form->label('rg', 'RG', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-5">
+							<div class="col-md-3">
 								<?php echo $this->Form->input('rg', ['label' => false, 'class' => 'form-control', 'id' => 'RG']); ?>
 							</div>
 							<?php echo $this->Form->label('cpf', 'CPF', ['class' => 'col-md-1 control-label']); ?>
-							<div class="col-md-3">
-								<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control', 'id' => 'CPF']); ?>
+							<div class="col-md-5">
+								<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control cpf number', 'id' => 'CPF']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -153,70 +169,87 @@
 					<p>&nbsp;</p>
 					<fieldset>
 						<div class="form-group required">
-							<?php echo $this->Form->label('cep', 'CEP', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.cep', 'CEP', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('cep', ['label' => false, 'class' => 'form-control cep', 'id' => 'cep']); ?>
+								<?php echo $this->Form->input('endereco.cep', ['label' => false, 'class' => 'form-control cep', 'id' => 'cep']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<?php echo $this->Form->label('endereco', 'Endereço', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.endereco', 'Endereço', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-10">
-								<?php echo $this->Form->input('endereco', ['label' => false, 'class' => 'form-control', 'id' => 'endereco']); ?>
+								<?php echo $this->Form->input('endereco.endereco', ['label' => false, 'class' => 'form-control', 'id' => 'endereco']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<?php echo $this->Form->label('numero', 'Número', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.numero', 'Número', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-2">
-								<?php echo $this->Form->input('numero', ['label' => false, 'class' => 'form-control', 'id' => 'numero']); ?>
+								<?php echo $this->Form->input('endereco.numero', ['label' => false, 'class' => 'form-control', 'id' => 'numero']); ?>
 							</div>
-							<?php echo $this->Form->label('complemento', 'Complemento', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.complemento', 'Complemento', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-6">
-								<?php echo $this->Form->input('complemento', ['label' => false, 'class' => 'form-control', 'id' => 'complemento']); ?>
+								<?php echo $this->Form->input('endereco.complemento', ['label' => false, 'class' => 'form-control', 'id' => 'complemento']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
-							<?php echo $this->Form->label('bairro', 'Bairro', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.bairro', 'Bairro', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('bairro', ['label' => false, 'class' => 'form-control', 'id' => 'bairro']); ?>
+								<?php echo $this->Form->input('endereco.bairro', ['label' => false, 'class' => 'form-control', 'id' => 'bairro']); ?>
 							</div>
-							<?php echo $this->Form->label('cidade', 'Cidade', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.cidade', 'Cidade', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('cidade', ['label' => false, 'class' => 'form-control', 'id' => 'cidade']); ?>
+								<?php echo $this->Form->input('endereco.cidade', ['label' => false, 'class' => 'form-control', 'id' => 'cidade']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
-							<?php echo $this->Form->label('estado', 'Estado', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.estado', 'Estado', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('estado', ['label' => false, 'class' => 'form-control', 'id' => 'estado']); ?>
+								<?php echo $this->Form->input('endereco.estado', ['label' => false, 'class' => 'form-control', 'id' => 'estado']); ?>
 							</div>
-							<?php echo $this->Form->label('pais', 'País', ['class' => 'col-md-2 control-label']); ?>
+							<?php echo $this->Form->label('endereco.pais', 'País', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('pais', ['label' => false, 'class' => 'form-control', 'id' => 'pais']); ?>
+								<?php echo $this->Form->input('endereco.pais', ['label' => false, 'class' => 'form-control', 'id' => 'pais']); ?>
 							</div>
 						</div>
 						<hr />
+						<h3>Telefones</h3>
 						<div class="form-group required">
-							<p class="col-md-2"><a href="" data-toggle="collapse" title="Cadastrar novo telefone" class="btn btn-danger btnTelefone"><span class="glyphicon glyphicon-plus"></span> Novo Telefone</a></p>
-						</div>
-						<div id="novoTelefone">
-							<div class="form-group required">
-								<?php echo $this->Form->label('tipo', 'Tipo', ['class' => 'col-md-2 control-label']); ?>
-								<div class="col-md-4">
+							<div class="col-md-12">
+								<div class="col-md-3">
+									<?php echo $this->Form->label('telefone.tipo1', '', ['class' => 'control-label']); ?>
 									<?php
-										$options = ['' => '', 'Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
-										echo $this->Form->select('tipo', $options,[ 'class' => 'form-control']);		
+										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
+										echo $this->Form->select('telefone.tipo1', $options,[ 'class' => 'form-control']);		
 									?>
 								</div>
-							</div>
-							<div class="form-group required">
-								<?php echo $this->Form->label('numero', 'Telefone', ['class' => 'col-md-2 control-label']); ?>
-								<div class="col-md-4">
-									<?php echo $this->Form->input('numero', ['label' => false, 'class' => 'form-control', 'id' => 'telefone']); ?>
+								<div class="col-md-6">
+									<?php echo $this->Form->label('telefone.numero1', '', ['class' => 'control-label']); ?>
+									<?php echo $this->Form->input('telefone.numero1', ['label' => false, 'class' => 'form-control telefone', 'id' => 'telefone']); ?>
 								</div>
 							</div>
-							<div class="form-group required">
-								<div class="col-md-2 text-right">
-									<?php echo $this->Form->submit('Inserir', ['class' => 'btn-sm btn btn-danger salvar-telefone btn', 'value' => 'Inserir']); ?>
+							<div class="col-md-12">
+								<div class="col-md-3">
+									<?php echo $this->Form->label('telefone.tipo2', '', ['class' => 'control-label']); ?>
+									<?php
+										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
+										echo $this->Form->select('telefone.tipo2', $options,[ 'class' => 'form-control']);		
+									?>
+								</div>
+								<div class="col-md-6">
+									<?php echo $this->Form->label('telefone.numero2', '', ['class' => 'control-label']); ?>
+									<?php echo $this->Form->input('telefone.numero2', ['label' => false, 'class' => 'form-control telefone', 'id' => 'telefone']); ?>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="col-md-3">
+									<?php echo $this->Form->label('telefone.tipo3', '', ['class' => 'control-label']); ?>
+									<?php
+										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
+										echo $this->Form->select('telefone.tipo3', $options,[ 'class' => 'form-control']);		
+									?>
+								</div>
+								<div class="col-md-6">
+									<?php echo $this->Form->label('telefone.numero3', '', ['class' => 'control-label']); ?>
+									<?php echo $this->Form->input('telefone.numero3', ['label' => false, 'class' => 'form-control telefone', 'id' => 'telefone']); ?>
 								</div>
 							</div>
 						</div>

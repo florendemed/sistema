@@ -13,99 +13,75 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
-							<input name="nome" placeholder="Nome" class="form-control" type="text" id="pacienteNome"/>
+							<?php echo $this->Form->input('nome', ['label' => false, 'class' => 'form-control', 'id' => 'nome', 'placeholder' => 'Nome', 'value' => @$this->request->query['nome'] ]); ?>
 						</div>
 						<div class="col-md-2">
-							<input name="cpf" placeholder="CPF" class="form-control" type="text" id="pacienteCpf"/>
+							<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control', 'id' => 'cpf', 'placeholder' => 'CPF', 'value' => @$this->request->query['cpf']]); ?>
 						</div>
 						<div class="col-md-2">
-							<input name="cartaoSUS" placeholder="Cartão SUS" class="form-control" type="text" id="cartaoSUS"/>
+							<?php echo $this->Form->input('cartaoSUS', ['label' => false, 'class' => 'form-control', 'id' => 'cartaoSUS', 'placeholder' => 'Cartão SUS', 'value' => @$this->request->query['cartaoSUS']]); ?>
 						</div>
 						<div class="col-md-1">
-							<input  class="btn btn-primary btn" type="submit" value="filtrar"/>
+							<?php echo $this->Form->submit('Filtrar', ['class' => 'btn btn-primary btn', 'value' => 'Filtrar']); ?>
 						</div>
 					</div>
 				</fieldset>
 			</form>
 		</div>
+		<?php if( Count($pacientes) > 0 ) {?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th><a href="/pacientes?sort=id&amp;direction=asc">Id</a></th>
-					<th><a href="/pacientes?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/pacientes?sort=email&amp;direction=asc">Cartão SUS</a></th>
-					<th><a href="/pacientes?sort=status&amp;direction=asc">CPF</a></th>
-					<th><a href="/pacientes?sort=status&amp;direction=asc">Data Nascimento</a></th>
-					<th><a href="/pacientes?sort=status&amp;direction=asc">Status</a></th>
-					<th><a href="/pacientes?sort=created&amp;direction=asc">Data Cadastro</a></th>
-					<th><a href="/pacientes?sort=modified&amp;direction=asc">Última Alteração</a></th>
+					<th><?= $this->Paginator->sort('id') ?></th>
+					<th><?= $this->Paginator->sort('nome') ?></th>
+					<th><?= $this->Paginator->sort('numero_prontuario') ?></th>
+					<th><?= $this->Paginator->sort('numero_sus', 'Cartão SUS') ?></th>
+					<th><?= $this->Paginator->sort('cpf', 'CPF') ?></a></th>
+					<th><?= $this->Paginator->sort('data_nascimento') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
+					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
 					<th class="actions"></th>
 				</tr>
 			</thead>
 			<tbody>
+				<?php foreach ($pacientes as $paciente): 
+					if ( h($paciente->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+				?>
 				<tr>
-					<td><a href="/pacientes/editar">1</a></td>
-					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
-					<td><a href="/pacientes/editar">123456</a></td>
-					<td><a href="/pacientes/editar">123.456.789-10</a></td>
-					<td><a href="/pacientes/editar">27/12/1982</a></td>
-					<td><a href="/pacientes/editar">Ativo</a></td>
-					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
-					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
+					<td><?= h($paciente->id) ?> </td>
+					<td><?= h($paciente->nome) ?> </td>
+					<td><?= h($paciente->numero_prontuario) ?> </td>
+					<td><?= h($paciente->numero_sus) ?> </td>
+					<td><?= h($paciente->cpf) ?> </td>
+					<td><?= h($paciente->data_nascimento) ?> </td>
+					<td><?= $status ?> </td>
+					<td><?= h($paciente->created) ?> </td>
+					<td><?= h($paciente->modified) ?> </td>
 					<td class="actions">
-						<a href="/pacientes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						<a href="/pacientes/editar/<?= h($paciente->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/pacientes/excluir/<?= h($paciente->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
 				</tr>
-				<tr>
-					<td><a href="/pacientes/editar">2</a></td>
-					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
-					<td><a href="/pacientes/editar">123456</a></td>
-					<td><a href="/pacientes/editar">123.456.789-10</a></td>
-					<td><a href="/pacientes/editar">27/12/1982</a></td>
-					<td><a href="/pacientes/editar">Ativo</a></td>
-					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
-					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
-					<td class="actions">
-						<a href="/pacientes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/pacientes/editar">3</a></td>
-					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
-					<td><a href="/pacientes/editar">123456</a></td>
-					<td><a href="/pacientes/editar">123.456.789-10</a></td>
-					<td><a href="/pacientes/editar">27/12/1982</a></td>
-					<td><a href="/pacientes/editar">Ativo</a></td>
-					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
-					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
-					<td class="actions">
-						<a href="/pacientes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/pacientes/editar">4</a></td>
-					<td><a href="/pacientes/editar">Teste Teste Teste</a></td>
-					<td><a href="/pacientes/editar">123456</a></td>
-					<td><a href="/pacientes/editar">123.456.789-10</a></td>
-					<td><a href="/pacientes/editar">27/12/1982</a></td>
-					<td><a href="/pacientes/editar">Ativo</a></td>
-					<td><a href="/pacientes/editar">09/04/2015 18:31</a></td>
-					<td><a href="/pacientes/editar">11/04/2015 21:21</a></td>
-					<td class="actions">
-						<a href="/pacientes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
+				<?php endforeach; ?>
 			</tbody>
-		</table>
-		<p><strong>4</strong> resultado(s) encontrado(s).</p>
+		</table>		
+		<p>
+		<?php 
+			echo $this->Paginator->counter([
+				'format' => '<strong>{{count}}</strong> resultado(s) encontrado(s).'
+			])
+		?>
+		</p>
 		<ul class="pagination">
-			<li class="disabled prev"><a onclick="return false;">&larr; Anterior</a></li>
-			<li class="active"><a>1</a></li>
-			<li class="disabled next"><a onclick="return false;">Próxima &rarr;</a></li>
+			<?php echo $this->Paginator->numbers(['first' => 'First page']); ?>
 		</ul>
+		<?php } else { ?>
+			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
+		<?php }?>
 	</div>
 </div>
