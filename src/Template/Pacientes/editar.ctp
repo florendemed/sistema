@@ -41,6 +41,7 @@ echo $this->Html->scriptBlock("
 			<li><a href="/pacientes/index">Listar</a></li>
 		</ul>
 		<?php echo $this->Form->create($paciente, ['class' => 'form-horizontal']); ?>
+			<?php echo $this->Form->input('id'); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Dados Pessoais</h3>

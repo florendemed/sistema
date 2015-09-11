@@ -101,20 +101,24 @@ class PacientesController extends AppController{
 		$endereco = $this->Enderecos->findByPacientesId($id);
 		$telefone = $this->Telefones->findAllByPacienteId($id);
 
-		
-		if ($this->request->is(['post', 'put'])) {
+		if ($this->request->is('put')) {
+			
+			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
+			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
+			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
+			
 			$this->Pacientes->patchEntity($paciente, $this->request->data);
 			if ($this->Pacientes->save($paciente)) {
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro..'));
-		}
+		} 
 		$endereco	= $endereco->toArray();
 		$endereco	= $endereco['0'];
 		$telefone 	= $telefone->toArray();
 		$this->set(compact('paciente', 'endereco', 'telefone'));
-		
+
     }
 
 	public function excluir($id){
