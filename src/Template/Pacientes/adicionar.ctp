@@ -60,14 +60,14 @@ echo $this->Html->scriptBlock("
 						</div>	
 						<div class="form-group required">
 							<?php echo $this->Form->label('estado_civil', 'Estado Civil', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<?php
 									$options = ['' => '', 'Solteiro' => 'Solteiro', 'Casado' => 'Casado', 'Divorciado' => 'Divorciado'];
 									echo $this->Form->select('estado_civil', $options,[ 'class' => 'form-control']);		
 								?>
 							</div>
 							<?php echo $this->Form->label('data_nascimento', 'Nascimento', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-5">
+							<div class="col-md-4">
 								<?php echo $this->Form->input('data_nascimento', ['type' => 'text', 'label' => false, 'class' => 'form-control date', 'id' => 'dataNascimento']); ?>
 							</div>
 						</div>
@@ -142,8 +142,8 @@ echo $this->Html->scriptBlock("
 									echo $this->Form->select('naturalidade', $options,[ 'class' => 'form-control']);		
 								?>
 							</div>
-							<?php echo $this->Form->label('nacionalidade', 'Nacionalidade', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-3">
+							<?php echo $this->Form->label('nacionalidade', 'Nacionalidade', ['class' => 'col-md-2 control-label']); ?>
+							<div class="col-md-4">
 								<?php
 									$options = ['' => '', 'Nacionalidade 1' => 'Nacionalidade 1', 'Nacionalidade 2' => 'Nacionalidade 2', 'Nacionalidade 3' => 'Nacionalidade 3'];
 									echo $this->Form->select('nacionalidade', $options,[ 'class' => 'form-control']);		
@@ -214,7 +214,7 @@ echo $this->Html->scriptBlock("
 						<h3>Telefones</h3>
 						<div class="form-group required">
 							<div class="col-md-12">
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<?php echo $this->Form->label('telefone.tipo1', '', ['class' => 'control-label']); ?>
 									<?php
 										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
@@ -227,7 +227,7 @@ echo $this->Html->scriptBlock("
 								</div>
 							</div>
 							<div class="col-md-12">
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<?php echo $this->Form->label('telefone.tipo2', '', ['class' => 'control-label']); ?>
 									<?php
 										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
@@ -240,7 +240,7 @@ echo $this->Html->scriptBlock("
 								</div>
 							</div>
 							<div class="col-md-12">
-								<div class="col-md-3">
+								<div class="col-md-4">
 									<?php echo $this->Form->label('telefone.tipo3', '', ['class' => 'control-label']); ?>
 									<?php
 										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
