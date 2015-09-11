@@ -9,7 +9,12 @@ class EnderecosTable extends AppTable{
 	public function initialize(array $config)
     {
         $this->belongsTo('Pacientes', [
-            'foreignKey' => 'pacientes_id',
+            'foreignKey' => 'paciente_id',
+            'joinType' => 'INNER',
+        ]);
+		
+		$this->belongsTo('Colaboradores', [
+            'foreignKey' => 'colaborador_id',
             'joinType' => 'INNER',
         ]);
     }

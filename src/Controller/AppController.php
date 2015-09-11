@@ -49,7 +49,7 @@ class AppController extends Controller
 		curl_setopt($ch, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']);
 		curl_setopt($ch,CURLOPT_URL,$url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-		$retorno	= curl_exec($ch);
+		$retorno			= curl_exec($ch);
 		curl_close($ch);
 		$this->response->body($retorno);
 	}	

@@ -153,7 +153,7 @@ echo $this->Html->scriptBlock("
 						<div class="form-group required">
 							<?php echo $this->Form->label('email', 'E-mail', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->input('email', ['label' => false, 'class' => 'form-control', 'id' => 'email',  'required' => false]); ?>
+								<?php echo $this->Form->input('email', ['label' => false, 'class' => 'form-control', 'required' => false, 'novalidate' => true]); ?>
 							</div>
 						</div>	
 						<div class="form-group">

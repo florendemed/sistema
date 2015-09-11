@@ -60,9 +60,9 @@ class PacientesController extends AppController{
 			
 			if ($this->Pacientes->save($paciente)) {
 				
-				$this->request->data['endereco']['pacientes_id']		= $paciente->id;
+				$this->request->data['endereco']['paciente_id']			= $paciente->id;
 				$this->request->data['telefone']['paciente_id']			= $paciente->id;
-				$this->request->data['endereco']['colaboradores_id']	= '0';
+				$this->request->data['endereco']['colaborador_id']		= '0';
 				
 				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
 				$this->Enderecos->save($endereco);
@@ -83,7 +83,7 @@ class PacientesController extends AppController{
 
 				}
 
-				$this->Flash->success(__('Registro alterado com sucesso.'));
+				$this->Flash->success(__('Registro inserido com sucesso.'));
 				return $this->redirect('/pacientes/index');
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
