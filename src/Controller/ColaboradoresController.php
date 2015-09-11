@@ -91,8 +91,34 @@ class ColaboradoresController extends AppController{
 		$this->set(compact('colaborador'));
     }
 	
-	public function editar(){
+	public function editar($id){
 		
+		$colaborador = $this->Colaboradores->get($id);
+		
+		$this->loadModel('Enderecos');
+		$this->loadModel('Telefones');
+		
+		$endereco = $this->Enderecos->findByColaboradorId($id);
+		$telefone = $this->Telefones->findAllByColaboradorId($id);
+
+		if ($this->request->is('put')) {
+			
+			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
+			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
+			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
+			
+			$this->Colaboradores->patchEntity($colaborador, $this->request->data);
+			if ($this->Colaboradores->save($colaborador)) {
+				$this->Flash->success(__('Registro alterado com sucesso.'));
+				return $this->redirect(['action' => 'index']);
+			}
+			$this->Flash->error(__('Não foi possível salvar o registro..'));
+		} 
+		$endereco	= $endereco->toArray();
+		$endereco	= $endereco['0'];
+		$telefone 	= $telefone->toArray();
+		$this->set(compact('colaborador', 'endereco', 'telefone'));
+
     }
 	
 	public function excluir($id){

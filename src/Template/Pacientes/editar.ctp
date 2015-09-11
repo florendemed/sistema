@@ -1,10 +1,6 @@
 <?php
 echo $this->Html->scriptBlock("
 	$(document).ready(function() {
-		$('div#novoTelefone').hide();
-		$('.btnTelefone').click(function(){
-			$('#novoTelefone').show();
-		});
 		$('.cep').mask('00000-000');
 		$('.date').mask('00/00/0000');
 		$('.telefone').mask('(00) 0000-0000');

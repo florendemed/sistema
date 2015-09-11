@@ -62,7 +62,6 @@ class PacientesController extends AppController{
 				
 				$this->request->data['endereco']['paciente_id']			= $paciente->id;
 				$this->request->data['telefone']['paciente_id']			= $paciente->id;
-				$this->request->data['endereco']['colaborador_id']		= '0';
 				
 				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
 				$this->Enderecos->save($endereco);
@@ -98,7 +97,7 @@ class PacientesController extends AppController{
 		$this->loadModel('Enderecos');
 		$this->loadModel('Telefones');
 		
-		$endereco = $this->Enderecos->findByPacientesId($id);
+		$endereco = $this->Enderecos->findByPacienteId($id);
 		$telefone = $this->Telefones->findAllByPacienteId($id);
 
 		if ($this->request->is('put')) {

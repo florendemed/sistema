@@ -9104,3 +9104,149 @@ Stack Trace:
 #2 {main}
 
 
+2015-09-11 17:16:43 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`florence`.`telefones`, CONSTRAINT `fk_telefones_pacientes` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(36): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(169): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(55): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1516): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1436): Cake\ORM\Table->_insert(Object(Cake\ORM\Entity), Array)
+#7 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1367): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(561): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#9 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1368): Cake\Database\Connection->transactional(Object(Closure))
+#10 C:\xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php(80): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#11 [internal function]: App\Controller\ColaboradoresController->adicionar()
+#12 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#15 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 {main}
+
+
+2015-09-11 17:17:20 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`florence`.`telefones`, CONSTRAINT `fk_telefones_pacientes` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(36): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(169): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(55): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1516): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1436): Cake\ORM\Table->_insert(Object(Cake\ORM\Entity), Array)
+#7 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1367): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(561): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#9 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1368): Cake\Database\Connection->transactional(Object(Closure))
+#10 C:\xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php(81): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#11 [internal function]: App\Controller\ColaboradoresController->adicionar()
+#12 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#15 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 {main}
+
+
+2015-09-11 17:17:33 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`florence`.`telefones`, CONSTRAINT `fk_telefones_pacientes` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(36): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(169): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(55): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1516): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1436): Cake\ORM\Table->_insert(Object(Cake\ORM\Entity), Array)
+#7 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1367): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(561): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#9 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1368): Cake\Database\Connection->transactional(Object(Closure))
+#10 C:\xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php(81): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#11 [internal function]: App\Controller\ColaboradoresController->adicionar()
+#12 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#15 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 {main}
+
+
+2015-09-11 17:17:37 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`florence`.`telefones`, CONSTRAINT `fk_telefones_pacientes` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(36): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(169): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(55): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1516): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1436): Cake\ORM\Table->_insert(Object(Cake\ORM\Entity), Array)
+#7 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1367): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(561): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#9 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1368): Cake\Database\Connection->transactional(Object(Closure))
+#10 C:\xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php(81): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#11 [internal function]: App\Controller\ColaboradoresController->adicionar()
+#12 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#15 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 {main}
+
+
+2015-09-11 17:18:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`florence`.`telefones`, CONSTRAINT `fk_telefones_pacientes` FOREIGN KEY (`paciente_id`) REFERENCES `pacientes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\MysqlStatement.php(36): PDOStatement->execute(NULL)
+#1 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Statement\StatementDecorator.php(169): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Log\LoggingStatement.php(55): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(274): Cake\Database\Log\LoggingStatement->execute()
+#4 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Query.php(175): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1516): Cake\Database\Query->execute()
+#6 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1436): Cake\ORM\Table->_insert(Object(Cake\ORM\Entity), Array)
+#7 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1367): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Database\Connection.php(561): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#9 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(1368): Cake\Database\Connection->transactional(Object(Closure))
+#10 C:\xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php(81): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#11 [internal function]: App\Controller\ColaboradoresController->adicionar()
+#12 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#13 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#14 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#15 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#16 {main}
+
+
+2015-09-11 17:53:18 Error: [ReflectionException] Method cpf does not exist
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Validation\RulesProvider.php(64): ReflectionClass->getMethod('cpf')
+#1 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Validation\ValidationRule.php(140): Cake\Validation\RulesProvider->__call('cpf', Array)
+#2 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Validation\ValidationRule.php(140): Cake\Validation\RulesProvider->cpf('04142242997', Array)
+#3 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Validation\Validator.php(567): Cake\Validation\ValidationRule->process('04142242997', Array, Array)
+#4 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Validation\Validator.php(131): Cake\Validation\Validator->_processRules('cpf', Object(Cake\Validation\ValidationSet), Array, true)
+#5 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Marshaller.php(181): Cake\Validation\Validator->errors(Array, true)
+#6 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Marshaller.php(389): Cake\ORM\Marshaller->_validate(Array, Array, true)
+#7 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\ORM\Table.php(2032): Cake\ORM\Marshaller->merge(Object(Cake\ORM\Entity), Array, Array)
+#8 C:\xampp\htdocs\florence-sistema\trunk\src\Controller\ColaboradoresController.php(60): Cake\ORM\Table->patchEntity(Object(Cake\ORM\Entity), Array)
+#9 [internal function]: App\Controller\ColaboradoresController->adicionar()
+#10 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Controller\Controller.php(404): call_user_func_array(Array, Array)
+#11 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(114): Cake\Controller\Controller->invokeAction()
+#12 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Routing\Dispatcher.php(87): Cake\Routing\Dispatcher->_invoke(Object(App\Controller\ColaboradoresController))
+#13 C:\xampp\htdocs\florence-sistema\trunk\webroot\index.php(37): Cake\Routing\Dispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#14 {main}
+
+
+2015-09-11 17:55:42 Error: Fatal Error (4): syntax error, unexpected '->' (T_OBJECT_OPERATOR) in [C:\xampp\htdocs\florence-sistema\trunk\src\Model\Table\ColaboradoresTable.php, line 20]
+Trace:
+Cake\Error\BaseErrorHandler::handleFatalError() - CORE\src\Error\BaseErrorHandler.php, line 191
+Cake\Error\BaseErrorHandler::Cake\Error\{closure}() - CORE\src\Error\BaseErrorHandler.php, line 90
+[main] - [internal], line ??
+
+
+
+2015-09-11 17:55:43 Error: [Cake\Error\FatalErrorException] syntax error, unexpected '->' (T_OBJECT_OPERATOR)
+Request URL: /colaboradores/adicionar
+Stack Trace:
+#0 C:\xampp\htdocs\florence-sistema\trunk\vendor\cakephp\cakephp\src\Error\BaseErrorHandler.php(90): Cake\Error\BaseErrorHandler->handleFatalError(4, 'syntax error, u...', 'C:\\xampp\\htdocs...', 20)
+#1 [internal function]: Cake\Error\BaseErrorHandler->Cake\Error\{closure}()
+#2 {main}
+
+

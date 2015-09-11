@@ -90,7 +90,7 @@ echo $this->Html->scriptBlock("
 							</div>
 							<?php echo $this->Form->label('cpf', 'CPF', ['class' => 'col-md-1 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control']); ?>
+								<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control', 'required' => false]); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -138,7 +138,7 @@ echo $this->Html->scriptBlock("
 							</div>
 							<?php echo $this->Form->label('senhaRepetir', 'Repetir Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-3">
-								<?php echo $this->Form->password('senhaRepetir', ['label' => false, 'class' => 'form-control',  'required' => false]); ?>
+								<?php echo $this->Form->password('senhaRepetir', ['label' => false, 'class' => 'form-control', 'required' => false]); ?>
 							</div>
 						</div>	
 						<div class="form-group">
