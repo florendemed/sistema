@@ -30,15 +30,39 @@
 			<thead>
 				<tr>
 					<th><?= $this->Paginator->sort('id') ?></th>
-					
+					<th><?= $this->Paginator->sort('nome') ?></th>
+					<th><?= $this->Paginator->sort('cpf') ?></th>
+					<th><?= $this->Paginator->sort('email', 'E-mail') ?></th>
+					<th><?= $this->Paginator->sort('data_nascimento', 'Data Nascimento') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
+					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+					<th class="actions"></th>
 				</tr>
 			</thead>
 			<tbody>
-				
+				<?php foreach ($colaboradores as $colaborador): 
+					if ( h($colaborador->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+				?>
 				<tr>
-
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->id) ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->nome) ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->cpf) ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->email) ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->data_nascimento) ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= $status ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->created) ?></a></td>
+					<td><a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><?= h($colaborador->modified) ?></a></td>
+					<td class="actions">
+						<a href="/colaboradores/editar/<?= h($colaborador->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/colaboradores/excluir/<?= h($colaborador->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+					</td>
 				</tr>
-				
+				<?php endforeach; ?>
 			</tbody>
 		</table>
 		<p>

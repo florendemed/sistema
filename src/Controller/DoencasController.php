@@ -28,8 +28,8 @@ class DoencasController extends AppController{
 		$this->paginate = [
 			'conditions' => $condicoes
 		];		
-		$pacientes = $this->paginate($this->Pacientes);
-		$this->set(compact('pacientes'));
+		$doencas = $this->paginate($this->Doencas);
+		$this->set(compact('doencas'));
     }
 	
 	public function importar(){

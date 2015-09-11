@@ -8,64 +8,53 @@
 			<li class="active"><a href="/medicamentos/index">Listar</a></li>
 		</ul>
 		<div class="well filtros">
-			<form action="/medicamentos/index" class="form-horizontal" id="medicamentoIndexForm" method="get" accept-charset="utf-8">	
+			<form action="/medicamentos/index" class="form-horizontal" id="doencaIndexForm" method="get" accept-charset="utf-8">	
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
-							<?php 
-								echo $this->Form->text('Nome', ['class' => 'form-control', 'id' => 'medicamentoNome', 'placeholder' => 'Nome medicamento']);
-							?>
+							<?php echo $this->Form->input('nome', ['label' => false, 'class' => 'form-control', 'id' => 'nome', 'placeholder' => 'Medicamento', 'value' => @$this->request->query['nome'] ]); ?>
 						</div>
 						<div class="col-md-1">
-							<?php 
-								echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']);
-							?>
+							<?php echo $this->Form->submit('Filtrar', ['class' => 'btn btn-primary btn', 'value' => 'Filtrar']); ?>
 						</div>
 					</div>
 				</fieldset>
 			</form>
 		</div>
+		<?php if( count($medicamentos) > 0 ) {?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th>Id</th>
-					<th>Medicamento</th>
-					<th>Data Cadastro</th>
-					<th>Última Alteração</th>
+					<th><?= $this->Paginator->sort('id') ?></th>
+					<th><?= $this->Paginator->sort('nome', 'Medicamentos') ?></th>
+					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
 				</tr>
 			</thead>
 			<tbody>
+				<?php foreach ($medicamentos as $medicamento): ?>
 				<tr>
-					<td>1</a></td>
-					<td>Teste</a></td>
-					<td>09/04/2015 18:31</a></td>
-					<td>11/04/2015 21:21</a></td>
+					<td><?= h($medicamento->id) ?></td>
+					<td><?= h($medicamento->nome) ?></td>
+					<td><?= h($medicamento->created) ?></td>
+					<td><?= h($medicamento->modified) ?></td>
 				</tr>
-				<tr>
-					<td>2</a></td>
-					<td>Teste</a></td>
-					<td>09/04/2015 18:31</a></td>
-					<td>11/04/2015 21:21</a></td>
-				</tr>
-				<tr>
-					<td>3</a></td>
-					<td>Teste</a></td>
-					<td>09/04/2015 18:31</a></td>
-					<td>11/04/2015 21:21</a></td>
-				</tr>
-				<tr>
-					<td>4</a></td>
-					<td>Teste</a></td>
-					<td>09/04/2015 18:31</a></td>
-					<td>11/04/2015 21:21</a></td>
-				</tr>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p><strong>4</strong> resultado(s) encontrado(s).</p>
+		<p>
+		<p>
+		<?php 
+			echo $this->Paginator->counter([
+				'format' => '<strong>{{count}}</strong> resultado(s) encontrado(s).'
+			])
+		?>
+		</p>
 		<ul class="pagination">
-			<li class="disabled prev"><a onclick="return false;">&larr; Anterior</a></li>
-			<li class="active"><a>1</a></li>
-			<li class="disabled next"><a onclick="return false;">Próxima &rarr;</a></li>
+			<?php echo $this->Paginator->numbers(['first' => 'First page']); ?>
 		</ul>
+		<?php } else { ?>
+			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
+		<?php }?>
 	</div>
 </div>
