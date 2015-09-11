@@ -83,10 +83,10 @@ class PacientesController extends AppController{
 
 				}
 
-				$this->Flash->success('Registro salvo com sucesso.');
+				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect('/pacientes/index');
 			}
-			$this->Flash->error('Não é possível salvar o registro.');
+			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
 		$this->set(compact('paciente'));
     }
