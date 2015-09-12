@@ -48,15 +48,13 @@ class PacientesController extends AppController{
 		$this->loadModel('Enderecos');
 		$this->loadModel('Telefones');
 		
-		$paciente	= $this->Pacientes->newEntity();
-		
 		if ($this->request->is('post')) {
 
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
-			
-			$paciente 	= $this->Pacientes->patchEntity($paciente, $this->request->data);
+						
+			$paciente	= $this->Pacientes->newEntity($this->request->data);
 			
 			if ($this->Pacientes->save($paciente)) {
 				
@@ -79,7 +77,6 @@ class PacientesController extends AppController{
 						$this->Telefones->save($telefone);
 						
 					}
-
 				}
 
 				$this->Flash->success(__('Registro inserido com sucesso.'));
@@ -87,35 +84,51 @@ class PacientesController extends AppController{
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
+		$paciente	= $this->Pacientes->newEntity();
 		$this->set(compact('paciente'));
     }
 	
 	public function editar($id){
-		
-		$paciente = $this->Pacientes->get($id);
-		
+
 		$this->loadModel('Enderecos');
 		$this->loadModel('Telefones');
 		
-		$endereco = $this->Enderecos->findByPacienteId($id);
-		$telefone = $this->Telefones->findAllByPacienteId($id);
-
+		$paciente = $this->Pacientes->get($id);
+		
+		//Dados postados
 		if ($this->request->is('put')) {
 			
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 			
-			$this->Pacientes->patchEntity($paciente, $this->request->data);
+			$paciente = $this->Pacientes->patchEntity($paciente, $this->request->data);
+			
 			if ($this->Pacientes->save($paciente)) {
+				
+				$this->Enderecos->deleteAll(['paciente_id' => $id]);
+				
+				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
+				$this->Enderecos->save($endereco);
+				
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
 			}
-			$this->Flash->error(__('Não foi possível salvar o registro..'));
+			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		} 
+		
+		//Dados exibidos
+		$endereco = $this->Enderecos->findByPacienteId($id);
+		$telefone = $this->Telefones->findAllByPacienteId($id);
+		
 		$endereco	= $endereco->toArray();
 		$endereco	= $endereco['0'];
 		$telefone 	= $telefone->toArray();
+		
+		if ( $paciente->data_nascimento != null){
+			$this->request->data['data_nascimento']	= $paciente->data_nascimento->i18nFormat('dd/MM/YYYY');
+		}
+	
 		$this->set(compact('paciente', 'endereco', 'telefone'));
 
     }

@@ -45,7 +45,7 @@ echo $this->Html->scriptBlock("
 						<div class="form-group required">
 							<?php echo $this->Form->label('nome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->input('nome', ['label' => false, 'class' => 'form-control', 'required' => false]); ?>
+								<?php echo $this->Form->input('nome', ['label' => false, 'class' => 'form-control']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -90,7 +90,7 @@ echo $this->Html->scriptBlock("
 							</div>
 							<?php echo $this->Form->label('cpf', 'CPF', ['class' => 'col-md-1 control-label']); ?>
 							<div class="col-md-4">
-								<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control', 'required' => false]); ?>
+								<?php echo $this->Form->input('cpf', ['label' => false, 'class' => 'form-control']); ?>
 							</div>
 						</div>
 						<div class="form-group required">
@@ -128,17 +128,17 @@ echo $this->Html->scriptBlock("
 						<div class="form-group required">
 							<?php echo $this->Form->label('email', 'E-mail', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
-								<?php echo $this->Form->input('email', ['label' => false, 'class' => 'form-control', 'id' => 'email',  'required' => false]); ?>
+								<?php echo $this->Form->input('email', ['label' => false, 'class' => 'form-control', 'id' => 'email']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
 							<?php echo $this->Form->label('senha', 'Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-3">
-								<?php echo $this->Form->password('senha', ['label' => false, 'class' => 'form-control',  'required' => false]); ?>
+								<?php echo $this->Form->input('senha', ['label' => false, 'type' => 'password', 'class' => 'form-control']); ?>
 							</div>
-							<?php echo $this->Form->label('senhaRepetir', 'Repetir Senha', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('senha_repetir', 'Repetir Senha', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-3">
-								<?php echo $this->Form->password('senhaRepetir', ['label' => false, 'class' => 'form-control', 'required' => false]); ?>
+								<?php echo $this->Form->input('senha_repetir', ['label' => false, 'type' => 'password', 'class' => 'form-control']); ?>
 							</div>
 						</div>	
 						<div class="form-group">

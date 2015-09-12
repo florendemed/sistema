@@ -52,13 +52,27 @@ class ColaboradoresController extends AppController{
 		$colaborador	= $this->Colaboradores->newEntity();
 		
 		if ($this->request->is('post')) {
-			
+
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 			
+			
+			
 			$colaborador 	= $this->Colaboradores->patchEntity($colaborador, $this->request->data);
 			
+			if ( $this->request->data['senha'] != $this->request->data['senha_repetir']) {
+				
+				$colaborador->errors(['senha' => 'Confirme sua senha corretamente']); 
+				$colaborador->errors(['senha_repetir' => 'Confirme sua senha corretamente']); 
+				$this->request->data['senha'] = '';
+				$this->request->data['senha_repetir'] = '';
+				
+			} else {
+
+				$colaborador->senha = md5($this->request->data['senha']);
+			}
+
 			if ($this->Colaboradores->save($colaborador)) {
 				
 				$this->request->data['endereco']['colaborador_id']		= $colaborador->id;
