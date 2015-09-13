@@ -25,6 +25,8 @@ class ColaboradoresController extends AppController{
 				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
 			
+			
+			
 			if ($this->request->query['cpf'] != ''){
 				$condicoes['cpf LIKE'] = '%'.$this->request->query['cpf'].'%';
 			} 
@@ -56,8 +58,6 @@ class ColaboradoresController extends AppController{
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
-			
-			
 			
 			$colaborador 	= $this->Colaboradores->patchEntity($colaborador, $this->request->data);
 			
@@ -106,31 +106,89 @@ class ColaboradoresController extends AppController{
     }
 	
 	public function editar($id){
-		
-		$colaborador = $this->Colaboradores->get($id);
-		
+
 		$this->loadModel('Enderecos');
 		$this->loadModel('Telefones');
 		
-		$endereco = $this->Enderecos->findByColaboradorId($id);
-		$telefone = $this->Telefones->findAllByColaboradorId($id);
-
+		$colaborador = $this->Colaboradores->get($id);
+		
+		//Dados postados
 		if ($this->request->is('put')) {
 			
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 			
-			$this->Colaboradores->patchEntity($colaborador, $this->request->data);
+			$colaborador = $this->Colaboradores->patchEntity($colaborador, $this->request->data);
+			
+			if ( $this->request->data['senha'] != $this->request->data['senha_repetir']) {
+				$colaborador->errors(['senha' => 'Confirme sua senha corretamente']); 
+				$colaborador->errors(['senha_repetir' => 'Confirme sua senha corretamente']); 
+				$this->request->data['senha'] = '';
+				$this->request->data['senha_repetir'] = '';
+			} else {
+				$colaborador->senha = md5($this->request->data['senha']);
+			}
+			
+			if ($colaborador['envio_sms'] == '0'){
+				$colaborador['envio_sms'] = 'n';
+			}
+			
+			if ($colaborador['status'] == '0'){
+				$colaborador['status'] = 'i';
+			}
+			
 			if ($this->Colaboradores->save($colaborador)) {
+				
+				//pegar idPaciente
+				$this->request->data['endereco']['colaborador_id']	= $colaborador->id;
+				$this->request->data['telefone']['colaborador_id']	= $colaborador->id;
+				
+				//Deleta endereço e salva novamente
+				$this->Enderecos->deleteAll(['colaborador_id' => $id]);
+				$endereco = $this->Enderecos->newEntity($this->request->data['endereco']);
+				$this->Enderecos->save($endereco);
+				
+				$this->Telefones->deleteAll(['colaborador_id' => $id]);
+				
+				for( $i = 1; $i <= 3; $i++ ){
+					$telefone = $this->request->data['telefone'];
+					
+					if ( $telefone['numero'.$i] != '' ){
+						$salvarTelefone['tipo'] = $telefone['tipo'.$i];
+						$salvarTelefone['numero'] = $telefone['numero'.$i];
+						$salvarTelefone['colaborador_id'] = $colaborador->id;
+						
+						$telefone = $this->Telefones->newEntity($salvarTelefone);
+						$this->Telefones->save($telefone);
+						
+					}
+				}
+	
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
 			}
-			$this->Flash->error(__('Não foi possível salvar o registro..'));
+			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		} 
+		
+		//Dados exibidos
+		$endereco = $this->Enderecos->findByColaboradorId($id);
+		$telefone = $this->Telefones->findAllByColaboradorId($id);
+				
 		$endereco	= $endereco->toArray();
-		$endereco	= $endereco['0'];
+		
+		if ( $endereco != null){
+			$endereco	= $endereco['0'];
+		}
+		
 		$telefone 	= $telefone->toArray();
+		$colaborador['senha'] = '';
+		$colaborador['senha_repetir'] = '';
+		
+		if ( $colaborador->data_nascimento != null){
+			$this->request->data['data_nascimento']	= $colaborador->data_nascimento->i18nFormat('dd/MM/YYYY');
+		}
+	
 		$this->set(compact('colaborador', 'endereco', 'telefone'));
 
     }

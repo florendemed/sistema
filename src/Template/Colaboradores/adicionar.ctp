@@ -52,8 +52,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->label('ocupacao', 'Ocupação', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
 								<?php
-									$options = ['1' => '', '2' => 'Ocupação 1', '3' => 'Ocupação 2', '4' => 'Ocupação 3'];
-									echo $this->Form->select('ocupacao', $options,[ 'class' => 'form-control']);		
+									echo $this->Form->input('ocupacao', array('label' => false, 'class' => 'form-control', 'options' => $combo_profissoes));	
 								?>
 							</div>
 						</div>
@@ -61,8 +60,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->label('conselho_regional', 'Conselho Regional', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-2">
 								<?php
-									$options = ['1' => '', '2' => 'CRM', '3' => 'CRP', '4' => 'CRE'];
-									echo $this->Form->select('conselho_regional', $options,[ 'class' => 'form-control']);		
+									echo $this->Form->input('conselho_regional', array('label' => false, 'class' => 'form-control', 'options' => $combo_conselho_regional));		
 								?>
 							</div>
 							<?php echo $this->Form->label('numero_conselho_regional', 'Conselho Regional Número', ['class' => 'col-md-4 control-label']); ?>
@@ -78,8 +76,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->label('estado_civil', 'Estado Civil', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-3">
 								<?php
-									$options = ['1' => '', '2' => 'Solteiro', '3' => 'Casado', '4' => 'Divorciado'];
-									echo $this->Form->select('estado_civil', $options,[ 'class' => 'form-control']);		
+									echo $this->Form->input('estado_civil', array('label' => false, 'class' => 'form-control', 'options' => $combo_estadocivil));		
 								?>
 							</div>
 						</div>
@@ -95,33 +92,15 @@ echo $this->Html->scriptBlock("
 						</div>
 						<div class="form-group required">
 							<?php echo $this->Form->label('sexo', 'Sexo', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-3">
+							<div class="col-md-2">
 								<?php
-									$options = ['1' => '', '2' => 'Feminino', '3' => 'Masculino'];
-									echo $this->Form->select('sexo', $options,[ 'class' => 'form-control']);		
+									echo $this->Form->input('sexo', array('label' => false, 'class' => 'form-control', 'options' => $combo_sexo));		
 								?>
 							</div>
 							<?php echo $this->Form->label('escolaridade', 'Escolaridade', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-4">
+							<div class="col-md-5">
 								<?php
-									$options = ['1' => '', '2' => 'Escolaridade 1', '3' => 'Escolaridade 2', '4' => 'Escolaridade 3'];
-									echo $this->Form->select('escolaridade', $options,[ 'class' => 'form-control']);		
-								?>
-							</div>
-						</div>
-						<div class="form-group required">
-							<?php echo $this->Form->label('naturalidade', 'Naturalidade', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-3">
-								<?php
-									$options = ['1' => '', '2' => 'Naturalidade', '3' => 'Naturalidade 2', '4' => 'Naturalidade 3'];
-									echo $this->Form->select('naturalidade', $options,[ 'class' => 'form-control']);		
-								?>
-							</div>
-							<?php echo $this->Form->label('nacionalidade', 'Nacionalidade', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-4">
-								<?php
-									$options = ['1' => '', '2' => 'Nacionalidade', '3' => 'Nacionalidade 2', '4' => 'Nacionalidade 3'];
-									echo $this->Form->select('nacionalidade', $options,[ 'class' => 'form-control']);		
+									echo $this->Form->input('escolaridade', array('label' => false, 'class' => 'form-control', 'options' => $combo_escolaridades));		
 								?>
 							</div>
 						</div>
@@ -202,8 +181,7 @@ echo $this->Html->scriptBlock("
 								<div class="col-md-4">
 									<?php echo $this->Form->label('telefone.tipo1', '', ['class' => 'control-label']); ?>
 									<?php
-										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
-										echo $this->Form->select('telefone.tipo1', $options,[ 'class' => 'form-control']);		
+										echo $this->Form->input('telefone.tipo1', array('label' => false, 'class' => 'form-control', 'options' => $combo_tipos_telefone));		
 									?>
 								</div>
 								<div class="col-md-6">
@@ -215,8 +193,7 @@ echo $this->Html->scriptBlock("
 								<div class="col-md-4">
 									<?php echo $this->Form->label('telefone.tipo2', '', ['class' => 'control-label']); ?>
 									<?php
-										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
-										echo $this->Form->select('telefone.tipo2', $options,[ 'class' => 'form-control']);		
+										echo $this->Form->input('telefone.tipo2', array('label' => false, 'class' => 'form-control', 'options' => $combo_tipos_telefone));		
 									?>
 								</div>
 								<div class="col-md-6">
@@ -228,8 +205,7 @@ echo $this->Html->scriptBlock("
 								<div class="col-md-4">
 									<?php echo $this->Form->label('telefone.tipo3', '', ['class' => 'control-label']); ?>
 									<?php
-										$options = ['Residencial' => 'Residencial', 'Celular' => 'Celular', 'Comercial' => 'Comercial'];
-										echo $this->Form->select('telefone.tipo3', $options,[ 'class' => 'form-control']);		
+										echo $this->Form->input('telefone.tipo3', array('label' => false, 'class' => 'form-control', 'options' => $combo_tipos_telefone));		
 									?>
 								</div>
 								<div class="col-md-6">

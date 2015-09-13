@@ -42,9 +42,6 @@ class PacientesController extends AppController{
 	
 	public function adicionar(){
 		
-		//$resposta = $this->busca_cep('81210-430');
-		//print_r(json_decode($resposta));
-		
 		$this->loadModel('Enderecos');
 		$this->loadModel('Telefones');
 		
@@ -63,7 +60,7 @@ class PacientesController extends AppController{
 				
 				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
 				$this->Enderecos->save($endereco);
-				
+
 				for( $i = 1; $i <= 3; $i++ ){
 					$telefone = $this->request->data['telefone'];
 					
@@ -73,7 +70,7 @@ class PacientesController extends AppController{
 						$salvarTelefone['numero'] = $telefone['numero'.$i];
 						$salvarTelefone['paciente_id'] = $paciente->id;
 						
-						$telefone 		= $this->Telefones->newEntity($salvarTelefone);
+						$telefone = $this->Telefones->newEntity($salvarTelefone);
 						$this->Telefones->save($telefone);
 						
 					}
@@ -103,16 +100,47 @@ class PacientesController extends AppController{
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 			
 			$paciente = $this->Pacientes->patchEntity($paciente, $this->request->data);
+
+			if ($paciente['envio_sms'] == '0'){
+				$paciente['envio_sms'] = 'n';
+			}
+			
+			if ($paciente['status'] == '0'){
+				$paciente['status'] = 'i';
+			}
 			
 			if ($this->Pacientes->save($paciente)) {
 				
-				$this->Enderecos->deleteAll(['paciente_id' => $id]);
+				//pegar idPaciente
+				$this->request->data['endereco']['paciente_id']	= $paciente->id;
+				$this->request->data['telefone']['paciente_id']	= $paciente->id;
 				
-				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
+				//Deleta endereço e salva novamente
+				$this->Enderecos->deleteAll(['paciente_id' => $id]);
+				$endereco = $this->Enderecos->newEntity($this->request->data['endereco']);
 				$this->Enderecos->save($endereco);
 				
+				$this->Telefones->deleteAll(['paciente_id' => $id]);
+				
+				for( $i = 1; $i <= 3; $i++ ){
+					$telefone = $this->request->data['telefone'];
+					
+					if ( $telefone['numero'.$i] != '' ){
+						
+						$salvarTelefone['tipo'] = $telefone['tipo'.$i];
+						$salvarTelefone['numero'] = $telefone['numero'.$i];
+						$salvarTelefone['paciente_id'] = $paciente->id;
+						
+						$telefone = $this->Telefones->newEntity($salvarTelefone);
+						$this->Telefones->save($telefone);
+						
+					}
+				}
+	
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
+				
+				
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		} 
