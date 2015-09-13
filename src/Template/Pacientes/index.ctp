@@ -9,7 +9,7 @@
 		</ul>
 		<p class="alert alert-info">Clique no <strong>nome</strong> para editar os registros.</p>
 		<div class="well filtros">
-			<form action="/pacientes/index" class="form-horizontal" id="UsuarioIndexForm" method="get" accept-charset="utf-8">	
+			<form action="/pacientes/index" class="form-horizontal" method="get" accept-charset="utf-8">	
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
@@ -28,7 +28,7 @@
 				</fieldset>
 			</form>
 		</div>
-		<?php if( Count($pacientes) > 0 ) {?>
+		<?php if( count($pacientes) > 0 ) {?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>

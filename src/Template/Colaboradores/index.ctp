@@ -9,7 +9,7 @@
 		</ul>
 		<p class="alert alert-info">Clique no <strong>nome</strong> para editar os registros.</p>
 		<div class="well filtros">
-			<form action="/colaboradores/index" class="form-horizontal" id="ColaboradorIndexForm" method="get" accept-charset="utf-8">	
+			<form action="/colaboradores/index" class="form-horizontal" method="get" accept-charset="utf-8">
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">

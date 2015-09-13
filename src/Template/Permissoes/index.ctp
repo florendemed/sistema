@@ -8,17 +8,17 @@
 			<li class="active"><a href="/permissoes/index">Listar</a></li>
 		</ul>
 		<div class="well filtros">
-			<form action="/permissoes/index" class="form-horizontal" id="permissaoIndexForm" method="get" accept-charset="utf-8">	
+			<form action="/permissoes/index" class="form-horizontal" method="get" accept-charset="utf-8">	
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
-							<?php echo $this->Form->text('Nome', ['class' => 'form-control', 'id' => 'permissaoNome', 'placeholder' => 'Nome permissão']); ?>
+							<?php echo $this->Form->text('nome', ['label' => false, 'class' => 'form-control', 'placeholder' => 'Nome permissão', 'value' => @$this->request->query['nome']]); ?>
 						</div>
 						<div class="col-md-3">
-							<?php echo $this->Form->text('Controlador', ['class' => 'form-control', 'id' => 'permissaoControlador', 'placeholder' => 'Controlador']); ?>
+							<?php echo $this->Form->text('controlador', ['label' => false, 'class' => 'form-control', 'placeholder' => 'Controlador', 'value' => @$this->request->query['controlador']]); ?>
 						</div>
 						<div class="col-md-3">
-							<?php echo $this->Form->text('Ação', ['class' => 'form-control', 'id' => 'permissaoAcao', 'placeholder' => 'Ação']); ?>
+							<?php echo $this->Form->text('acao', ['label' => false, 'class' => 'form-control', 'placeholder' => 'Ação', 'value' => @$this->request->query['acao']]); ?>
 						</div>
 						<div class="col-md-1">
 							<?php 
@@ -29,89 +29,66 @@
 				</fieldset>
 			</form>
 		</div>
+		<?php if( count($permissoes) > 0 ) {?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Id</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Nome</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Status</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Menu</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Rota</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Ordem</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Permissão Pai</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Controlador</a></th>
-					<th><a href="/permissoes?sort=id&amp;direction=asc">Ação</a></th>
-					<th class="actions"></th>  	 
+					<th><?= $this->Paginator->sort('id') ?></th>
+					<th><?= $this->Paginator->sort('nome') ?></th>
+					<th><?= $this->Paginator->sort('permissao_pai', 'permissão pai') ?></th>
+					<th><?= $this->Paginator->sort('controlador') ?></a></th>
+					<th><?= $this->Paginator->sort('acao', 'ação') ?></th>
+					<th><?= $this->Paginator->sort('menu') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
+					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+					<th class="actions"></th> 	 
 				</tr>
 			</thead>
 			<tbody>
+				<?php foreach ($permissoes as $permissao): 
+				if ( h($permissao->status) == 'a' ){
+					$status = "Ativo";
+				} else {
+					$status = "Inativo";
+				}
+				
+				if ( h($permissao->menu) == 's' ){
+					$menu = "Sim";
+				} else {
+					$menu = "Não";
+				}
+				?>
 				<tr>
-					<td><a href="/permissoes/editar">1</a></td>
-					<td><a href="/permissoes/editar">Configurações</a></td>
-					<td><a href="/permissoes/editar">ativo</a></td>
-					<td><a href="/permissoes/editar">Sim</a></td>
-					<td></td>
-					<td><a href="/permissoes/editar">7</a></td>
-					<td><a href="/permissoes/editar">-</a></td>
-					<td></td>
-					<td></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->id) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->nome) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->permissao_pai) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->controlador) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->acao) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($menu) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= $status ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->created) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->modified) ?></a></td>
 					<td class="actions">
-						<a href="/permissoes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						<a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/permissoes/excluir/<?= h($permissao->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
 				</tr>
-				<tr>
-					<td><a href="/permissoes/editar">1</a></td>
-					<td><a href="/permissoes/editar">Usuários</a></td>
-					<td><a href="/permissoes/editar">ativo</a></td>
-					<td><a href="/permissoes/editar">Sim</a></td>
-					<td></td>
-					<td><a href="/permissoes/editar">3</a></td>
-					<td><a href="/permissoes/editar">1 - Configurações</a></td>
-					<td><a href="/permissoes/editar">usuarios</a></td>
-					<td></td>
-					<td class="actions">
-						<a href="/permissoes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/permissoes/editar">1</a></td>
-					<td><a href="/permissoes/editar">Financeiro</a></td>
-					<td><a href="/permissoes/editar">ativo</a></td>
-					<td><a href="/permissoes/editar">Sim</a></td>
-					<td></td>
-					<td><a href="/permissoes/editar">5</a></td>
-					<td><a href="/permissoes/editar">2 - Acessos</a></td>
-					<td><a href="/permissoes/editar">permissoes</a></td>
-					<td></td>
-					<td class="actions">
-						<a href="/permissoes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/permissoes/editar">1</a></td>
-					<td><a href="/permissoes/editar">Eventos</a></td>
-					<td><a href="/permissoes/editar">ativo</a></td>
-					<td><a href="/permissoes/editar">Sim</a></td>
-					<td></td>
-					<td><a href="/permissoes/editar">7</a></td>
-					<td><a href="/permissoes/editar">9 - Dados</a></td>
-					<td><a href="/permissoes/editar">produtos</a></td>
-					<td><a href="/permissoes/editar">carrinho</a></td>
-					<td class="actions">
-						<a href="/permissoes/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p><strong>4</strong> resultado(s) encontrado(s).</p>
+		<p>
+		<?php 
+			echo $this->Paginator->counter([
+				'format' => '<strong>{{count}}</strong> resultado(s) encontrado(s).'
+			])
+		?>
+		</p>
 		<ul class="pagination">
-			<li class="disabled prev"><a onclick="return false;">&larr; Anterior</a></li>
-			<li class="active"><a>1</a></li>
-			<li class="disabled next"><a onclick="return false;">Próxima &rarr;</a></li>
+			<?php echo $this->Paginator->numbers(['first' => 'First page']); ?>
 		</ul>
+		<?php } else { ?>
+			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
+		<?php }?>
 	</div>
 </div>

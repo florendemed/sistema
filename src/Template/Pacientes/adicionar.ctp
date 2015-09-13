@@ -137,7 +137,7 @@ echo $this->Html->scriptBlock("
 						<div class="form-group">
 							<?php echo $this->Form->label('envio_sms', 'Envio SMS', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('envio_sms', ['label' => false, 'class' => 'form-control','options' => array('S' => 'Sim', 'N' => 'Não')]); ?>
+								<?php echo $this->Form->checkbox('envio_sms', ['label' => false, 'class' => '']); ?>
 							</div>
 						</div>
 					</fieldset>

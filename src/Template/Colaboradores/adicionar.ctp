@@ -92,13 +92,13 @@ echo $this->Html->scriptBlock("
 						</div>
 						<div class="form-group required">
 							<?php echo $this->Form->label('sexo', 'Sexo', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-2">
+							<div class="col-md-3">
 								<?php
 									echo $this->Form->input('sexo', array('label' => false, 'class' => 'form-control', 'options' => $combo_sexo));		
 								?>
 							</div>
 							<?php echo $this->Form->label('escolaridade', 'Escolaridade', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-5">
+							<div class="col-md-4">
 								<?php
 									echo $this->Form->input('escolaridade', array('label' => false, 'class' => 'form-control', 'options' => $combo_escolaridades));		
 								?>
@@ -123,7 +123,7 @@ echo $this->Html->scriptBlock("
 						<div class="form-group">
 							<?php echo $this->Form->label('envio_sms', 'Envio SMS', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('envio_sms', ['class' => 'form-control','options' => array('S' => 'Sim', 'N' => 'Não')]); ?>
+								<?php echo $this->Form->iput('envio_sms', ['type' => 'checkbox', 'class' => '']); ?>
 							</div>
 						</div>
 					</fieldset>

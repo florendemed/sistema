@@ -13,75 +13,57 @@
 					<h3>Dados</h3>
 					<fieldset>
 						<div class="form-group required">
-							<?php echo $this->Form->label('PermissaoNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('nome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<?php echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'PermissaoNome', 'required' => 'required']); ?>
+								<?php echo $this->Form->text('nome', ['class' => 'form-control']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<?php echo $this->Form->label('PermissaoMenu', 'Menu', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('ordem', 'Ordem', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('Menu', ['id' => 'PermissaoMenu']); ?>
-							</div>
-						</div>	
-						<div class="form-group">
-							<?php echo $this->Form->label('PermissaoLista', 'Lista', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('Lista', ['id' => 'PermissaoLista']); ?>
-							</div>
-						</div>
-						<div class="form-group required">
-							<?php echo $this->Form->label('PermissaoOrdem', 'Ordem', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->text('ordem', ['type' => 'number', 'class' => 'form-control', 'id' => 'PermissaoOrdem']); ?>
+								<?php echo $this->Form->text('ordem', ['type' => 'number', 'class' => 'form-control']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
-							<?php echo $this->Form->label('PermissaoPermissoesId', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('permissao_pai', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
 								<?php 
 									$options = [ 
-										'0' => 'Nenhum',  
-										'1' => 'Permissão 1', 
-										'2' => 'Permissão 2', 
-										'3' => 'Permissão 3', 
-										'4' => 'Permissão 4', 
-										'5' => 'Permissão 5', 
-										'6' => 'Permissão 6', 
-										'7' => 'Permissão 7', 
-										'8' => 'Permissão 8' 
+										'Nenhum' => 'Nenhum',  
+										'Permissão 1' => 'Permissão 1', 
+										'Permissão 2' => 'Permissão 2', 
+										'Permissão 3' => 'Permissão 3', 
+										'Permissão 4' => 'Permissão 4', 
+										'Permissão 5' => 'Permissão 5', 
+										'Permissão 6' => 'Permissão 6', 
+										'Permissão 7' => 'Permissão 7', 
+										'Permissão 8' => 'Permissão 8' 
 									];
-									echo $this->Form->select('PermissaoPermissoesId', $options, [ 'class' => 'form-control' ]);
+									echo $this->Form->select('permissao_pai', $options, [ 'class' => 'form-control' ]);
 								?>
 							</div>
 						</div>
+						<div class="form-group required">
+							<?php echo $this->Form->label('menu', 'Menu', ['class' => 'col-md-3 control-label']); ?>
+							<div class="col-md-8">
+								<?php echo $this->Form->checkbox('menu', ['id' => 'PermissaoMenu']); ?>
+							</div>
+						</div>	
 					</fieldset>
 				</div>
 				<div class="col-md-6">
-					<h3>URL/Rota/Endereçamento</h3>
+					<h3>URL/Endereçamento</h3>
 					<fieldset>
 						<div class="form-group">
-							<?php echo $this->Form->label('PermissaoPlugin', 'Plugin', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->text('plugin', ['class' => 'form-control', 'id' => 'PermissaoPlugin']); ?>
+							<?php echo $this->Form->label('controlador', 'Controlador', ['class' => 'col-md-2 control-label']); ?>
+							<div class="col-md-10">
+								<?php echo $this->Form->text('controlador', ['class' => 'form-control']); ?>
 							</div>
 						</div>
 						<div class="form-group">
-							<?php echo $this->Form->label('PermissaoController', 'Controlador', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->text('controlador', ['class' => 'form-control', 'id' => 'PermissaoController']); ?>
-							</div>
-						</div>
-						<div class="form-group">
-							<?php echo $this->Form->label('PermissaoAction', 'Ação', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->text('ação', ['class' => 'form-control', 'id' => 'PermissaoAction']); ?>
-							</div>
-						</div>
-						<div class="form-group">
-							<?php echo $this->Form->label('PermissaoRoute', 'Rota', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->text('rota', ['class' => 'form-control', 'id' => 'PermissaoRoute']); ?>
+							<?php echo $this->Form->label('acao', 'Ação', ['class' => 'col-md-2 control-label']); ?>
+							<div class="col-md-10">
+								<?php echo $this->Form->text('acao', ['class' => 'form-control']); ?>
 							</div>
 						</div>
 					</fieldset>
