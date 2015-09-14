@@ -7,6 +7,7 @@
 			<li><a href="/permissoes/adicionar">Novo</a></li>
 			<li class="active"><a href="/permissoes/index">Listar</a></li>
 		</ul>
+		<p class="alert alert-info">Clique no <strong>nome</strong> para editar os registros.</p>
 		<div class="well filtros">
 			<form action="/permissoes/index" class="form-horizontal" method="get" accept-charset="utf-8">	
 				<fieldset>

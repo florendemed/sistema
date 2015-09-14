@@ -49,17 +49,18 @@ class GruposController extends AppController{
 			}
 			
 			if ($grupo = $this->Grupos->save($grupo)) {
-								
+
 				foreach($this->request->data['permissao']['nome'] as $item){
-					
+
 					if ( $item != '0' ){
 
-						$salvarGrupsoPermissoes['grupos_id'] 	= $grupo['id'];
+						$salvarGruposPermissoes['grupos_id'] 	= $grupo['id'];
 						$salvarGruposPermissoes['permissoes_id'] = $item;
-						
-						$GruposPermissoes = $this->GruposPermissoes->newEntity($salvarGruposPermissoes);
-						$this->GruposPermissoes->save($GruposPermissoes);
+					
+						$gruposPermissoes = $this->GruposPermissoes->newEntity($salvarGruposPermissoes);
+						$this->gruposPermissoes->save($gruposPermissoes);
 					}
+					
 				}
 
 				$this->Flash->success(__('Registro inserido com sucesso.'));
@@ -69,11 +70,17 @@ class GruposController extends AppController{
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
 		$grupo = $this->Grupos->newEntity();
-		$this->set(compact('grupo', 'permissoes'));
+		$this->set(compact('grupo', 'permissoes', 'gruposPermissoes'));
 		
     }
 	
 	public function editar($id){
+		
+		$this->loadModel('Permissoes');
+		$this->loadModel('GruposPermissoes');
+
+		$GruposPermissoes = $this->GruposPermissoes->find('all');
+		$GruposPermissoes = $GruposPermissoes->toArray();
 		
 		$grupo = $this->Grupos->get($id);
 		

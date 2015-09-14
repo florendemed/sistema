@@ -112,7 +112,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->label('escolaridade', 'Escolaridade', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-9">
 								<?php
-									echo $this->Form->input('cor', array('label' => false, 'class' => 'form-control', 'options' => $combo_escolaridades));	
+									echo $this->Form->input('escolaridade', array('label' => false, 'class' => 'form-control', 'options' => $combo_escolaridades));	
 								?>
 							</div>
 						</div>

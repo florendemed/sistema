@@ -50,7 +50,12 @@ class ColaboradoresController extends AppController{
 		
 		$this->loadModel('Enderecos');
 		$this->loadModel('Telefones');
+		$this->loadModel('Grupos');
+		$this->loadModel('GruposColaboradores');
 		
+		$grupo = $this->Grupos->find('all');
+		$grupo = $grupo->toArray();
+
 		$colaborador	= $this->Colaboradores->newEntity();
 		
 		if ($this->request->is('post')) {
@@ -80,6 +85,20 @@ class ColaboradoresController extends AppController{
 				
 				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
 				$this->Enderecos->save($endereco);
+
+				foreach($this->request->data['grupo']['nome'] as $item){
+
+					if ( $item != '0' ){
+
+						$salvar['colaboradores_id'] 	 = $colaborador['id'];
+						$salvar['grupos_id'] = $item;		
+
+						$grupoColaborador = $this->GruposColaboradores->newEntity($salvar);
+						$this->GruposColaboradores->save($grupoColaborador);
+
+					}
+					
+				}
 				
 				for( $i = 1; $i <= 3; $i++ ){
 					$telefone = $this->request->data['telefone'];
@@ -102,7 +121,7 @@ class ColaboradoresController extends AppController{
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
-		$this->set(compact('colaborador'));
+		$this->set(compact('colaborador', 'grupo', 'grupoColaborador'));
     }
 	
 	public function editar($id){

@@ -22,7 +22,7 @@
 						<div class="form-group required">
 							<?php echo $this->Form->label('ordem', 'Ordem', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<?php echo $this->Form->input('ordem', ['label' => false, 'class' => 'form-control']); ?>
+								<?php echo $this->Form->text('ordem', ['label' => false, 'class' => 'form-control']); ?>
 							</div>
 						</div>	
 						<div class="form-group required">
