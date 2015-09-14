@@ -7,7 +7,7 @@
 			<li class="active"><a href="/Grupos/adicionar">Novo</a></li>
 			<li><a href="/Grupos/index">Listar</a></li>
 		</ul>
-		<form action="/Grupos/adicionar" class="form-horizontal" id="GruposAdicionarForm" method="post" accept-charset="utf-8">
+		<form action="/Grupos/adicionar" class="form-horizontal" method="post" accept-charset="utf-8">
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Grupo de Acesso</h3>
@@ -15,33 +15,26 @@
 					<h3>Dados</h3>
 					<fieldset>
 						<div class="form-group required">
-							<?php echo $this->Form->label('GrupoNome', 'Nome', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->text('nome', ['class' => 'form-control', 'id' => 'GrupoNome', 'required' => 'required']); ?>
+							<?php echo $this->Form->label('nome', 'Nome', ['class' => 'col-md-2 control-label']); ?>
+							<div class="col-md-10">
+								<?php echo $this->Form->text('nome', ['label' => false, 'class' => 'form-control']); ?>
 							</div>
 						</div>	
 						<div class="form-group">
-							<?php echo $this->Form->label('GrupoPublico', 'Público', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('Público', ['id' => 'GrupoPublico']); ?>
+							<?php echo $this->Form->label('restrito', 'Público', ['class' => 'col-md-2 control-label']); ?>
+							<div class="col-md-10">
+								<?php echo $this->Form->checkbox('restrito', ['label' => false]); ?>
 							</div>
 						</div>	
 					</fieldset>
 				</div>
 				<div class="col-md-6">
-					<h3>Controle de Acesso</h3>
+					<h3>Permissões</h3>
 					<fieldset>
-						<p><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="52" /> Alteração de Status de Cadeiras</p>
-						<p><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="18" /> Associação</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="55" /> Bloqueio de Cadeiras</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="38" /> Busca de Cadeira</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="19" /> Cadastro de Sócio</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="21" /> Carrinho de Compras</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="54" /> Correção de Cadastro</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="90" /> Editar Indicação no Contrato</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="156" /> Extrato Comercial</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="154" /> Extrato Contratual</p>
-						<p class="int1"><input type="checkbox" name="data[permissoes][]" id="data[permissoes][]"  value="22" /> Listagem de Movimentações</p>
+						<?php foreach ($permissoes as $i => $permissao) :
+							echo $this->Form->input('permissao.nome.'.$i, ['label' => false, 'type' => 'checkbox', 'value' => @$permissao['id'], 'div' => false]);
+							echo $permissao['nome'];
+						endforeach; ?>
 					</fieldset>
 				</div>
 			</div>

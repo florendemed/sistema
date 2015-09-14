@@ -44,7 +44,10 @@ class PermissoesController extends AppController{
 		if ($this->request->is('post')) {
 			
 			$permissao	= $this->Permissoes->newEntity($this->request->data);
-			pr($permissao);
+			
+			if ($permissao['menu'] == '0'){
+				$permissao['menu'] = 'n';
+			}
 			
 			if ($this->Permissoes->save($permissao)) {
 				
@@ -63,7 +66,6 @@ class PermissoesController extends AppController{
 		
 		$permissao = $this->Permissoes->get($id);
 		
-		//Dados postados
 		if ($this->request->is('put')) {
 			
 			$permissao = $this->Permissoes->patchEntity($permissao, $this->request->data);

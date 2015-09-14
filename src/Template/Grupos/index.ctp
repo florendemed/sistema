@@ -9,11 +9,11 @@
 		</ul>
 		<p class="alert alert-info">Clique no <strong>nome</strong> para editar os registros.</p>
 		<div class="well filtros">
-			<form action="/grupos/index" class="form-horizontal" id="grupoIndexForm" method="get" accept-charset="utf-8">	
+			<form action="/grupos/index" class="form-horizontal" method="get" accept-charset="utf-8">	
 				<fieldset>
 					<div class="row">
 						<div class="col-md-2">
-							<?php echo $this->Form->text('Nome', ['class' => 'form-control', 'id' => 'grupoNome', 'placeholder' => 'Nome grupo']); ?>
+							<?php echo $this->Form->text('nome', ['class' => 'form-control', 'placeholder' => 'Nome grupo']); ?>
 						</div>
 						<div class="col-md-1">
 							<?php echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']); ?>
@@ -22,69 +22,59 @@
 				</fieldset>
 			</form>
 		</div>
+		<?php if( count($grupos) > 0 ) {?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th><a href="/grupos?sort=id&amp;direction=asc">Id</a></th>
-					<th><a href="/grupos?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/grupos?sort=status&amp;direction=asc">Público</a></th>
-					<th><a href="/grupos?sort=status&amp;direction=asc">Data Cadastro</a></th>
-					<th><a href="/grupos?sort=created&amp;direction=asc">Última Alteração</a></th>
-					<th class="actions"></th>
+					<th><?= $this->Paginator->sort('id') ?></th>
+					<th><?= $this->Paginator->sort('nome') ?></th>
+					<th><?= $this->Paginator->sort('restrito', 'Público') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
+					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
 				</tr>
 			</thead>
 			<tbody>
+				<?php foreach ($grupos as $grupo): 
+				if ( h($grupo->status) == 'a' ){
+					$status = "Ativo";
+				} else {
+					$status = "Inativo";
+				}
+				
+				if ( h($grupo->restrito) == 's' ){
+					$restrito = "Sim";
+				} else {
+					$restrito = "Não";
+				}
+				?>
 				<tr>
-					<td><a href="/grupos/editar">1</a></td>
-					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">não</a></td>
-					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
-					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
+					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->id) ?></a></td>
+					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->nome) ?></a></td>
+					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($restrito) ?></a></td>
+					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= $status ?></a></td>
+					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->created) ?></a></td>
+					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->modified) ?></a></td>
 					<td class="actions">
-						<a href="/grupos/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						<a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/grupos/excluir/<?= h($grupo->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
 				</tr>
-				<tr>
-					<td><a href="/grupos/editar">2</a></td>
-					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">não</a></td>
-					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
-					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
-					<td class="actions">
-						<a href="/grupos/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/grupos/editar">3</a></td>
-					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">não</a></td>
-					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
-					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
-					<td class="actions">
-						<a href="/grupos/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/grupos/editar">4</a></td>
-					<td><a href="/grupos/editar">Atendente</a></td>
-					<td><a href="/grupos/editar">não</a></td>
-					<td><a href="/grupos/editar">27/07/2010 17:38</a></td>
-					<td><a href="/grupos/editar">03/02/2015 17:13</a></td>
-					<td class="actions">
-						<a href="/grupos/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p><strong>4</strong> resultado(s) encontrado(s).</p>
+		<p>
+		<?php 
+			echo $this->Paginator->counter([
+				'format' => '<strong>{{count}}</strong> resultado(s) encontrado(s).'
+			])
+		?>
+		</p>
 		<ul class="pagination">
-			<li class="disabled prev"><a onclick="return false;">&larr; Anterior</a></li>
-			<li class="active"><a>1</a></li>
-			<li class="disabled next"><a onclick="return false;">Próxima &rarr;</a></li>
+			<?php echo $this->Paginator->numbers(['first' => 'First page']); ?>
 		</ul>
+		<?php } else { ?>
+			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
+		<?php }?>
 	</div>
 </div>
