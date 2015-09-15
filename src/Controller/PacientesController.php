@@ -148,7 +148,6 @@ class PacientesController extends AppController{
 		//Dados exibidos
 		$endereco = $this->Enderecos->findByPacienteId($id);
 		$telefone = $this->Telefones->findAllByPacienteId($id);
-		
 		$endereco	= $endereco->toArray();
 		$endereco	= $endereco['0'];
 		$telefone 	= $telefone->toArray();

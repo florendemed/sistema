@@ -58,7 +58,7 @@ class GruposController extends AppController{
 						$salvarGruposPermissoes['permissoes_id'] = $item;
 					
 						$gruposPermissoes = $this->GruposPermissoes->newEntity($salvarGruposPermissoes);
-						$this->gruposPermissoes->save($gruposPermissoes);
+						$this->GruposPermissoes->save($gruposPermissoes);
 					}
 					
 				}
@@ -79,9 +79,18 @@ class GruposController extends AppController{
 		$this->loadModel('Permissoes');
 		$this->loadModel('GruposPermissoes');
 
-		$GruposPermissoes = $this->GruposPermissoes->find('all');
-		$GruposPermissoes = $GruposPermissoes->toArray();
+		$permissoes = $this->Permissoes->find('all');
+		$permissoes = $permissoes->toArray();
 		
+		$gruposPermissoes = $this->GruposPermissoes->findAllByGruposId($id);
+		$selecionados = $gruposPermissoes->toArray();
+		
+		$checados = array();
+		
+		foreach ($selecionados as $s){
+			$checados[] = $s['permissoes_id'];
+		}
+				
 		$grupo = $this->Grupos->get($id);
 		
 		if ($this->request->is('put')) {
@@ -98,13 +107,28 @@ class GruposController extends AppController{
 			
 			if ($this->Grupos->save($grupo)) {
 				
+				$this->GruposPermissoes->deleteAll(['grupos_id' => $id]);
+				
+				foreach($this->request->data['permissao']['nome'] as $item){
+
+					if ( $item != '0' ){
+
+						$salvarGruposPermissoes['grupos_id'] 	= $grupo['id'];
+						$salvarGruposPermissoes['permissoes_id'] = $item;
+					
+						$gruposPermissoes = $this->GruposPermissoes->newEntity($salvarGruposPermissoes);
+						$this->GruposPermissoes->save($gruposPermissoes);
+					}
+					
+				}
+				
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
 				
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		} 
-		$this->set(compact('grupo'));
+		$this->set(compact('grupo', 'permissoes', 'checados', 'gruposPermissoes'));
 	}
 	
 	public function excluir($id){

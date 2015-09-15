@@ -38,10 +38,17 @@
 				<div class="col-md-6">
 					<h3>Permissões</h3>
 					<fieldset>
-						<?php foreach ($permissoes as $i => $permissao) :
-							echo $this->Form->input('permissao.nome.'.$i, ['label' => false, 'type' => 'checkbox', 'value' => @$permissao['id'], 'div' => false]);
+						<?php 
+						foreach ($permissoes as $i => $permissao) :
+							$checked = false;
+							if ( in_array($permissao['id'], $checados) ){
+								//encontrou no array e marca como checado
+								$checked = true;
+							}
+							echo $this->Form->input('permissao.nome.'.$i, ['label' => false, 'checked' => $checked, 'type' => 'checkbox', 'value' => @$permissao['id'], 'div' => false]);
 							echo $permissao['nome'];
-						endforeach; ?>
+						endforeach; 
+						?>
 					</fieldset>
 				</div>
 			</div>
