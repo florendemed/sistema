@@ -44,6 +44,28 @@ class ColaboradoresController extends AppController{
 	public function login(){
 		$this->layout = 'login';
 		$this->set('title', 'Login');
+		
+		if ($this->request->is('post')) {
+				
+			$senha = md5($this->request->data['senha']);
+			
+			$colaborador = $this->Colaboradores->find('all',[
+				'conditions' => [
+					'Colaboradores.cpf' => $this->request->data['cpf'],
+					'Colaboradores.senha' => $senha,
+					'Colaboradores.status' => 'a',
+				]
+			]);
+			
+			if ( $colaborador->count() == '0'){
+				$this->Flash->error(__('Usuário o senha inválidos.'));
+			} else {
+				$colaborador	= $colaborador->toArray();
+				$this->request->session()->write('logado_id', $colaborador->id);
+				return $this->redirect('/atendimentos/index');
+			}
+			
+		}
     }
 	
 	public function adicionar(){
