@@ -36,8 +36,8 @@ class DoencasController extends AppController{
 		
 		//carregando XML do CID10
 		
-		$xml = simplexml_load_file('C:\xampp2\htdocs\CID10XML\CID10.xml')or die("Erro! Não é possivel abrir XML!");
-		/*
+		/*$xml = simplexml_load_file('C:\xampp2\htdocs\CID10XML\CID10.xml')or die("Erro! Não é possivel abrir XML!");
+		
 		echo '<font color=blue><b>Capitulo 1, grupo 1, categoria [1-]</b></font><br>';
 		echo $xml->capitulo[0]->grupo[0]->categoria[0]['codcat'].'--';//Imprimindo dentro de capitulo>grupo>categoria[indice do array categoria][codigo da categoria]
 		echo $xml->capitulo[0]->grupo[0]->categoria[0]->nome.'<br>';
@@ -76,7 +76,7 @@ class DoencasController extends AppController{
 			$aux++;
 			
 		}
-		*/
+		
 		
 		foreach($xml->capitulo[0]->grupo[0] as $xml){
 			echo $xml->nome.'<br>';
@@ -85,7 +85,7 @@ class DoencasController extends AppController{
 			echo $xml->nome.'<br>';
 			echo $xml->nome50.'<br>';
 		}
-		echo $xml->capitulo[0]->grupo[1]->categoria->nome.'<br>';
+		echo $xml->capitulo[0]->grupo[1]->categoria->nome.'<br>';*/
 		
 		
 		

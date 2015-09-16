@@ -15,18 +15,14 @@ class ColaboradoresController extends AppController{
     ];
 	
 	public function index(){
-		
 		$condicoes = [];
 		
 		if (!empty($this->request->query)){
 			
-			
 			if ($this->request->query['nome'] != ''){
 				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
-			
-			
-			
+
 			if ($this->request->query['cpf'] != ''){
 				$condicoes['cpf LIKE'] = '%'.$this->request->query['cpf'].'%';
 			} 
@@ -48,7 +44,7 @@ class ColaboradoresController extends AppController{
 		if ($this->request->is('post')) {
 				
 			$senha = md5($this->request->data['senha']);
-			
+
 			$colaborador = $this->Colaboradores->find('all',[
 				'conditions' => [
 					'Colaboradores.cpf' => $this->request->data['cpf'],
@@ -58,13 +54,13 @@ class ColaboradoresController extends AppController{
 			]);
 			
 			if ( $colaborador->count() == '0'){
-				$this->Flash->error(__('Usuário o senha inválidos.'));
+				$this->Flash->error(__('Usuário ou senha inválidos.'));
 			} else {
 				$colaborador	= $colaborador->toArray();
 				$this->request->session()->write('logado_id', $colaborador->id);
+				
 				return $this->redirect('/atendimentos/index');
 			}
-			
 		}
     }
 	

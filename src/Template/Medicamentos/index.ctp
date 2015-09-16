@@ -4,7 +4,7 @@
 			<li class="active">Dados / Medicamentos</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li><a href="/medicamentos/importar">Importar</a></li>
+			<li><a href="/medicamentos/adicionar">Adicionar</a></li>
 			<li class="active"><a href="/medicamentos/index">Listar</a></li>
 		</ul>
 		<div class="well filtros">
@@ -27,17 +27,30 @@
 				<tr>
 					<th><?= $this->Paginator->sort('id') ?></th>
 					<th><?= $this->Paginator->sort('nome', 'Medicamentos') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
 					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
 					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+					<th class="actions"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($medicamentos as $medicamento): ?>
+				<?php foreach ($medicamentos as $medicamento): 
+					if ( h($medicamento->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+				?>
 				<tr>
 					<td><?= h($medicamento->id) ?></td>
 					<td><?= h($medicamento->nome) ?></td>
+					<td><?= $status ?></td>
 					<td><?= h($medicamento->created) ?></td>
 					<td><?= h($medicamento->modified) ?></td>
+					<td class="actions">
+						<a href="/medicamentos/editar/<?= h($medicamento->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/medicamentos/excluir/<?= h($medicamento->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+					</td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>

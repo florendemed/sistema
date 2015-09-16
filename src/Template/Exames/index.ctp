@@ -4,7 +4,7 @@
 			<li class="active">Dados / Exames</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li><a href="/exames/importar">Importar</a></li>
+			<li><a href="/exames/adicionar">Novo</a></li>
 			<li class="active"><a href="/exames/index">Listar</a></li>
 		</ul>
 		<div class="well filtros">
@@ -27,17 +27,30 @@
 				<tr>
 					<th><?= $this->Paginator->sort('id') ?></th>
 					<th><?= $this->Paginator->sort('nome', 'Exames') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
 					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
 					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+					<th class="actions"></th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($exames as $exame): ?>
+				<?php foreach ($exames as $exame): 
+					if ( h($exame->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+				?>
 				<tr>
 					<td><?= h($exame->id) ?></td>
 					<td><?= h($exame->nome) ?></td>
+					<td><?= $status ?></td>
 					<td><?= h($exame->created) ?></td>
 					<td><?= h($exame->modified) ?></td>
+					<td class="actions">
+						<a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/exames/excluir/<?= h($exame->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+					</td>
 				</tr>
 				<?php endforeach; ?>
 			</tbody>

@@ -26,12 +26,12 @@
 							</div>
 						</div>	
 						<div class="form-group required">
-							<label for="nomeProfissional" class="col-md-3 control-label">Profissional</label>
+							<?php echo $this->Form->label('profissional', 'Profissional', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-9">
-								<?php
-									$options = ['1' => '', '2' => 'Profissional 1', '3' => 'Profissional 2', '4' => 'Profissional 3', '5' => 'Profissional 4'];
-									echo $this->Form->select('profissional', $options,[ 'class' => 'form-control']);		
-								?>
+								<?php foreach ($colaborador as $colaboradores):
+									echo ($colaboradores['nome']);
+									echo $this->Form->input('cor', array('label' => false, 'class' => 'form-control', 'options' => $combo_raca));
+								endforeach; ?>
 							</div>
 						</div>
 					</fieldset>
