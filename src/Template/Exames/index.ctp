@@ -56,7 +56,6 @@
 			</tbody>
 		</table>
 		<p>
-		<p>
 		<?php 
 			echo $this->Paginator->counter([
 				'format' => '<strong>{{count}}</strong> resultado(s) encontrado(s).'

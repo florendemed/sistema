@@ -51,14 +51,14 @@ class PacientesController extends AppController{
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 						
-			$paciente	= $this->Pacientes->newEntity($this->request->data);
+			$paciente = $this->Pacientes->newEntity($this->request->data);
 			
 			if ($this->Pacientes->save($paciente)) {
 				
-				$this->request->data['endereco']['paciente_id']			= $paciente->id;
-				$this->request->data['telefone']['paciente_id']			= $paciente->id;
+				$this->request->data['endereco']['paciente_id']	= $paciente->id;
+				$this->request->data['telefone']['paciente_id']	= $paciente->id;
 				
-				$endereco 	= $this->Enderecos->newEntity($this->request->data['endereco']);
+				$endereco = $this->Enderecos->newEntity($this->request->data['endereco']);
 				$this->Enderecos->save($endereco);
 
 				for( $i = 1; $i <= 3; $i++ ){

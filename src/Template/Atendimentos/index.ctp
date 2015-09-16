@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Atendimentos</li>
+			<li class="active">Atendimentos</li>
 		</ul>
 		<ul class="nav nav-tabs">
 			<li><a href="/atendimentos/adicionar">Novo</a></li>
@@ -31,69 +31,54 @@
 				</fieldset>
 			</form>
 		</div>
+		<?php if( count($atendimento) > 0 ) {?>
 		<table class="table table-striped table-hover">
 			<thead>
 				<tr>
-					<th><a href="/colaboradores?sort=id&amp;direction=asc">Id</a></th>
-					<th><a href="/colaboradores?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/colaboradores?sort=nome&amp;direction=asc">Médico</a></th>
-					<th><a href="/colaboradores?sort=email&amp;direction=asc">Data Atendimento</a></th>
-					<th><a href="/colaboradores?sort=status&amp;direction=asc">Status</a></th>
+					<th><?= $this->Paginator->sort('id') ?></th>
+					<th><?= $this->Paginator->sort('pacientes_id', 'Paciente') ?></th>
+					<th><?= $this->Paginator->sort('colaborador_id', 'Colaborador') ?></th>
+					<th><?= $this->Paginator->sort('status') ?></th>
+					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
 					<th class="actions"></th>
 				</tr>
 			</thead>
 			<tbody>
+				<?php foreach ($atendimento as $atendimentos): 
+					if ( h($atendimentos->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+				?>
 				<tr>
-					<td><a href="/colaboradores/editar">1</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">Médico Médico Médico</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
-					<td><a href="/colaboradores/editar">ativo</a></td>
+					<td><?= h($atendimento->id) ?></td>
+					<td><?= h($atendimento->paciente_id) ?></td>
+					<td><?= h($atendimento->colaborador_id) ?></td>
+					<td><?= $status ?></td>
+					<td><?= h($atendimento->created) ?></td>
+					<td><?= h($atendimento->modified) ?></td>
 					<td class="actions">
-						<a href="/colaboradores/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						<a href="/atendimentos/editar/<?= h($atendimento->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+						<a href="/atendimentos/excluir/<?= h($atendimento->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 					</td>
 				</tr>
-				<tr>
-					<td><a href="/colaboradores/editar">2</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">Médico Médico Médico</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
-					<td><a href="/colaboradores/editar">ativo</a></td>
-					<td class="actions">
-						<a href="/colaboradores/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/colaboradores/editar">3</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">Médico Médico Médico</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
-					<td><a href="/colaboradores/editar">ativo</a></td>
-					<td class="actions">
-						<a href="/colaboradores/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<tr>
-					<td><a href="/colaboradores/editar">4</a></td>
-					<td><a href="/colaboradores/editar">Teste Teste Teste</a></td>
-					<td><a href="/colaboradores/editar">Médico Médico Médico</a></td>
-					<td><a href="/colaboradores/editar">27/12/1982</a></td>
-					<td><a href="/colaboradores/editar">ativo</a></td>
-					<td class="actions">
-						<a href="/colaboradores/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
-		<p><strong>4</strong> resultado(s) encontrado(s).</p>
+		<p>
+		<?php 
+			echo $this->Paginator->counter([
+				'format' => '<strong>{{count}}</strong> resultado(s) encontrado(s).'
+			])
+		?>
+		</p>
 		<ul class="pagination">
-			<li class="disabled prev"><a onclick="return false;">&larr; Anterior</a></li>
-			<li class="active"><a>1</a></li>
-			<li class="disabled next"><a onclick="return false;">Próxima &rarr;</a></li>
+			<?php echo $this->Paginator->numbers(['first' => 'First page']); ?>
 		</ul>
+		<?php } else { ?>
+			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
+		<?php }?>
 	</div>
 </div>
