@@ -222,8 +222,8 @@ echo $this->Html->scriptBlock("
 					<p class="alert alert-info">Administre os grupos de acesso deste usuário abaixo.</p>
 					<fieldset>
 						<?php foreach ($grupos as $i => $grupo) :
-							echo $this->Form->input('grupo.nome.'.$i, ['label' => false, 'type' => 'checkbox', 'value' => @$grupo['id'], 'div' => false]);
-							echo $grupo['nome'];
+							echo '<div>'.$this->Form->checkbox('grupo.nome.'.$i, ['label' => false, 'value' => @$grupo['id'], 'div' => false]);
+							echo ' '.$grupo['nome'].'</div>';
 						endforeach; ?>
 					</fieldset>
 				</div>

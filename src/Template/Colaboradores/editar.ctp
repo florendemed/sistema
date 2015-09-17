@@ -245,8 +245,8 @@ echo $this->Html->scriptBlock("
 								//encontrou no array e marca como checado
 								$checked = true;
 							}
-							echo $this->Form->input('grupo.nome.'.$i, ['label' => false, 'checked' => $checked, 'type' => 'checkbox', 'value' => @$grupo['id'], 'div' => false]);
-							echo $grupo['nome'];
+							echo '<div>'.$this->Form->checkbox('grupo.nome.'.$i, ['label' => false, 'checked' => $checked, 'value' => @$grupo['id'], 'div' => false]);
+							echo ' '.$grupo['nome'].'</div>';
 						endforeach; 
 						?>
 					</fieldset>

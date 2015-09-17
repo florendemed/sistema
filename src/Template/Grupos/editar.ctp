@@ -45,8 +45,8 @@
 								//encontrou no array e marca como checado
 								$checked = true;
 							}
-							echo $this->Form->input('permissao.nome.'.$i, ['label' => false, 'checked' => $checked, 'type' => 'checkbox', 'value' => @$permissao['id'], 'div' => false]);
-							echo $permissao['nome'];
+							echo '<div>'.$this->Form->checkbox('permissao.nome.'.$i, ['label' => false, 'checked' => $checked, 'value' => @$permissao['id'], 'div' => false]);
+							echo ' '.$permissao['nome'].'</div>';
 						endforeach; 
 						?>
 					</fieldset>

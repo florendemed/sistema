@@ -32,8 +32,8 @@
 					<h3>Permissões</h3>
 					<fieldset>
 						<?php foreach ($permissoes as $i => $permissao) :
-							echo $this->Form->input('permissao.nome.'.$i, ['label' => false, 'type' => 'checkbox', 'value' => @$permissao['id'], 'div' => false]);
-							echo $permissao['nome'];
+							echo '<div>'.$this->Form->checkbox('permissao.nome.'.$i, ['label' => false, 'value' => @$permissao['id'], 'div' => false]);
+							echo ' '.$permissao['nome'].'</div>';
 						endforeach; ?>
 					</fieldset>
 				</div>

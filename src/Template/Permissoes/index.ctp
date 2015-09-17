@@ -36,9 +36,9 @@
 				<tr>
 					<th><?= $this->Paginator->sort('id') ?></th>
 					<th><?= $this->Paginator->sort('nome') ?></th>
-					<th><?= $this->Paginator->sort('permissao_pai', 'permissão pai') ?></th>
+					<th><?= $this->Paginator->sort('permissao_pai', 'Permissão Pai') ?></th>
 					<th><?= $this->Paginator->sort('controlador') ?></a></th>
-					<th><?= $this->Paginator->sort('acao', 'ação') ?></th>
+					<th><?= $this->Paginator->sort('acao', 'Ação') ?></th>
 					<th><?= $this->Paginator->sort('menu') ?></th>
 					<th><?= $this->Paginator->sort('status') ?></th>
 					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
@@ -47,25 +47,39 @@
 				</tr>
 			</thead>
 			<tbody>
-				<?php foreach ($permissoes as $permissao): 
-				if ( h($permissao->status) == 'a' ){
-					$status = "Ativo";
-				} else {
-					$status = "Inativo";
-				}
-				
-				if ( h($permissao->menu) == 's' ){
-					$menu = "Sim";
-				} else {
-					$menu = "Não";
-				}
+				<?php 
+				foreach ($permissoes as $permissao): 
+					if ( h($permissao->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+					
+					if ( h($permissao->menu) == 's' ){
+						$menu = "Sim";
+					} else {
+						$menu = "Não";
+					}
+					
+					if ( h($permissao->controlador) == 'null' ){
+						$controlador = "-";
+					} else {
+						$controlador = h($permissao->controlador);
+					}
+					
+					if ( h($permissao->acao) == 'null' ){
+						$acao = "-";
+					} else {
+						$acao = h($permissao->acao);
+					}
+
 				?>
 				<tr>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->id) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->nome) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->permissao_pai) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->controlador) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->acao) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($controlador) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($acao) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($menu) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= $status ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->created) ?></a></td>

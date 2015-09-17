@@ -35,7 +35,7 @@ class PermissoesController extends AppController{
 		$this->paginate = [
 			'conditions' => $condicoes
 		];		
-		$permissoes = $this->paginate($this->Permissoes);
+		$permissoes = $this->paginate($this->Permissoes);	
 		$this->set(compact('permissoes'));
     }
 	
