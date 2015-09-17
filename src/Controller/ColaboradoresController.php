@@ -57,8 +57,8 @@ class ColaboradoresController extends AppController{
 				$this->Flash->error(__('Usuário ou senha inválidos.'));
 			} else {
 				$colaborador	= $colaborador->toArray();
-				$this->request->session()->write('logado_id', $colaborador->id);
-				
+				$this->request->session()->write('logado_id', $colaborador['0']->id);
+
 				return $this->redirect('/atendimentos/index');
 			}
 		}
@@ -204,31 +204,22 @@ class ColaboradoresController extends AppController{
 				
 				for( $i = 1; $i <= 3; $i++ ){
 					$telefone = $this->request->data['telefone'];
-					
 					if ( $telefone['numero'.$i] != '' ){
 						$salvarTelefone['tipo'] = $telefone['tipo'.$i];
 						$salvarTelefone['numero'] = $telefone['numero'.$i];
 						$salvarTelefone['colaborador_id'] = $colaborador->id;
-						
 						$telefone = $this->Telefones->newEntity($salvarTelefone);
 						$this->Telefones->save($telefone);
-						
 					}
 				}
-				
 				foreach($this->request->data['grupo']['nome'] as $item){
-
 					if ( $item != '0' ){
-
 						$salvarGruposColaboradores['colaboradores_id'] 	= $colaborador['id'];
 						$salvarGruposColaboradores['grupos_id'] = $item;
-					
 						$GruposColaboradores = $this->GruposColaboradores->newEntity($salvarGruposColaboradores);
 						$this->GruposColaboradores->save($GruposColaboradores);
 					}
-					
 				}
-	
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
 			}
@@ -272,5 +263,14 @@ class ColaboradoresController extends AppController{
 		
 		return $this->redirect('/colaboradores/index');
 		
+    }
+	
+	public function logout(){
+		
+		$this->autoRender = false;
+		$this->request->session()->destroy();
+		
+		return $this->redirect('/entrar');
+
     }
 }

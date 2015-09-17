@@ -20,9 +20,9 @@
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="" title="Colaborador - Alterar Dados">Colaborador&nbsp;<span class="glyphicon glyphicon-user"></span></a></li>
-						<li><a href="" title="Configurações"><span class="glyphicon glyphicon-cog"></span></a></li>
-						<li><a href=""><button type="button" class="btn btn-default btn-sm btn-danger">Sair</button></a></li>
+						<li><a href="/colaboradores/editar/<?= h($logado[0]->id); ?>" title="Colaborador - Alterar Dados"><?= $logado[0]->nome; ?> <span class="glyphicon glyphicon-user"></span></a></li>
+						<!--li><a href="" title="Configurações"><span class="glyphicon glyphicon-cog"></span></a></li-->
+						<li><a href="/sair"><button type="button" class="btn btn-default btn-sm btn-danger">Sair</button></a></li>
 					</ul>
 					<ul class="nav navbar-nav">
 						<li><a href="/atendimentos">Atendimentos</a></li>

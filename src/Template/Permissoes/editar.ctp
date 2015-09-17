@@ -28,19 +28,13 @@
 						<div class="form-group required">
 							<?php echo $this->Form->label('permissao_pai', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
-								<?php 
-									$options = [ 
-										'Nenhum' => 'Nenhum',  
-										'Permissão 1' => 'Permissão 1', 
-										'Permissão 2' => 'Permissão 2', 
-										'Permissão 3' => 'Permissão 3', 
-										'Permissão 4' => 'Permissão 4', 
-										'Permissão 5' => 'Permissão 5', 
-										'Permissão 6' => 'Permissão 6', 
-										'Permissão 7' => 'Permissão 7', 
-										'Permissão 8' => 'Permissão 8' 
-									];
-									echo $this->Form->select('permissao_pai', $options, [ 'class' => 'form-control' ]);
+								<?php
+								$selected = false;
+								if ( $permissaoSelecionado == $permissaoPai){
+									//encontrou no array e marca como checado
+									$selected = true;
+								}
+									echo $this->Form->input('permissao_pai', array('label' => false, 'selected' => $selected, 'class' => 'form-control', 'options' => $permissaoPai));
 								?>
 							</div>
 						</div>

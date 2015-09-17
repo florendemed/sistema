@@ -211,6 +211,75 @@ class AppController extends Controller
             'CRE' 	=> 'CRE',
         );
         $this->set('combo_conselho_regional', $combo_conselho_regional);
+		
+		/* controle de acesso - login */
+		$this->loadModel('Colaboradores');
+		
+		if ( $this->request->session()->read('logado_id') != ''){
+			
+			$logado = $this->Colaboradores->find('all',[
+				'conditions' => [
+					'Colaboradores.id' => $this->request->session()->read('logado_id')
+				]
+			]);
+			$logado = $logado->toArray();
+			
+			if($this->request->here != '/index'){
+				/* permissoes */
+				$this->loadModel('Permissoes');
+				$this->loadModel('GruposPermissoes');
+				$this->loadModel('GruposColaboradores');
+				$this->loadModel('Grupos');
+				
+				$permissaoLocal = $this->Permissoes->find('all',[
+					'conditions' => [
+						'Permissoes.controlador' => $this->request->controller,
+						'Permissoes.acao' => $this->request->action,
+					]
+				]);
+				$permissaoLocal = $permissaoLocal->toArray();
+				$gruposId = $this->GruposColaboradores->find('all',[
+					'conditions' => [
+						'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
+					],
+					'fields' => 'GruposColaboradores.grupos_id'
+				]);
+				
+				if ( $gruposId->count() > 0 ){
+					$grupos_ids = [];
+					foreach ( $gruposId as $grupoId ){
+						$grupos_ids[] = $grupoId->grupos_id;
+					}
+				}	
+				
+				$permissoesId = $this->GruposPermissoes->find('all',[
+					'conditions' => [
+						'GruposPermissoes.grupos_id IN' => $grupos_ids
+					],
+					'group' => 'GruposPermissoes.permissoes_id'
+				]);
+				
+				if ( $permissoesId->count() > 0 ){
+					$permissoes_ids = [];
+					foreach ( $permissoesId as $permissaoId ){
+						$permissoes_ids[] = $permissaoId->permissoes_id;
+					}
+				}	
+				$retornoPermissoes = in_array ( $permissaoLocal['0']->id , $permissoes_ids );
+				
+				/*if ( $retornoPermissoes == 0 || !isset($retornoPermissoes) ){
+					$this->Flash->error(__('Você não possui acesso a essa área.'));
+					$this->redirect('/index');
+				}*/
+			}
+			
+		} else {
+			if ($this->request->here != '/entrar'){
+				$this->Flash->error(__('É necessário estar logado para acessar esta área.'));
+				$this->redirect('/entrar');
+			}
+		}
+		$this->set(compact('logado'));		
     }
 	
 	public function busca_cep($cep){

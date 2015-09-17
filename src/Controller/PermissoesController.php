@@ -41,6 +41,9 @@ class PermissoesController extends AppController{
 	
 	public function adicionar(){
 		
+		$permissaoPai = $this->Permissoes->find('list', ['empty' => 'Nenhum', 'keyField' => 'id', 'valueField' => 'nome']);
+		$permissaoPai = $permissaoPai->toArray();
+
 		if ($this->request->is('post')) {
 			
 			$permissao	= $this->Permissoes->newEntity($this->request->data);
@@ -58,13 +61,18 @@ class PermissoesController extends AppController{
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
 		$permissao = $this->Permissoes->newEntity();
-		$this->set(compact('permissao'));
+		$this->set(compact('permissaoPai','permissao'));
 		
     }
 	
 	public function editar($id){
 		
+		$permissaoPai = $this->Permissoes->find('list', ['empty' => 'Nenhum', 'keyField' => 'id', 'valueField' => 'nome']);
+		$permissaoPai = $permissaoPai->toArray();
+		
 		$permissao = $this->Permissoes->get($id);
+		$permissaoSelecionado = $permissao->toArray();
+		$permissaoSelecionado = $permissao['permissao_pai'];
 		
 		if ($this->request->is('put')) {
 			
@@ -86,7 +94,7 @@ class PermissoesController extends AppController{
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		} 
-		$this->set(compact('permissao'));
+		$this->set(compact('permissaoPai', 'permissaoSelecionado', 'permissao'));
 	}
 	
 	public function excluir($id){
