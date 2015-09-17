@@ -225,6 +225,7 @@ class AppController extends Controller
 			$logado = $logado->toArray();
 			
 			if($this->request->here != '/index'){
+				
 				/* permissoes */
 				$this->loadModel('Permissoes');
 				$this->loadModel('GruposPermissoes');
@@ -266,11 +267,11 @@ class AppController extends Controller
 					}
 				}	
 				$retornoPermissoes = in_array ( $permissaoLocal['0']->id , $permissoes_ids );
-				
-				/*if ( $retornoPermissoes == 0 || !isset($retornoPermissoes) ){
+
+				if ( $retornoPermissoes == 0 || !isset($retornoPermissoes) ){
 					$this->Flash->error(__('Você não possui acesso a essa área.'));
 					$this->redirect('/index');
-				}*/
+				}
 			}
 			
 		} else {

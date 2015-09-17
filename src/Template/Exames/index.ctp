@@ -42,11 +42,11 @@
 					}
 				?>
 				<tr>
-					<td><?= h($exame->id) ?></td>
-					<td><?= h($exame->nome) ?></td>
-					<td><?= $status ?></td>
-					<td><?= h($exame->created) ?></td>
-					<td><?= h($exame->modified) ?></td>
+					<td><a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><?= h($exame->id) ?></a></td>
+					<td><a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><?= h($exame->nome) ?></a></td>
+					<td><a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><?= $status ?></a></td>
+					<td><a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><?= h($exame->created) ?></a></td>
+					<td><a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><?= h($exame->modified) ?></a></td>
 					<td class="actions">
 						<a href="/exames/editar/<?= h($exame->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
 						<a href="/exames/excluir/<?= h($exame->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>

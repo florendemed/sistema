@@ -270,7 +270,7 @@ class ColaboradoresController extends AppController{
 		$this->autoRender = false;
 		$this->request->session()->destroy();
 		
-		return $this->redirect('/entrar');
+		return $this->redirect('/colaboradores/login');
 
     }
 }
