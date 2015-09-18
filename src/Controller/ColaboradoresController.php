@@ -19,11 +19,11 @@ class ColaboradoresController extends AppController{
 		
 		if (!empty($this->request->query)){
 			
-			if ($this->request->query['nome'] != ''){
+			if (isset($this->request->query['nome']) && $this->request->query['nome'] != ''){
 				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
 
-			if ($this->request->query['cpf'] != ''){
+			if (isset($this->request->query['cpf']) && $this->request->query['cpf'] != ''){
 				$condicoes['cpf LIKE'] = '%'.$this->request->query['cpf'].'%';
 			} 
 

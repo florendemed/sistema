@@ -24,7 +24,8 @@ class AtendimentosController extends AppController{
 		}
 			
 		$this->paginate = [
-			'conditions' => $condicoes
+			'conditions' => $condicoes,
+			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
 		];		
 		$atendimento = $this->paginate($this->Atendimentos);
 		$this->set(compact('atendimento'));
@@ -38,16 +39,18 @@ class AtendimentosController extends AppController{
 		
 		$colaborador = $this->Colaboradores->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
 		$colaborador = $colaborador->toArray();
-		pr($colaborador);
 		
 		$paciente = $this->Pacientes->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
 		$paciente = $paciente->toArray();
 
-		if ($this->request->is('put')) {
-
+		if ($this->request->is('post')) {
+			
+			//$this->request->data['atendimentos_status_id'] = '1';
 			$atendimento = $this->Atendimentos->newEntity($this->request->data);
+			$atendimento['atendimentos_status_id'] = '1';
 			
 			if ($this->Atendimentos->save($atendimento)) {
+				
 				$this->Flash->success(__('Registro inserido com sucesso.'));
 				return $this->redirect('/atendimentos/index');
 			}

@@ -15,7 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
-
+use Cake\Event\Event;
 /**
  * Application Controller
  *
@@ -24,8 +24,7 @@ use Cake\Controller\Controller;
  *
  * @link http://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
-class AppController extends Controller
-{
+class AppController extends Controller{
 
     /**
      * Initialization hook method.
@@ -211,7 +210,11 @@ class AppController extends Controller
             'CRE' 	=> 'CRE',
         );
         $this->set('combo_conselho_regional', $combo_conselho_regional);
-		
+    }
+	
+	public function beforeFilter(Event $event)
+	{
+		parent::beforeFilter($event);
 		/* controle de acesso - login */
 		$this->loadModel('Colaboradores');
 		
@@ -224,7 +227,16 @@ class AppController extends Controller
 			]);
 			$logado = $logado->toArray();
 			
-			if($this->request->here != '/index'){
+			/* aqui nunca cadastrar as rotas e sim o controller/action */
+			$excecoes	= [
+				'app/busca_cep',
+				'colaboradores/login',
+				'colaboradores/logout',
+				'paginas/index'
+			];
+			$local	= strtolower($this->request->controller) . '/' . $this->request->action;
+			
+			if ( !in_array(trim($local), $excecoes) ) {
 				
 				/* permissoes */
 				$this->loadModel('Permissoes');
@@ -238,7 +250,7 @@ class AppController extends Controller
 						'Permissoes.acao' => $this->request->action,
 					]
 				]);
-				$permissaoLocal = $permissaoLocal->toArray();
+				$permissaoLocal = $permissaoLocal->first();
 				$gruposId = $this->GruposColaboradores->find('all',[
 					'conditions' => [
 						'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
@@ -265,12 +277,15 @@ class AppController extends Controller
 					foreach ( $permissoesId as $permissaoId ){
 						$permissoes_ids[] = $permissaoId->permissoes_id;
 					}
-				}	
-				$retornoPermissoes = in_array ( $permissaoLocal['0']->id , $permissoes_ids );
-
+				}
+				if ( !isset($permissaoLocal->id) ) {
+					$retornoPermissoes	= 0;
+				} else {
+					$retornoPermissoes = in_array ( $permissaoLocal->id , $permissoes_ids );
+				}
 				if ( $retornoPermissoes == 0 || !isset($retornoPermissoes) ){
 					$this->Flash->error(__('Você não possui acesso a essa área.'));
-					$this->redirect('/index');
+					return $this->redirect('/index');
 				}
 			}
 			
@@ -280,8 +295,8 @@ class AppController extends Controller
 				$this->redirect('/entrar');
 			}
 		}
-		$this->set(compact('logado'));		
-    }
+		$this->set(compact('logado'));
+	}
 	
 	public function busca_cep($cep){
 		$this->autoRender	= false;

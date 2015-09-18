@@ -6,8 +6,17 @@ use Cake\ORM\Table;
 class AppTable extends Table{
 	
 	public function beforeFind($event, $query, $options, $primary) {
-		if ( $this->hasField('status') ) {
-			$query->where(['status IN' => array('a', 'i')]);
+		if ( in_array('status', $this->schema()->columns()) ) {
+			$query->where([$this->alias() . '.status IN' => array('a', 'i')]);
+		}
+	}
+	
+	public function beforeSave($event, $entity, $options) {
+		if ( ( in_array('created', $this->schema()->columns()) ) && $entity->isNew() == 1 ) {
+			$entity->created	= date("Y-m-d H:i:s");
+		}
+		if ( in_array('modified', $this->schema()->columns()) ) {
+			$entity->modified	= date("Y-m-d H:i:s");
 		}
 	}
 	

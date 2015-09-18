@@ -19,7 +19,7 @@ class DoencasController extends AppController{
 		
 		if (!empty($this->request->query)){
 			
-			if ($this->request->query['nome'] != ''){
+			if (isset($this->request->query['nome']) && $this->request->query['nome'] != ''){
 				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
 

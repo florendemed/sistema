@@ -36,7 +36,7 @@
 				<tr>
 					<th><?= $this->Paginator->sort('id') ?></th>
 					<th><?= $this->Paginator->sort('nome') ?></th>
-					<th><?= $this->Paginator->sort('permissao_pai', 'Permissão Pai') ?></th>
+					<th><?= $this->Paginator->sort('permissao_id', 'Permissão Pai') ?></th>
 					<th><?= $this->Paginator->sort('controlador') ?></a></th>
 					<th><?= $this->Paginator->sort('acao', 'Ação') ?></th>
 					<th><?= $this->Paginator->sort('menu') ?></th>
@@ -77,7 +77,7 @@
 				<tr>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->id) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->nome) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->permissao_pai) ?></a></td>
+					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= ( isset($permissao->permissao_pai->nome) ? h($permissao->permissao_pai->nome) : '<em>Nenhum</em>') ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($controlador) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($acao) ?></a></td>
 					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($menu) ?></a></td>

@@ -13,7 +13,7 @@
 			<li class="active"><a href="/atendimentos/adicionar">Novo</a></li>
 			<li class=""><a href="/atendimentos/index">Listar</a></li>
 		</ul>
-		<form action="/atendimentos/index" class="form-horizontal" method="post" accept-charset="utf-8">
+		<?php echo $this->Form->create($atendimento, ['class' => 'form-horizontal']); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset>
@@ -42,6 +42,6 @@
 					<?php echo $this->Form->submit('Salvar', ['class' => 'btn btn-lg btn-primary btn', 'value' => 'Salvar']); ?>
 				</div>
 			</div>
-		</form>				
+		<?php echo $this->Form->end();?>				
 	</div>
 </div>

@@ -20,15 +20,15 @@ class PacientesController extends AppController{
 		
 		if (!empty($this->request->query)){
 			
-			if ($this->request->query['nome'] != ''){
+			if (isset($this->request->query['nome']) && $this->request->query['nome'] != ''){
 				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
 			
-			if ($this->request->query['cpf'] != ''){
+			if (isset($this->request->query['cpf']) && $this->request->query['cpf'] != ''){
 				$condicoes['cpf LIKE'] = '%'.$this->request->query['cpf'].'%';
 			} 
 			
-			if ($this->request->query['cartaoSUS'] != ''){
+			if (isset($this->request->query['cartaoSUS']) && $this->request->query['cartaoSUS'] != ''){
 				$condicoes['numero_sus LIKE'] = '%'.$this->request->query['cartaoSUS'].'%';
 			} 
 		}
@@ -52,7 +52,6 @@ class PacientesController extends AppController{
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 						
 			$paciente = $this->Pacientes->newEntity($this->request->data);
-			
 			if ($this->Pacientes->save($paciente)) {
 				
 				$this->request->data['endereco']['paciente_id']	= $paciente->id;

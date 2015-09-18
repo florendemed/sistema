@@ -7,7 +7,7 @@
 			<li class="active"><a href="/permissoes/adicionar">Novo</a></li>
 			<li><a href="/permissoes/index">Listar</a></li>
 		</ul>
-		<form action="/permissoes/adicionar" class="form-horizontal" method="post" accept-charset="utf-8">
+		<?php echo $this->Form->create($permissao, ['class' => 'form-horizontal']); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<h3>Dados</h3>
@@ -25,10 +25,10 @@
 							</div>
 						</div>	
 						<div class="form-group required">
-							<?php echo $this->Form->label('permissao_pai', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('permissao_id', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
 								<?php
-									echo $this->Form->input('permissao_pai', array('label' => false, 'class' => 'form-control', 'options' => $permissaoPai));
+									echo $this->Form->input('permissao_id', array('empty' => 'Nenhum', 'label' => false, 'class' => 'form-control', 'options' => $permissaoPai));
 								?>
 							</div>
 						</div>
@@ -64,6 +64,6 @@
 					<?php echo $this->Form->submit('Salvar', ['class' => 'btn btn-lg btn-primary btn', 'value' => 'Salvar']); ?>
 				</div>
 			</div>
-		</form>				
+		<?php echo $this->Form->end();?>			
 	</div>
 </div>

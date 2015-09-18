@@ -19,38 +19,43 @@ class PermissoesController extends AppController{
 		
 		if (!empty($this->request->query)){
 			
-			if ($this->request->query['nome'] != ''){
+			if (isset($this->request->query['nome']) && $this->request->query['nome'] != ''){
 				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
 			
-			if ($this->request->query['controlador'] != ''){
+			if (isset($this->request->query['controlador']) && $this->request->query['controlador'] != ''){
 				$condicoes['controlador LIKE'] = '%'.$this->request->query['controlador'].'%';
 			} 
 			
-			if ($this->request->query['acao'] != ''){
+			if (isset($this->request->query['acao']) && $this->request->query['acao'] != ''){
 				$condicoes['acao LIKE'] = '%'.$this->request->query['acao'].'%';
 			} 
 		}
 			
 		$this->paginate = [
-			'conditions' => $condicoes
-		];		
-		$permissoes = $this->paginate($this->Permissoes);	
+			'conditions' => $condicoes,
+			'contain' => ['PermissaoPai']
+		];
+		$permissoes = $this->paginate($this->Permissoes);
 		$this->set(compact('permissoes'));
     }
 	
 	public function adicionar(){
 		
-		$permissaoPai = $this->Permissoes->find('list', ['empty' => 'Nenhum', 'keyField' => 'id', 'valueField' => 'nome']);
+		$permissaoPai = $this->Permissoes->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
 		$permissaoPai = $permissaoPai->toArray();
+		$permissao = $this->Permissoes->newEntity();
 
 		if ($this->request->is('post')) {
-			
-			$permissao	= $this->Permissoes->newEntity($this->request->data);
-			
-			if ($permissao['menu'] == '0'){
-				$permissao['menu'] = 'n';
+			if ($this->request->data['menu'] == '0'){
+				$this->request->data['menu'] = 'n';
 			}
+			
+			if ($this->request->data['permissao_id'] == ''){
+				$this->request->data['permissao_id'] = '0';
+			}
+			
+			$permissao	= $this->Permissoes->patchEntity($permissao, $this->request->data);
 			
 			if ($this->Permissoes->save($permissao)) {
 				
@@ -59,8 +64,8 @@ class PermissoesController extends AppController{
 				
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
+			
 		}
-		$permissao = $this->Permissoes->newEntity();
 		$this->set(compact('permissaoPai','permissao'));
 		
     }
@@ -72,7 +77,7 @@ class PermissoesController extends AppController{
 		
 		$permissao = $this->Permissoes->get($id);
 		$permissaoSelecionado = $permissao->toArray();
-		$permissaoSelecionado = $permissao['permissao_pai'];
+		$permissaoSelecionado = $permissao['permissao_id'];
 		
 		if ($this->request->is('put')) {
 			

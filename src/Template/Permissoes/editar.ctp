@@ -26,7 +26,7 @@
 							</div>
 						</div>	
 						<div class="form-group required">
-							<?php echo $this->Form->label('permissao_pai', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('permissao_id', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
 								<?php
 								$selected = false;
@@ -34,7 +34,7 @@
 									//encontrou no array e marca como checado
 									$selected = true;
 								}
-									echo $this->Form->input('permissao_pai', array('label' => false, 'selected' => $selected, 'class' => 'form-control', 'options' => $permissaoPai));
+									echo $this->Form->input('permissao_id', array('label' => false, 'selected' => $selected, 'class' => 'form-control', 'options' => $permissaoPai));
 								?>
 							</div>
 						</div>
