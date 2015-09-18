@@ -68,5 +68,41 @@ class AtendimentosController extends AppController{
 	public function excluir(){
 
     }
+	
+	public function triagem(){
+		
+		$this->loadModel('Pacientes');
+		$this->loadModel('Colaboradores');
+		
+		$paciente = $this->Pacientes->find('all');
+		$paciente = $paciente->toArray();
+		
+		$colaborador = $this->Colaboradores->find('all');
+		$colaborador = $colaborador->toArray();
+
+		/*if ($this->request->is('post')) {
+			
+			$triagem = $this->Atendimentos->newEntity($this->request->data);
+			
+			if ($this->Atendimentos->save($triagem)) {
+
+				pr($triagem);
+				pr($paciente);
+				pr($colaborador);
+				exit();
+			
+				$triagem['pacientes_id']	= $paciente['0']->id;
+				$triagem['colaborador_id']	= $colaborador['0']->id;
+				
+				$this->Flash->success(__('Registro inserido com sucesso.'));
+				return $this->redirect('/medicamentos/index');
+			}
+			$this->Flash->error(__('Não foi possível salvar o registro.'));
+		}
+		
+		$triagem = $this->Atendimentos->newEntity();
+		$this->set(compact('triagem'));*/
+		
+    }
 
 }

@@ -57,6 +57,7 @@ Router::scope('/', function ($routes) {
     $routes->connect('/sair/*', ['controller' => 'Colaboradores', 'action' => 'logout']);
     $routes->connect('/entrar/*', ['controller' => 'Colaboradores', 'action' => 'login']);
     $routes->connect('/index/*', ['controller' => 'Paginas', 'action' => 'index']);
+    $routes->connect('/esqueci-minha-senha/*', ['controller' => 'Colaboradores', 'action' => 'esqueci']);
 
     /**
      * Connect catchall routes for all controllers.

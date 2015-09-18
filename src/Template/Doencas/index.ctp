@@ -22,27 +22,28 @@
 			</form>
 		</div>
 		<?php if( count($doencas) > 0 ) {?>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th><?= $this->Paginator->sort('id') ?></th>
-					<th><?= $this->Paginator->sort('nome', 'Doença') ?></th>
-					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
-					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach ($doencas as $doenca): ?>
-				<tr>
-					<td><?= h($doenca->id) ?></td>
-					<td><?= h($doenca->nome) ?></td>
-					<td><?= h($doenca->created) ?></td>
-					<td><?= h($doenca->modified) ?></td>
-				</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
-		<p>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th><?= $this->Paginator->sort('id') ?></th>
+						<th><?= $this->Paginator->sort('nome', 'Doença') ?></th>
+						<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+						<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($doencas as $doenca): ?>
+					<tr>
+						<td><?= h($doenca->id) ?></td>
+						<td><?= h($doenca->nome) ?></td>
+						<td><?= h($doenca->created) ?></td>
+						<td><?= h($doenca->modified) ?></td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 		<p>
 		<?php 
 			echo $this->Paginator->counter([

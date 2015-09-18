@@ -232,7 +232,8 @@ class AppController extends Controller{
 				'app/busca_cep',
 				'colaboradores/login',
 				'colaboradores/logout',
-				'paginas/index'
+				'paginas/index',
+				'colaboradores/esqueci'
 			];
 			$local	= strtolower($this->request->controller) . '/' . $this->request->action;
 			

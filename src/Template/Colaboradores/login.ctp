@@ -9,6 +9,9 @@
 				<?php 
 					echo $this->Form->password('senha', ['class' => 'form-control', 'placeholder' => 'Senha']);
 				?>
+				<div class="help-block">
+					<a href="/esqueci-minha-senha" title="Esqueci minha senha"><span class="glyphicon glyphicon-user"></span> Esqueci minha senha</a>
+				</div>
 				<div class="btn-group login" role="group">
 					<button class="btn btn-lg btn-primary"><span class="glyphicon glyphicon-chevron-right"></span> Entrar</button>
 				</div>

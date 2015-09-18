@@ -23,46 +23,48 @@
 			</form>
 		</div>
 		<?php if( count($grupos) > 0 ) {?>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th><?= $this->Paginator->sort('id') ?></th>
-					<th><?= $this->Paginator->sort('nome') ?></th>
-					<th><?= $this->Paginator->sort('restrito', 'Público') ?></th>
-					<th><?= $this->Paginator->sort('status') ?></th>
-					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
-					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php foreach ($grupos as $grupo): 
-				if ( h($grupo->status) == 'a' ){
-					$status = "Ativo";
-				} else {
-					$status = "Inativo";
-				}
-				
-				if ( h($grupo->restrito) == 's' ){
-					$restrito = "Sim";
-				} else {
-					$restrito = "Não";
-				}
-				?>
-				<tr>
-					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->id) ?></a></td>
-					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->nome) ?></a></td>
-					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($restrito) ?></a></td>
-					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= $status ?></a></td>
-					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->created) ?></a></td>
-					<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->modified) ?></a></td>
-					<td class="actions">
-						<a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="/grupos/excluir/<?= h($grupo->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th><?= $this->Paginator->sort('id') ?></th>
+						<th><?= $this->Paginator->sort('nome') ?></th>
+						<th><?= $this->Paginator->sort('restrito', 'Público') ?></th>
+						<th><?= $this->Paginator->sort('status') ?></th>
+						<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+						<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($grupos as $grupo): 
+					if ( h($grupo->status) == 'a' ){
+						$status = "Ativo";
+					} else {
+						$status = "Inativo";
+					}
+					
+					if ( h($grupo->restrito) == 's' ){
+						$restrito = "Sim";
+					} else {
+						$restrito = "Não";
+					}
+					?>
+					<tr>
+						<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->id) ?></a></td>
+						<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->nome) ?></a></td>
+						<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($restrito) ?></a></td>
+						<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= $status ?></a></td>
+						<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->created) ?></a></td>
+						<td><a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><?= h($grupo->modified) ?></a></td>
+						<td class="actions">
+							<a href="/grupos/editar/<?= h($grupo->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a href="/grupos/excluir/<?= h($grupo->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 		<p>
 		<?php 
 			echo $this->Paginator->counter([

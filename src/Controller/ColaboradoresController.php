@@ -64,6 +64,11 @@ class ColaboradoresController extends AppController{
 		}
     }
 	
+	public function esqueci() {
+		$this->layout = 'login';
+		$this->set('title', 'Esqueci minha senha');
+	}
+	
 	public function adicionar(){
 		
 		$this->loadModel('Enderecos');

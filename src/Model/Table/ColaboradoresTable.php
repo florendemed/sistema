@@ -21,8 +21,7 @@ class ColaboradoresTable extends AppTable{
 			->allowEmpty('data_nascimento');
 	 
 		return $validator;
-		
-		
+
 	}
 	
 }

@@ -31,67 +31,69 @@
 			</form>
 		</div>
 		<?php if( count($permissoes) > 0 ) {?>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th><?= $this->Paginator->sort('id') ?></th>
-					<th><?= $this->Paginator->sort('nome') ?></th>
-					<th><?= $this->Paginator->sort('permissao_id', 'Permissão Pai') ?></th>
-					<th><?= $this->Paginator->sort('controlador') ?></a></th>
-					<th><?= $this->Paginator->sort('acao', 'Ação') ?></th>
-					<th><?= $this->Paginator->sort('menu') ?></th>
-					<th><?= $this->Paginator->sort('status') ?></th>
-					<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
-					<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
-					<th class="actions"></th> 	 
-				</tr>
-			</thead>
-			<tbody>
-				<?php 
-				foreach ($permissoes as $permissao): 
-					if ( h($permissao->status) == 'a' ){
-						$status = "Ativo";
-					} else {
-						$status = "Inativo";
-					}
-					
-					if ( h($permissao->menu) == 's' ){
-						$menu = "Sim";
-					} else {
-						$menu = "Não";
-					}
-					
-					if ( h($permissao->controlador) == 'null' ){
-						$controlador = "-";
-					} else {
-						$controlador = h($permissao->controlador);
-					}
-					
-					if ( h($permissao->acao) == 'null' ){
-						$acao = "-";
-					} else {
-						$acao = h($permissao->acao);
-					}
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th><?= $this->Paginator->sort('id') ?></th>
+						<th><?= $this->Paginator->sort('nome') ?></th>
+						<th><?= $this->Paginator->sort('permissao_id', 'Permissão Pai') ?></th>
+						<th><?= $this->Paginator->sort('controlador') ?></a></th>
+						<th><?= $this->Paginator->sort('acao', 'Ação') ?></th>
+						<th><?= $this->Paginator->sort('menu') ?></th>
+						<th><?= $this->Paginator->sort('status') ?></th>
+						<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
+						<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+						<th class="actions"></th> 	 
+					</tr>
+				</thead>
+				<tbody>
+					<?php 
+					foreach ($permissoes as $permissao): 
+						if ( h($permissao->status) == 'a' ){
+							$status = "Ativo";
+						} else {
+							$status = "Inativo";
+						}
+						
+						if ( h($permissao->menu) == 's' ){
+							$menu = "Sim";
+						} else {
+							$menu = "Não";
+						}
+						
+						if ( h($permissao->controlador) == 'null' ){
+							$controlador = "-";
+						} else {
+							$controlador = h($permissao->controlador);
+						}
+						
+						if ( h($permissao->acao) == 'null' ){
+							$acao = "-";
+						} else {
+							$acao = h($permissao->acao);
+						}
 
-				?>
-				<tr>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->id) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->nome) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= ( isset($permissao->permissao_pai->nome) ? h($permissao->permissao_pai->nome) : '<em>Nenhum</em>') ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($controlador) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($acao) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($menu) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= $status ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->created) ?></a></td>
-					<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->modified) ?></a></td>
-					<td class="actions">
-						<a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="/permissoes/excluir/<?= h($permissao->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
+					?>
+					<tr>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->id) ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->nome) ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= ( isset($permissao->permissao_pai->nome) ? h($permissao->permissao_pai->nome) : '<em>Nenhum</em>') ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($controlador) ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($acao) ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($menu) ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= $status ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->created) ?></a></td>
+						<td><a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><?= h($permissao->modified) ?></a></td>
+						<td class="actions">
+							<a href="/permissoes/editar/<?= h($permissao->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a href="/permissoes/excluir/<?= h($permissao->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</div>
 		<p>
 		<?php 
 			echo $this->Paginator->counter([

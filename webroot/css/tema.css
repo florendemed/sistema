@@ -57,12 +57,14 @@ label{
     margin: 0px auto;
 }
 
-.form-signin img {
+.form-signin img,
+.form-esqueci img {
 	height:88px;
 	margin:40px 0 20px 0;
 }
 
-.form-signin .form-control {
+.form-signin .form-control,
+.form-esqueci .form-control {
     position: relative;
     font-size: 16px;
     height: auto;
@@ -75,6 +77,19 @@ label{
     width: 300px;
 	border-radius:0;
 	margin-top:10px;
+}
+
+.form-esqueci .btn-group.login button:first-child {
+    width: 300px;
+	border-radius:0;
+	margin-top:0;
+}
+
+.help-block a.voltar {
+	margin-left: 15px;
+	padding-top: 10px;
+	clear: both;
+	display: block;
 }
 
 footer {
@@ -105,4 +120,30 @@ footer {
 .error .error-message {
 	font-size:12px;
 	color:#808080;
+}
+
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0px auto;
+}
+
+.form-esqueci {
+    max-width: 360px;
+    padding: 15px;
+    margin: 0px auto;
+}
+
+.false-load {
+	display:none;
+}
+
+.atendimentos {
+	border-left: 1px solid #EEE;
+}
+
+.dados p{
+	border-bottom: 1px solid #EEE;
+	line-height:30px;
+	margin:0;
 }

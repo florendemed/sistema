@@ -28,35 +28,37 @@
 				</fieldset>
 			</form>
 		</div>
-		<table class="table table-striped table-hover">
-			<thead>
-				<tr>
-					<th><a href="/prontuarios?sort=id&amp;direction=asc">Id</a></th>
-					<th><a href="/prontuarios?sort=nome&amp;direction=asc">Nome</a></th>
-					<th><a href="/prontuarios?sort=email&amp;direction=asc">Email</a></th>
-					<th><a href="/prontuarios?sort=status&amp;direction=asc">Status</a></th>
-					<th><a href="/prontuarios?sort=status&amp;direction=asc">Data Nascimento</a></th>
-					<th><a href="/prontuarios?sort=created&amp;direction=asc">Data Cadastro</a></th>
-					<th><a href="/prontuarios?sort=modified&amp;direction=asc">Última Alteração</a></th>
-					<th class="actions"></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="/prontuarios/editar">1</a></td>
-					<td><a href="/prontuarios/editar">Teste</a></td>
-					<td><a href="/prontuarios/editar">teste@teste.com.br</a></td>
-					<td><a href="/prontuarios/editar">ativo</a></td>
-					<td><a href="/prontuarios/editar">27/12/1982</a></td>
-					<td><a href="/prontuarios/editar">09/04/2015 18:31</a></td>
-					<td><a href="/prontuarios/editar">11/04/2015 21:21</a></td>
-					<td class="actions">
-						<a href="/prontuarios/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
-						<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="table-responsive">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th><a href="/prontuarios?sort=id&amp;direction=asc">Id</a></th>
+						<th><a href="/prontuarios?sort=nome&amp;direction=asc">Nome</a></th>
+						<th><a href="/prontuarios?sort=email&amp;direction=asc">Email</a></th>
+						<th><a href="/prontuarios?sort=status&amp;direction=asc">Status</a></th>
+						<th><a href="/prontuarios?sort=status&amp;direction=asc">Data Nascimento</a></th>
+						<th><a href="/prontuarios?sort=created&amp;direction=asc">Data Cadastro</a></th>
+						<th><a href="/prontuarios?sort=modified&amp;direction=asc">Última Alteração</a></th>
+						<th class="actions"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><a href="/prontuarios/editar">1</a></td>
+						<td><a href="/prontuarios/editar">Teste</a></td>
+						<td><a href="/prontuarios/editar">teste@teste.com.br</a></td>
+						<td><a href="/prontuarios/editar">ativo</a></td>
+						<td><a href="/prontuarios/editar">27/12/1982</a></td>
+						<td><a href="/prontuarios/editar">09/04/2015 18:31</a></td>
+						<td><a href="/prontuarios/editar">11/04/2015 21:21</a></td>
+						<td class="actions">
+							<a href="/prontuarios/editar" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
+							<a href="" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<p><strong>4</strong> resultado(s) encontrado(s).</p>
 		<ul class="pagination">
 			<li class="disabled prev"><a onclick="return false;">&larr; Anterior</a></li>
