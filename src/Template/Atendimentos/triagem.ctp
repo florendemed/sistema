@@ -10,23 +10,41 @@
 			<li class="active">Atendimentos / triagem</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/atendimentos/triagem">Novo</a></li>
+			<li><a href="/atendimentos/adicionar">Novo</a></li>
+			<li class="active"><a href="/atendimentos/index">Listar</a></li>
 		</ul>
-		<?php echo $this->Form->create(null, ['class' => 'form-horizontal']); ?>
+		<?php echo $this->Form->create($atendimento, ['class' => 'form-horizontal']); ?>
+			<?php echo $this->Form->input('id'); ?>
+			<?php echo $this->Form->input('atendimentos_status_id', ['value' => '2', 'type' => 'hidden']); ?>
 			<div class="row">
 				<div class="col-md-2 dados">
 					<p class="text-center"><img src='/img/sem_foto.png' /></p>
-					<p><strong>Nome:</strong> Scheila Feron da Silva Sauro</p>
-					<p><strong>Idade:</strong> 60 anos</p>
-					<p><strong>Última Consulta:</strong> 14/11/1983</p>
+					<p><strong>Nome: </strong><?= h($atendimento->paciente->nome) ?></p>
+					<p><strong>Nascimento: </strong>
+					<?php
+						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
+						echo($nascimento);
+					?>
+					</p>
+					<p><strong>Data Consulta: </strong>
+					<?php
+						$consulta = substr($atendimento['created'], 0, 8);
+						echo($consulta);
+					?>
+					</p>
+					<p><strong>Médico(a): </strong><?= h($atendimento->colaborador->nome) ?></p>
 				</div>
 				<div class="col-md-6 atendimentos">
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>/triagem">Triagem</a></li>
+						<li><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>">Atendimento Médico</a></li>
+					</ul>
 					<fieldset>
 						<div class="form-group required">
 							<?php echo $this->Form->label('frequencia_cardiaca', 'Frequência Cardíaca', ['class' => 'col-md-4 control-label']).'bpm'; ?>
 							<div class="col-md-7">
 								<?php
-									echo $this->Form->input('frequencia_cardiaca', array('label' => false, 'class' => 'form-control'));
+									echo $this->Form->input('frequencia_cardiaca', array('label' => false, 'type' => 'text', 'class' => 'form-control'));
 								?>
 							</div>
 						</div>	
@@ -34,7 +52,7 @@
 							<?php echo $this->Form->label('pressao_arterial', 'Pressão Arterial', ['class' => 'col-md-4 control-label']).'mmHg'; ?>
 							<div class="col-md-7">
 								<?php
-									echo $this->Form->input('pressao_arterial', array('label' => false, 'class' => 'form-control'));
+									echo $this->Form->input('pressao_arterial', array('label' => false, 'type' => 'text', 'class' => 'form-control'));
 								?>
 							</div>
 						</div>	
@@ -42,7 +60,7 @@
 							<?php echo $this->Form->label('temperatura', 'Temperatura Corporal', ['class' => 'col-md-4 control-label']).'°C'; ?>
 							<div class="col-md-7">
 								<?php
-									echo $this->Form->input('temperatura', array('label' => false, 'class' => 'form-control'));
+									echo $this->Form->input('temperatura', array('label' => false, 'type' => 'text', 'class' => 'form-control'));
 								?>
 							</div>
 						</div>	
@@ -53,15 +71,7 @@
 									echo $this->Form->input('queixa', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control'));
 								?>
 							</div>
-						</div>	
-						<div class="form-group required">
-							<?php echo $this->Form->label('observacoes', 'Observações', ['class' => 'col-md-4 control-label']); ?>
-							<div class="col-md-7">
-								<?php
-									echo $this->Form->input('observacoes', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control'));
-								?>
-							</div>
-						</div>	
+						</div>		
 					</fieldset>
 				</div>
 			</div>

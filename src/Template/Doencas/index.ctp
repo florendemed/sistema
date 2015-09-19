@@ -12,6 +12,9 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-3">
+							<?php echo $this->Form->input('codigo', ['label' => false, 'class' => 'form-control', 'id' => 'nome', 'placeholder' => 'Código', 'value' => @$this->request->query['codigo'] ]); ?>
+						</div>
+						<div class="col-md-3">
 							<?php echo $this->Form->input('nome', ['label' => false, 'class' => 'form-control', 'id' => 'nome', 'placeholder' => 'Doença', 'value' => @$this->request->query['nome'] ]); ?>
 						</div>
 						<div class="col-md-1">
@@ -27,18 +30,18 @@
 				<thead>
 					<tr>
 						<th><?= $this->Paginator->sort('id') ?></th>
+						<th><?= $this->Paginator->sort('codigo', 'Código') ?></th>
 						<th><?= $this->Paginator->sort('nome', 'Doença') ?></th>
-						<th><?= $this->Paginator->sort('created', 'Data Cadastro') ?></th>
-						<th><?= $this->Paginator->sort('modified', 'Última Alteração') ?></th>
+						<th><?= $this->Paginator->sort('nome50', 'Nome50') ?></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach ($doencas as $doenca): ?>
 					<tr>
 						<td><?= h($doenca->id) ?></td>
+						<td><?= h($doenca->codigo) ?></td>
 						<td><?= h($doenca->nome) ?></td>
-						<td><?= h($doenca->created) ?></td>
-						<td><?= h($doenca->modified) ?></td>
+						<td><?= h($doenca->nome50) ?></td>
 					</tr>
 					<?php endforeach; ?>
 				</tbody>

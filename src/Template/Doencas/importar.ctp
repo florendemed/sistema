@@ -8,7 +8,7 @@
 			<li><a href="/doencas/index">Listar</a></li>
 		</ul>
 		<p class="alert alert-info">Arquivo <strong>XML</strong> nos padrões abaixo:</p>
-		<form action="/doencas/adicionar" class="form-horizontal" id="DoencasImportarForm" method="post" accept-charset="utf-8">
+		<?php echo $this->Form->create(null, ['enctype' => 'multipart/form-data', 'class' => 'form-horizontal']); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset>
@@ -30,6 +30,6 @@
 					?>
 				</div>
 			</div>
-		</form>				
+		<?php echo $this->Form->end();?>				
 	</div>
 </div>
