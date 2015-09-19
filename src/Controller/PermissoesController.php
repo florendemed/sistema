@@ -20,15 +20,15 @@ class PermissoesController extends AppController{
 		if (!empty($this->request->query)){
 			
 			if (isset($this->request->query['nome']) && $this->request->query['nome'] != ''){
-				$condicoes['nome LIKE'] = '%'.$this->request->query['nome'].'%';
+				$condicoes['Permissoes.nome LIKE'] = '%'.$this->request->query['nome'].'%';
 			} 
 			
 			if (isset($this->request->query['controlador']) && $this->request->query['controlador'] != ''){
-				$condicoes['controlador LIKE'] = '%'.$this->request->query['controlador'].'%';
+				$condicoes['Permissoes.controlador LIKE'] = '%'.$this->request->query['controlador'].'%';
 			} 
 			
 			if (isset($this->request->query['acao']) && $this->request->query['acao'] != ''){
-				$condicoes['acao LIKE'] = '%'.$this->request->query['acao'].'%';
+				$condicoes['Permissoes.acao LIKE'] = '%'.$this->request->query['acao'].'%';
 			} 
 		}
 			

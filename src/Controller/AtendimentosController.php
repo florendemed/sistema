@@ -17,12 +17,6 @@ class AtendimentosController extends AppController{
 		
 		$condicoes = [];
 		
-		if (!empty($this->request->query)){
-			
-			
-
-		}
-			
 		$this->paginate = [
 			'conditions' => $condicoes,
 			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
@@ -61,48 +55,44 @@ class AtendimentosController extends AppController{
 
     }
 	
-	public function editar(){
-
-    }
-	
-	public function excluir(){
-
-    }
-	
-	public function triagem(){
+	public function editar($id, $render = 'editar'){
 		
-		$this->loadModel('Pacientes');
-		$this->loadModel('Colaboradores');
+		$atendimento = $this->Atendimentos->get($id, [
+			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
+		]);
 		
-		$paciente = $this->Pacientes->find('all');
-		$paciente = $paciente->toArray();
-		
-		$colaborador = $this->Colaboradores->find('all');
-		$colaborador = $colaborador->toArray();
+		if ($this->request->is('put')) {
+				
+			$atendimento = $this->Atendimentos->patchEntity($atendimento, $this->request->data);
 
-		/*if ($this->request->is('post')) {
-			
-			$triagem = $this->Atendimentos->newEntity($this->request->data);
-			
-			if ($this->Atendimentos->save($triagem)) {
-
-				pr($triagem);
-				pr($paciente);
-				pr($colaborador);
-				exit();
-			
-				$triagem['pacientes_id']	= $paciente['0']->id;
-				$triagem['colaborador_id']	= $colaborador['0']->id;
+			if ($this->Atendimentos->save($atendimento)) {
 				
 				$this->Flash->success(__('Registro inserido com sucesso.'));
-				return $this->redirect('/medicamentos/index');
+				return $this->redirect('/atendimentos/index');
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
-		
-		$triagem = $this->Atendimentos->newEntity();
-		$this->set(compact('triagem'));*/
+		$this->set(compact('atendimento'));
+		$this->render($render);
 		
     }
-
+	
+	public function excluir($id){
+		
+		$this->autoRender = false;
+		
+		if ($id != null) {
+			$atendimento = $this->Atendimentos->get($id);
+			$atendimento->status = 'd';
+			$this->Atendimentos->save($atendimento);
+			$this->Flash->success('Registro removido com sucesso.');
+		} else {
+			$this->Flash->error('Não foi possível excluir o registro.');
+		}
+		
+		return $this->redirect('/atendimentos/index');
+		
+    }
+	
+	
 }
