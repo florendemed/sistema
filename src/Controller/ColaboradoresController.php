@@ -41,8 +41,8 @@ class ColaboradoresController extends AppController{
 		$this->layout = 'login';
 		$this->set('title', 'Login');
 		
-		if ($this->request->is('post')) {
-				
+		if ($this->request->is('post')) {			
+					
 			$senha = md5($this->request->data['senha']);
 
 			$colaborador = $this->Colaboradores->find('all',[

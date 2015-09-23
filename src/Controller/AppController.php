@@ -232,8 +232,7 @@ class AppController extends Controller{
 				'app/busca_cep',
 				'colaboradores/login',
 				'colaboradores/logout',
-				'paginas/index',
-				'colaboradores/esqueci'
+				'paginas/index'
 			];
 			$local	= strtolower($this->request->controller) . '/' . $this->request->action;
 			
@@ -291,7 +290,7 @@ class AppController extends Controller{
 			}
 			
 		} else {
-			if ($this->request->here != '/entrar'){
+			if ($this->request->here != '/entrar' && $this->request->here != '/esqueci-minha-senha'){	
 				$this->Flash->error(__('É necessário estar logado para acessar esta área.'));
 				$this->redirect('/entrar');
 			}
