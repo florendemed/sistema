@@ -36,8 +36,8 @@
 				</div>
 				<div class="col-md-6 atendimentos">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>/triagem">Triagem</a></li>
-						<li><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>">Atendimento Médico</a></li>
+						<li class="active"><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>">Triagem</a></li>
+						<li><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>/editar">Atendimento Médico</a></li>
 					</ul>
 					<fieldset>
 						<div class="form-group required">

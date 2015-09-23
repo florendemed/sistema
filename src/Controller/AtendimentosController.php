@@ -17,6 +17,14 @@ class AtendimentosController extends AppController{
 		
 		$condicoes = [];
 		
+		/*if (!empty($this->request->query)){
+			
+			if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != ''){
+				$condicoes['created'] >= '%'.$this->request->query['dataInicio'].'%';
+			} 
+
+		}*/
+		
 		$this->paginate = [
 			'conditions' => $condicoes,
 			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
@@ -55,7 +63,7 @@ class AtendimentosController extends AppController{
 
     }
 	
-	public function editar($id, $render = 'editar'){
+	public function editar($id, $render = 'triagem'){
 		
 		$atendimento = $this->Atendimentos->get($id, [
 			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
