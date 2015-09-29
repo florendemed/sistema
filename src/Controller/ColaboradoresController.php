@@ -11,7 +11,7 @@ class ColaboradoresController extends AppController{
 	];
 	
 	public $paginate = [
-        'limit' => 10
+        'limit' => 10,
     ];
 	
 	public function index(){
@@ -30,7 +30,10 @@ class ColaboradoresController extends AppController{
 		}
 			
 		$this->paginate = [
-			'conditions' => $condicoes
+			'conditions' => $condicoes,
+			'order' => array(
+				'Colaboradores.id' => 'DESC'
+			),
 		];		
 		$colaboradores = $this->paginate($this->Colaboradores);
 		$this->set(compact('colaboradores'));
@@ -39,6 +42,7 @@ class ColaboradoresController extends AppController{
 	
 	public function login(){
 		$this->layout = 'login';
+		$this->set('title', 'Entrar');
 		
 		if ($this->request->is('post')) {			
 					

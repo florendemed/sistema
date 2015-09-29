@@ -210,6 +210,14 @@ class AppController extends Controller{
             'CRE' 	=> 'CRE',
         );
         $this->set('combo_conselho_regional', $combo_conselho_regional);
+		
+		//array de prioridades
+		$combo_prioridades = array(
+			'n'		=> 'Normal',	
+            'e' 	=> 'Emergência',
+            'b' 	=> 'Baixa',
+        );
+        $this->set('combo_prioridades', $combo_prioridades);
     }
 	
 	public function beforeFilter(Event $event)

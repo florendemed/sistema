@@ -147,3 +147,19 @@ footer {
 	line-height:30px;
 	margin:0;
 }
+
+.emergencia{
+	background:#F5A9BC;
+}
+
+tr.emergencia:hover {
+	background:#F6CED8 !important;
+}
+
+.baixa{
+	background:#F5F6CE;
+}
+
+tr.baixa:hover {
+	background:#F7F8E0 !important;
+}

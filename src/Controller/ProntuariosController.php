@@ -21,23 +21,4 @@ class ProntuariosController extends AppController{
 		
     }
 	
-	public function anamnese(){
-		
-    }
-	
-	public function diagnostico(){
-		
-    }
-	
-	public function prescricao(){
-		
-    }
-	
-	public function receita(){
-		
-    }
-	
-	public function atestado(){
-		
-    }
 }

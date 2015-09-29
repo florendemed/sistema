@@ -34,7 +34,10 @@ class PermissoesController extends AppController{
 			
 		$this->paginate = [
 			'conditions' => $condicoes,
-			'contain' => ['PermissaoPai']
+			'contain' => ['PermissaoPai'],
+			'order' => array(
+				'Permissoes.id' => 'DESC'
+			),
 		];
 		$permissoes = $this->paginate($this->Permissoes);
 		$this->set(compact('permissoes'));

@@ -43,6 +43,14 @@ echo $this->Html->scriptBlock("
 								?>
 							</div>
 						</div>
+						<div class="form-group required">
+							<?php echo $this->Form->label('prioridade', 'Prioridade', ['class' => 'col-md-3 control-label']); ?>
+							<div class="col-md-8">
+								<?php
+									echo $this->Form->input('prioridade', array('label' => false, 'class' => 'form-control', 'options' => $combo_prioridades));
+								?>
+							</div>
+						</div>
 					</fieldset>
 				</div>
 			</div>

@@ -17,13 +17,19 @@ class AtendimentosController extends AppController{
 		
 		$condicoes = [];
 		
-		/*if (!empty($this->request->query)){
+		pr($condicoes);
+		
+		if (!empty($this->request->query)){
 			
-			if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != ''){
+			/*if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != ''){
 				$condicoes['created'] >= '%'.$this->request->query['dataInicio'].'%';
+			} */
+			
+			if (isset($this->request->query['prioridade']) && $this->request->query['prioridade'] != ''){
+				$condicoes['prioridade'] == '%'.$this->request->query['prioridade'].'%';
 			} 
 
-		}*/
+		}
 		
 		$this->paginate = [
 			'conditions' => $condicoes,
@@ -47,7 +53,6 @@ class AtendimentosController extends AppController{
 
 		if ($this->request->is('post')) {
 			
-			//$this->request->data['atendimentos_status_id'] = '1';
 			$atendimento = $this->Atendimentos->newEntity($this->request->data);
 			$atendimento['atendimentos_status_id'] = '1';
 			

@@ -7,6 +7,7 @@
 		<?= $this->Html->css('bootstrap.min') ?>
 		<?= $this->Html->css('tema') ?>
 		<?=$this->Html->script('jquery-1.11.2.min') ?>
+		<?=$this->Html->script('jquery.mask.min') ?>
 		<?=$this->Html->script('bootstrap.min') ?>
 		<?= $this->fetch('meta') ?>
 		<?= $this->fetch('css') ?>
