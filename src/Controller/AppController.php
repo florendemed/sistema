@@ -219,74 +219,80 @@ class AppController extends Controller{
 		$this->loadModel('Colaboradores');
 		
 		if ( $this->request->session()->read('logado_id') != ''){
+
+			if ($this->request->here != '/entrar'){
 			
-			$logado = $this->Colaboradores->find('all',[
-				'conditions' => [
-					'Colaboradores.id' => $this->request->session()->read('logado_id')
-				]
-			]);
-			$logado = $logado->toArray();
-			
-			/* aqui nunca cadastrar as rotas e sim o controller/action */
-			$excecoes	= [
-				'app/busca_cep',
-				'colaboradores/login',
-				'colaboradores/logout',
-				'paginas/index'
-			];
-			$local	= strtolower($this->request->controller) . '/' . $this->request->action;
-			
-			if ( !in_array(trim($local), $excecoes) ) {
-				
-				/* permissoes */
-				$this->loadModel('Permissoes');
-				$this->loadModel('GruposPermissoes');
-				$this->loadModel('GruposColaboradores');
-				$this->loadModel('Grupos');
-				
-				$permissaoLocal = $this->Permissoes->find('all',[
+				$logado = $this->Colaboradores->find('all',[
 					'conditions' => [
-						'Permissoes.controlador' => $this->request->controller,
-						'Permissoes.acao' => $this->request->action,
+						'Colaboradores.id' => $this->request->session()->read('logado_id')
 					]
 				]);
-				$permissaoLocal = $permissaoLocal->first();
-				$gruposId = $this->GruposColaboradores->find('all',[
-					'conditions' => [
-						'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
-					],
-					'fields' => 'GruposColaboradores.grupos_id'
-				]);
+				$logado = $logado->toArray();
 				
-				if ( $gruposId->count() > 0 ){
-					$grupos_ids = [];
-					foreach ( $gruposId as $grupoId ){
-						$grupos_ids[] = $grupoId->grupos_id;
+				/* aqui nunca cadastrar as rotas e sim o controller/action */
+				$excecoes	= [
+					'app/busca_cep',
+					'colaboradores/login',
+					'colaboradores/logout',
+					'paginas/index'
+				];
+				$local	= strtolower($this->request->controller) . '/' . $this->request->action;
+				
+				if ( !in_array(trim($local), $excecoes) ) {
+					
+					/* permissoes */
+					$this->loadModel('Permissoes');
+					$this->loadModel('GruposPermissoes');
+					$this->loadModel('GruposColaboradores');
+					$this->loadModel('Grupos');
+					
+					$permissaoLocal = $this->Permissoes->find('all',[
+						'conditions' => [
+							'Permissoes.controlador' => $this->request->controller,
+							'Permissoes.acao' => $this->request->action,
+						]
+					]);
+					$permissaoLocal = $permissaoLocal->first();
+					$gruposId = $this->GruposColaboradores->find('all',[
+						'conditions' => [
+							'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
+						],
+						'fields' => 'GruposColaboradores.grupos_id'
+					]);
+					
+					if ( $gruposId->count() > 0 ){
+						$grupos_ids = [];
+						foreach ( $gruposId as $grupoId ){
+							$grupos_ids[] = $grupoId->grupos_id;
+						}
+					}	
+					
+					$permissoesId = $this->GruposPermissoes->find('all',[
+						'conditions' => [
+							'GruposPermissoes.grupos_id IN' => $grupos_ids
+						],
+						'group' => 'GruposPermissoes.permissoes_id'
+					]);
+					
+					if ( $permissoesId->count() > 0 ){
+						$permissoes_ids = [];
+						foreach ( $permissoesId as $permissaoId ){
+							$permissoes_ids[] = $permissaoId->permissoes_id;
+						}
 					}
-				}	
-				
-				$permissoesId = $this->GruposPermissoes->find('all',[
-					'conditions' => [
-						'GruposPermissoes.grupos_id IN' => $grupos_ids
-					],
-					'group' => 'GruposPermissoes.permissoes_id'
-				]);
-				
-				if ( $permissoesId->count() > 0 ){
-					$permissoes_ids = [];
-					foreach ( $permissoesId as $permissaoId ){
-						$permissoes_ids[] = $permissaoId->permissoes_id;
+					if ( !isset($permissaoLocal->id) ) {
+						$retornoPermissoes	= 0;
+					} else {
+						$retornoPermissoes = in_array ( $permissaoLocal->id , $permissoes_ids );
+					}
+					if ( $retornoPermissoes == 0 || !isset($retornoPermissoes) ){
+						$this->Flash->error(__('Você não possui acesso a essa área.'));
+						return $this->redirect('/index');
 					}
 				}
-				if ( !isset($permissaoLocal->id) ) {
-					$retornoPermissoes	= 0;
-				} else {
-					$retornoPermissoes = in_array ( $permissaoLocal->id , $permissoes_ids );
-				}
-				if ( $retornoPermissoes == 0 || !isset($retornoPermissoes) ){
-					$this->Flash->error(__('Você não possui acesso a essa área.'));
-					return $this->redirect('/index');
-				}
+			}else {
+				
+				$this->redirect('/index');
 			}
 			
 		} else {

@@ -175,4 +175,12 @@ class PacientesController extends AppController{
 		return $this->redirect('/pacientes/index');
 		
     }
+	
+	public function buscar(){
+		
+		$this->layout = 'ajax';
+		$this->autoRender = false;
+		pr($this->request->params);
+		
+	}
 }

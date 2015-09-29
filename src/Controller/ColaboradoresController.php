@@ -39,7 +39,6 @@ class ColaboradoresController extends AppController{
 	
 	public function login(){
 		$this->layout = 'login';
-		$this->set('title', 'Login');
 		
 		if ($this->request->is('post')) {			
 					
@@ -173,25 +172,32 @@ class ColaboradoresController extends AppController{
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
+
+			$erros = [];
 			
+			if ($this->request->data['senha'] == ''){
+				unset($this->request->data['senha']);
+			} else {
+				if ( $this->request->data['senha'] != $this->request->data['senha_repetir']) {
+					$erros = ['senha' => 'Confirme sua senha corretamente', 'senha_repetir' => 'Confirme sua senha corretamente']; 
+					$this->request->data['senha'] = '';
+					$this->request->data['senha_repetir'] = '';
+				} else {
+					$this->request->data['senha'] = md5($this->request->data['senha']);
+				}
+			}
+			
+			if ($this->request->data['envio_sms'] == '0'){
+				$this->request->data['envio_sms'] = 'n';
+			}
+			
+			if ($this->request->data['status'] == '0'){
+				$this->request->data['status'] = 'i';
+			}
+
 			$colaborador = $this->Colaboradores->patchEntity($colaborador, $this->request->data);
 			
-			if ( $this->request->data['senha'] != $this->request->data['senha_repetir']) {
-				$colaborador->errors(['senha' => 'Confirme sua senha corretamente']); 
-				$colaborador->errors(['senha_repetir' => 'Confirme sua senha corretamente']); 
-				$this->request->data['senha'] = '';
-				$this->request->data['senha_repetir'] = '';
-			} else {
-				$colaborador->senha = md5($this->request->data['senha']);
-			}
-			
-			if ($colaborador['envio_sms'] == '0'){
-				$colaborador['envio_sms'] = 'n';
-			}
-			
-			if ($colaborador['status'] == '0'){
-				$colaborador['status'] = 'i';
-			}
+			$colaborador->errors($erros); 
 			
 			if ($this->Colaboradores->save($colaborador)) {
 				

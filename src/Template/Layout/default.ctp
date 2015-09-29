@@ -6,9 +6,11 @@
 		<?= $this->Html->meta('icon', '/florence.png') ?>
 		<?= $this->Html->css('bootstrap.min') ?>
 		<?= $this->Html->css('tema') ?>
+		<?= $this->Html->css('//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css') ?>
 		<?= $this->Html->css('fullcalendar.min') ?>
 		<?=$this->Html->script('jquery-1.11.2.min') ?>
 		<?=$this->Html->script('jquery.mask.min') ?>
+		<?=$this->Html->script('//code.jquery.com/ui/1.11.4/jquery-ui.js') ?>
 		<?=$this->Html->script('fullcalendar-moment.min') ?>
 		<?=$this->Html->script('fullcalendar.min') ?>
 		<?=$this->Html->script('fullcalendar-pt-br') ?>
