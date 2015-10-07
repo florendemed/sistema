@@ -180,10 +180,32 @@ class PacientesController extends AppController{
     }
 	
 	public function buscar(){
+		$this->layout 		= 'ajax';
+		$this->autoRender	= false;
 		
-		$this->layout = 'ajax';
-		$this->autoRender = false;
-		pr($this->request->params);
+		$busca = $this->request->query['busca'];
 		
+		$paciente = $this->Pacientes->find('list', [
+			'conditions' => [
+				'Pacientes.nome LIKE' => '%'.$busca.'%',
+			],
+			'keyField' => 'id', 
+			'valueField' => 'nome',
+		])->hydrate(false);
+		
+		if ( $paciente->count() > 0 ) {
+			$retorno	= [];
+			foreach ( $paciente as $p_id => $p_nome ) {
+				$item['value']	= $p_id;
+				$item['label']	= $p_nome;
+				$retorno[]	= $item;
+			}
+		}
+		
+		$json = json_encode($retorno);
+		//if ( $this->request->is('requested') ) {
+			$this->response->body($json);
+			return $this->response;
+		//}
 	}
 }

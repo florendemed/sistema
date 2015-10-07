@@ -213,9 +213,9 @@ class AppController extends Controller{
 		
 		//array de prioridades
 		$combo_prioridades = array(
-			'n'		=> 'Normal',	
-            'e' 	=> 'Emergência',
-            'b' 	=> 'Baixa',
+			'2'		=> 'Normal',	
+            '1' 	=> 'Emergência',
+            '3' 	=> 'Baixa',
         );
         $this->set('combo_prioridades', $combo_prioridades);
     }
@@ -242,6 +242,7 @@ class AppController extends Controller{
 					'app/busca_cep',
 					'colaboradores/login',
 					'colaboradores/logout',
+					'pacientes/buscar',
 					'paginas/index'
 				];
 				$local	= strtolower($this->request->controller) . '/' . $this->request->action;

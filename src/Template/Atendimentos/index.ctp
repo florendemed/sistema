@@ -68,10 +68,10 @@ echo $this->Html->scriptBlock("
 							$status = "Inativo";
 						}
 						
-						if ( h($atendimentos->prioridade) == 'e' ){
+						if ( h($atendimentos->prioridade) == '1' ){
 							$prioridade = "Emergencia";
 							$class		= "emergencia";
-						} else if ( h($atendimentos->prioridade) == 'b' ) {
+						} else if ( h($atendimentos->prioridade) == '3' ) {
 							$prioridade = "Baixa";
 							$class		= "baixa";
 						}else {

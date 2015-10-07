@@ -16,9 +16,7 @@ class AtendimentosController extends AppController{
 	public function index(){
 		
 		$condicoes = [];
-		
-		pr($condicoes);
-		
+
 		if (!empty($this->request->query)){
 			
 			/*if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != ''){
@@ -33,7 +31,10 @@ class AtendimentosController extends AppController{
 		
 		$this->paginate = [
 			'conditions' => $condicoes,
-			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
+			'contain' => ['Pacientes', 'Colaborador', 'Situacao'],
+			'order' => array(
+				'Atendimentos.prioridade' => 'ASC'
+			),
 		];		
 		$atendimento = $this->paginate($this->Atendimentos);
 		$this->set(compact('atendimento'));

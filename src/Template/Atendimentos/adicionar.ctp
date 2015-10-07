@@ -1,16 +1,37 @@
 <?php
 echo $this->Html->scriptBlock("
 	$(document).ready(function() {
-		alert('teste');
-		$('#pacientes-id').autocomplete({
-			source: '/pacientes/buscar',
+		$('#pacientes-busca').autocomplete({
+			source: function( request, response ) {
+				$.ajax({
+					url: '/Pacientes/buscar',
+					dataType: 'json',
+					delay: 100,
+					data: {
+						busca: request.term
+					},
+					success: function( data ) {
+						response( data );
+					}
+				});
+			},
 			minLength: 2,
-			select: function(event, ui) {
-				console.log( ui.item ?
-				'Selected: ' + ui.item.value + ' aka ' + ui.item.id :
-				'Nothing selected, input was ' + this.value );
-			}
-		});
+			select: function( event, ui ) {
+				console.log(event);
+				$('#pacientes-id').val(ui.item.value);
+				$('#pacientes-busca').val(ui.item.label);
+				console.log(ui.item);
+				/*
+				console.log(
+					ui.item ?
+						'Selected: ' + ui.item.label :
+						'Nothing selected, input was ' + this.value
+				);
+				*/
+			},
+		}).on( 'autocompleteselect', function( event, ui ) {
+			return false;
+		} );;
 	});
 ");
 ?>
@@ -23,15 +44,18 @@ echo $this->Html->scriptBlock("
 			<li class="active"><a href="/atendimentos/adicionar">Novo</a></li>
 			<li class=""><a href="/atendimentos/index">Listar</a></li>
 		</ul>
-		<?php echo $this->Form->create($atendimento, ['class' => 'form-horizontal']); ?>
+		<?php 
+		echo $this->Form->create($atendimento, ['class' => 'form-horizontal']); 
+		echo $this->Form->input('pacientes_id', array('type' => 'hidden'));
+		?>
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset>
 						<div class="form-group required">
-							<?php echo $this->Form->label('pacientes_id', 'Paciente', ['class' => 'col-md-3 control-label']); ?>
+							<?php echo $this->Form->label('pacientes_busca', 'Paciente', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
 								<?php
-									echo $this->Form->input('pacientes_id', array('label' => false, 'type' => 'text', 'class' => 'form-control'));
+									echo $this->Form->input('pacientes_busca', array('label' => false, 'type' => 'text', 'class' => 'form-control'));
 								?>
 							</div>
 						</div>	
