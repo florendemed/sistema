@@ -148,15 +148,15 @@ footer {
 	margin:0;
 }
 
-.emergencia{
-	background:#F5A9BC;
+tr.emergencia{
+	background:#F5A9BC !important;
 }
 
 tr.emergencia:hover {
 	background:#F6CED8 !important;
 }
 
-.baixa{
+tr.baixa{
 	background:#F5F6CE;
 }
 
