@@ -89,6 +89,7 @@ echo $this->Html->scriptBlock("
 						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->created) ?></a></td>
 						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->modified) ?></a></td>
 						<td class="actions">
+							<a href="" title="Prontuário"><span class="fa fa-book"></span></a>
 							<a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Iniciar Atendimento"><span class="glyphicon glyphicon-play"></span></a>
 							<a href="/atendimentos/excluir/<?= h($atendimentos->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 						</td>

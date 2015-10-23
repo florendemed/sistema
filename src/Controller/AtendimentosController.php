@@ -123,7 +123,10 @@ class AtendimentosController extends AppController{
 	public function prontuario($pacientes_id){
 		
 		$atendimento = $this->Atendimentos->find('all',[
-			'conditions' => [ 'Atendimentos.pacientes_id' => $pacientes_id]
+			'conditions' => [ 'Atendimentos.pacientes_id' => $pacientes_id],
+			'order' => array(
+				'Atendimentos.created' => 'DESC'
+			),
 		]);
 		$atendimento = $atendimento->toArray();
 		

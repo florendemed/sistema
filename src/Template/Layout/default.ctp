@@ -6,6 +6,9 @@
 		<?= $this->Html->meta('icon', '/florence.png') ?>
 		<?= $this->Html->css('bootstrap.min') ?>
 		<?= $this->Html->css('tema') ?>
+		<?= $this->Html->css('normalize') ?>
+		<?= $this->Html->css('timeline') ?>
+		<?= $this->Html->css('font-awesome') ?>
 		<?= $this->Html->css('//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css') ?>
 		<?= $this->Html->css('fullcalendar.min') ?>
 		<?=$this->Html->script('jquery-1.11.2.min') ?>

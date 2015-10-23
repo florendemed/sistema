@@ -64,6 +64,7 @@
 						<td><a href="/atendimentos/prontuario/<?= h($paciente->id) ?>" title="Editar"><?= h($paciente->created) ?></a></td>
 						<td><a href="/atendimentos/prontuario/<?= h($paciente->id) ?>" title="Editar"><?= h($paciente->modified) ?></a></td>
 						<td class="actions">
+							<a href="/atendimentos/prontuario/<?= h($paciente->id) ?>" title="Prontuário"><span class="fa fa-book"></span></a>
 							<a href="/pacientes/editar/<?= h($paciente->id) ?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
 							<a href="/pacientes/excluir/<?= h($paciente->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 						</td>
