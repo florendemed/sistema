@@ -12,6 +12,14 @@
 	margin: 0 0 15px;
 }
 
+.linha {
+	height: 1px;
+	background: #EEE;
+	width: 100%;
+	display: block;
+	margin: 22px 0px 15px;
+}
+
 .date {
 	color: #777;
 	font-size: 13px;
@@ -58,13 +66,15 @@
 	margin-top: -10px;
 }
 
-.content p {
+.content p,
+.content hr {
 	max-height: 0;
 	color: transparent;
 	text-align: justify;
 	word-break: break-word;
 	hyphens: auto;
 	overflow: hidden;
+	line-height:22px;
 }
 
 .content p span {
@@ -90,7 +100,6 @@ label {
 }
 .radio:checked + .relative .circle {
 	background: #01579B;
-	margin-top: -84px;
 	top: 50%;
 	width: 20px;
 	height: 20px;
@@ -106,15 +115,12 @@ label {
 	max-height: 500px;
 	color: #000;
 	transition: color 0.0s linear 0.0s;
-	border-top: 1px solid #BDBDBD;
-	margin-top:20px !important;
-	padding-top:20px !important;
 	font-size: 0.9em;
 }
 
 .radio:checked ~ .content p .fa {
 	position: absolute;
-	top: 44px;
+	top: 50%;
 	left: -37px;
 	color:#FFF;
 }
