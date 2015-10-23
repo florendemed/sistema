@@ -26,11 +26,10 @@
 					</ul>
 					<ul class="nav navbar-nav">
 						<li><a href="/atendimentos">Atendimentos</a></li>
-						<li><a href="/prontuarios">Prontuário</a></li>
+						<li><a href="/pacientes/index">Pacientes</a></li>
 						<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Dados<b class="caret"></b></a>
 							<ul class="dropdown-menu" role="menu">
 								<li class=""><a href="/colaboradores/index">Colaboradores</a></li>
-								<li class=""><a href="/pacientes/index">Pacientes</a></li>
 								<li class=""><a href="/doencas/index">Doenças</a></li>
 								<li class=""><a href="/exames/index">Exames</a></li>
 								<li class=""><a href="/medicamentos/index">Medicamentos</a></li>

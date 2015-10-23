@@ -157,7 +157,7 @@ tr.emergencia:hover {
 }
 
 tr.baixa{
-	background:#F5F6CE;
+	background:#F5F6CE !important;
 }
 
 tr.baixa:hover {
