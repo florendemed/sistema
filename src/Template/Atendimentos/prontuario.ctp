@@ -25,13 +25,15 @@
 							<div class='content'>
 								<p>
 									<i class="fa fa-stethoscope"></i>
+									<span class='linha'></span>
 									Frequencia Cardiaca: <span><?= h($at->frequencia_cardiaca) ?></span><br />
 									Pressão Arterial: <span><?= h($at->pressao_arterial) ?></span><br />
 									Temperatura: <span><?= h($at->temperatura) ?> ºC</span><br />
+									<span class='linha'></span>
+									Anamnese: <span><?= h($at->anamnese) ?></span><br />
 									Queixa: <span><?= h($at->queixa) ?></span><br />
 									Diagnóstico: <span><?= h($at->diagnostico) ?></span><br />
 									Prescrição: <span><?= h($at->prescricao) ?></span><br />
-									Anamnese: <span><?= h($at->anamnese) ?></span><br />
 									Observações: <span><?= h($at->observacoes) ?></span>
 								</p>
 							</div>
