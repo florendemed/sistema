@@ -4,12 +4,24 @@
 			<li class="active">Dados / Pacientes</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li><a href="/pacientes/editar/">Editar</a></li>
-			<li><a href="/pacientes/index">Listar</a></li>
-			<li class="active"><a href="/pacientes/prontuario">Prontuário</a></li>
+				<li><a href="/pacientes/editar/<?= $this->Pacientes->get($id); ?>">Editar</a></li>
+				<li><a href="/pacientes/index">Listar</a></li>
+				<li class="active"><a href="/atendimentos/prontuario/<?= h($pc->id) ?>">Prontuário</a></li>
 		</ul>
 		<div class="row">
-			<div class='col-md-12'>
+			<div class="col-md-2 dados">
+				<?php foreach ($paciente as $pc): ?>
+					<p class="text-center"><img src='/img/sem_foto.png' /></p>
+					<p><strong>Nome: </strong><?= h($pc->nome) ?></p>
+					<p><strong>Nascimento: </strong>
+					<?php
+						$nascimento = substr($pc->data_nascimento, 0, 8);
+						echo($nascimento);
+					?>
+					</p>
+				<?php  endforeach; ?>
+			</div>
+			<div class='col-md-10'>
 			<?php if( count($atendimento) > 0 ) { ?>
 				<ul id='timeline'>
 					<?php foreach ($atendimento as $i => $at): ?>

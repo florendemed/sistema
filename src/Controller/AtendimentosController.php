@@ -38,8 +38,7 @@ class AtendimentosController extends AppController{
 			} 
 
 		}
-		
-			
+
 		$this->paginate = [
 			'conditions' => $condicoes,
 			'contain' => ['Pacientes', 'Colaborador', 'Situacao'],
@@ -122,6 +121,13 @@ class AtendimentosController extends AppController{
 	
 	public function prontuario($pacientes_id){
 		
+		$this->loadModel('Pacientes');
+		
+		$paciente = $this->Pacientes->find('all',[
+			'conditions' => [ 'Pacientes.id' => $pacientes_id],
+		]);
+		$paciente = $paciente->toArray();
+		
 		$atendimento = $this->Atendimentos->find('all',[
 			'conditions' => [ 'Atendimentos.pacientes_id' => $pacientes_id],
 			'order' => array(
@@ -130,7 +136,7 @@ class AtendimentosController extends AppController{
 		]);
 		$atendimento = $atendimento->toArray();
 		
-		$this->set(compact('atendimento'));
+		$this->set(compact('atendimento', 'paciente'));
 
 	}
 	

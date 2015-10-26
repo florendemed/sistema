@@ -33,9 +33,9 @@ echo $this->Html->scriptBlock("
 			<li class="active">Dados / Pacientes</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/pacientes/adicionar">Editar</a></li>
+			<li class="active"><a href="/pacientes/editar/">Editar</a></li>
 			<li><a href="/pacientes/index">Listar</a></li>
-			<li><a href="/pacientes/prontuario">Prontuário</a></li>
+			<li><a href="/atendimentos/prontuario/">Prontuário</a></li>
 		</ul>
 		<?php echo $this->Form->create($paciente, ['class' => 'form-horizontal']); ?>
 			<?php echo $this->Form->input('id'); ?>
