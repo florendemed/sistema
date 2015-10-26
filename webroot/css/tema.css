@@ -146,6 +146,7 @@ footer {
 	border-bottom: 1px solid #EEE;
 	line-height:30px;
 	margin:0;
+	font-size: 12px;
 }
 
 tr.emergencia{
@@ -162,4 +163,12 @@ tr.baixa{
 
 tr.baixa:hover {
 	background:#F7F8E0 !important;
+}
+
+.filtros .date {
+	position: static;
+}
+
+.fa-4 {
+	font-size: 2em !important;
 }

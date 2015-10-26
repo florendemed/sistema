@@ -32,6 +32,7 @@
 	font-size: 13px;
 	line-height: 20px;
 	position: absolute;
+	width: 750px;
 }
 
 .circle {
@@ -81,7 +82,7 @@
 	color: #777;
 }
 
-label {
+#timeline label {
 	font-size: 1.0em;
 	position: absolute;
 	z-index: 100;
@@ -138,7 +139,7 @@ label {
 		margin: 50px 0;
 	}
 
-	label {
+	#timeline label {
 		width: 85%;
 		font-size: 1.1em;
 		white-space: nowrap;
