@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Permissões</li>
+			<li class="active">Dados / Permissões / Adicionar</li>
 		</ul>
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="/permissoes/adicionar">Novo</a></li>

@@ -30,7 +30,7 @@ echo $this->Html->scriptBlock("
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Colaboradores</li>
+			<li class="active">Dados / Colaboradores / Adicionar</li>
 		</ul>
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="/colaboradores/adicionar">Novo</a></li>

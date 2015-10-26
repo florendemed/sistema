@@ -1,10 +1,11 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Grupos</li>
+			<li class="active">Dados / Grupos / Editar</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/Grupos/adicionar">Novo</a></li>
+			<li><a href="/Grupos/adicionar">Novo</a></li>
+			<li class="active"><a href="/Grupos/editar/<?= $grupo->id; ?>">Editar</a></li>
 			<li><a href="/Grupos/index">Listar</a></li>
 		</ul>
 		<?php echo $this->Form->create($grupo, ['class' => 'form-horizontal']); ?>

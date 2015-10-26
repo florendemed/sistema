@@ -1,10 +1,11 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Medicamentos</li>
+			<li class="active">Dados / Medicamentos / Editar</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/medicamentos/adicionar">Adicionar</a></li>
+			<li><a href="/medicamentos/adicionar">Novo</a></li>
+			<li class="active"><a href="/medicamentos/editar/<?= $medicamento->id; ?>">Editar</a></li>
 			<li><a href="/medicamentos/index">Listar</a></li>
 		</ul>
 		<?php echo $this->Form->create($medicamento, ['class' => 'form-horizontal']); ?>

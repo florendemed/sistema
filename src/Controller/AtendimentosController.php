@@ -14,7 +14,7 @@ class AtendimentosController extends AppController{
     ];
 	
 	public function index(){
-		
+
 		$condicoes = [];
 		
 		if (!empty($this->request->query)){
@@ -130,6 +130,7 @@ class AtendimentosController extends AppController{
 		
 		$atendimento = $this->Atendimentos->find('all',[
 			'conditions' => [ 'Atendimentos.pacientes_id' => $pacientes_id],
+			'contain' => ['Pacientes', 'Colaborador'],
 			'order' => array(
 				'Atendimentos.created' => 'DESC'
 			),
@@ -139,6 +140,5 @@ class AtendimentosController extends AppController{
 		$this->set(compact('atendimento', 'paciente'));
 
 	}
-	
 	
 }

@@ -7,17 +7,18 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Atendimentos / triagem</li>
+			<li class="active">Atendimentos / Atendimento Médico</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/atendimentos/adicionar">Novo</a></li>
+			<li><a href="/atendimentos/adicionar">Novo</a></li>
+			<li class="active"><a href="/atendimentos/editar/<?= $atendimento->id; ?>">Editar</a></li>
 			<li><a href="/atendimentos/index">Listar</a></li>
 		</ul>
 		<?php echo $this->Form->create($atendimento, ['class' => 'form-horizontal']); ?>
 			<?php echo $this->Form->input('id'); ?>
 			<?php echo $this->Form->input('atendimentos_status_id', ['value' => '3', 'type' => 'hidden']); ?>
 			<div class="row">
-				<div class="col-md-2 dados">
+				<div class="col-md-3 dados">
 					<p class="text-center"><img src='/img/sem_foto.png' /></p>
 					<p><strong>Nome: </strong><?= h($atendimento->paciente->nome) ?></p>
 					<p><strong>Nascimento: </strong>

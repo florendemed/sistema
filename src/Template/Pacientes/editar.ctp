@@ -30,12 +30,13 @@ echo $this->Html->scriptBlock("
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Pacientes</li>
+			<li class="active">Pacientes / Editar</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/pacientes/editar/">Editar</a></li>
+			<li><a href="/pacientes/adicionar/">Novo</a></li>
+			<li class="active"><a href="/pacientes/editar/<?= $paciente->id ?>">Editar</a></li>
 			<li><a href="/pacientes/index">Listar</a></li>
-			<li><a href="/atendimentos/prontuario/">Prontuário</a></li>
+			<li><a href="/atendimentos/prontuario/<?= $paciente->id ?>">Prontuário</a></li>
 		</ul>
 		<?php echo $this->Form->create($paciente, ['class' => 'form-horizontal']); ?>
 			<?php echo $this->Form->input('id'); ?>

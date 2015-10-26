@@ -1,14 +1,14 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Medicamentos</li>
+			<li class="active">Dados / Medicamentos / Adicionar</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/medicamentos/importar">Importar</a></li>
+			<li class="active"><a href="/medicamentos/novo">Novo</a></li>
 			<li><a href="/medicamentos/index">Listar</a></li>
 		</ul>
 		<p class="alert alert-info">Arquivo <strong>XML</strong> nos padrões abaixo:</p>
-		<?php echo $this->Form->create($paciente, ['class' => 'form-horizontal']); ?>
+		<?php echo $this->Form->create($medicamento, ['class' => 'form-horizontal']); ?>
 			<div class="row">
 				<div class="col-md-6">
 					<fieldset>

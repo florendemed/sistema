@@ -7,6 +7,7 @@
 			<li><a href="/exames/adicionar">Novo</a></li>
 			<li class="active"><a href="/exames/index">Listar</a></li>
 		</ul>
+		<p class="alert alert-info">Clique no <strong>exame</strong> para editar os registros.</p>
 		<div class="well filtros">
 			<form action="/exames/index" class="form-horizontal" id="doencaIndexForm" method="get" accept-charset="utf-8">	
 				<fieldset>

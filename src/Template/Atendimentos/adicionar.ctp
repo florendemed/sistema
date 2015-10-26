@@ -58,6 +58,7 @@ echo $this->Html->scriptBlock("
 									echo $this->Form->input('pacientes_busca', array('label' => false, 'type' => 'text', 'class' => 'form-control'));
 								?>
 							</div>
+							<div class="col-md-1"><a href='/pacientes/adicionar' title="Adicionar Paciente" target="_blank"><i class="fa fa-plus-square fa-4"></i></a></div>
 						</div>	
 						<div class="form-group required">
 							<?php echo $this->Form->label('colaborador_id', 'Profissional', ['class' => 'col-md-3 control-label']); ?>

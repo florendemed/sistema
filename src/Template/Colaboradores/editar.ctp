@@ -30,10 +30,11 @@ echo $this->Html->scriptBlock("
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Colaboradores</li>
+			<li class="active">Dados / Colaboradores / Editar</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/colaboradores/adicionar">Novo</a></li>
+			<li><a href="/colaboradores/adicionar">Novo</a></li>
+			<li class="active"><a href="/colaboradores/editar/<?= $colaborador->id; ?>">Editar</a></li>
 			<li><a href="/colaboradores/index">Listar</a></li>
 		</ul>
 		<?php echo $this->Form->create($colaborador, ['class' => 'form-horizontal']); ?>

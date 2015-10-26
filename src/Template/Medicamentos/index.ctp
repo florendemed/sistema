@@ -4,9 +4,10 @@
 			<li class="active">Dados / Medicamentos</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li><a href="/medicamentos/adicionar">Adicionar</a></li>
+			<li><a href="/medicamentos/adicionar">Novo</a></li>
 			<li class="active"><a href="/medicamentos/index">Listar</a></li>
 		</ul>
+		<p class="alert alert-info">Clique no <strong>medicamento</strong> para editar os registros.</p>
 		<div class="well filtros">
 			<form action="/medicamentos/index" class="form-horizontal" id="doencaIndexForm" method="get" accept-charset="utf-8">	
 				<fieldset>

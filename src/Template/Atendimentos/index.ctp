@@ -15,7 +15,7 @@ echo $this->Html->scriptBlock("
 			<li><a href="/atendimentos/adicionar">Novo</a></li>
 			<li class="active"><a href="/atendimentos/index">Listar</a></li>
 		</ul>
-		<p class="alert alert-info">Clique no <strong>nome</strong> para editar os registros.</p>
+		<p class="alert alert-info">Clique no <strong>paciente</strong> para editar os registros.</p>
 		<div class="well filtros">
 			<form action="/atendimentos/index" class="form-horizontal" id="colaboradorIndexForm" method="get" accept-charset="utf-8">	
 				<fieldset>
@@ -32,7 +32,7 @@ echo $this->Html->scriptBlock("
 						</div>
 						<div class="col-md-2">
 							<?php
-								echo $this->Form->input('prioridade', array('label' => false, 'class' => 'form-control', 'options' => $combo_prioridades));
+								echo $this->Form->input('prioridade', array('label' => false, 'first' => 'Todos', 'class' => 'form-control', 'options' => $combo_prioridades_pesquisa));
 							?>
 						</div>
 						<div class="col-md-1">
@@ -89,7 +89,7 @@ echo $this->Html->scriptBlock("
 						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->created) ?></a></td>
 						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->modified) ?></a></td>
 						<td class="actions">
-							<a href="" title="Prontuário"><span class="fa fa-book"></span></a>
+							<a href="/atendimentos/prontuario/<?= h($atendimentos->paciente->id) ?>" title="Prontuário"><span class="fa fa-book"></span></a>
 							<a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Iniciar Atendimento"><span class="glyphicon glyphicon-play"></span></a>
 							<a href="/atendimentos/excluir/<?= h($atendimentos->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 						</td>

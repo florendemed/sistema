@@ -1,10 +1,11 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Permissões</li>
+			<li class="active">Dados / Permissões / Editar</li>
 		</ul>
 		<ul class="nav nav-tabs">
-			<li class="active"><a href="/permissoes/adicionar">Novo</a></li>
+			<li><a href="/permissoes/adicionar">Novo</a></li>
+			<li class="active"><a href="/permissoes/editar/<?= $permissao->id; ?>">Editar</a></li>
 			<li><a href="/permissoes/index">Listar</a></li>
 		</ul>
 		<?php echo $this->Form->create($permissao, ['class' => 'form-horizontal']); ?>
