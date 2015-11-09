@@ -22,6 +22,17 @@
 		<?= $this->fetch('meta') ?>
 		<?= $this->fetch('css') ?>
 		<?= $this->fetch('script') ?>
+		<?php
+		echo $this->Html->scriptBlock("
+			$(document).ready(function() {
+				$('.cep').mask('00000-000');
+				$('.date').mask('00/00/0000');
+				$('.telefone').mask('(00) 0000-0000');
+				$('.cpf').mask('00000000000');
+				$('.numero').mask('099999999');
+			});
+		");
+		?>
 	</head>
 	<body>
 		 <?php echo $this->element('menuPrincipal'); ?>

@@ -92,5 +92,37 @@ class ExamesController extends AppController{
 		return $this->redirect('/exames/index');
 		
     }
+	
+	public function buscar(){
+		$this->layout 		= 'ajax';
+		$this->autoRender	= false;
+		
+		$busca = $this->request->query['busca'];
+		
+		$exame = $this->Exames->find('list', [
+			'conditions' => [
+				'Exames.nome LIKE' => '%'.$busca.'%',
+			],
+			'keyField' => 'id', 
+			'valueField' => 'nome',
+		])->hydrate(false);
+		
+		
+		
+		if ( $exame->count() > 0 ) {
+			$retorno	= [];
+			foreach ( $exame as $e_id => $e_nome ) {
+				$item['value']	= $e_id;
+				$item['label']	= $e_nome;
+				$retorno[]	= $item;
+			}
+		}
+
+		$json = json_encode($retorno);
+		//if ( $this->request->is('requested') ) {
+			$this->response->body($json);
+			return $this->response;
+		//}
+	}
 
 }

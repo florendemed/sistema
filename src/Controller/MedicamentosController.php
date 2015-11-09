@@ -13,6 +13,15 @@ class MedicamentosController extends AppController{
         'limit' => 10
     ];
 	
+	public function inserir(){
+		if ($this->request->is('post')) {
+			$medicamento = $this->Medicamentos->newEntity($this->request->data);
+			$medicamento = $this->Medicamentos->save($medicamento);
+			$this->response->body($medicamento->id);
+			return $this->response;
+		}
+    }
+	
 	public function index(){
 		
 		$condicoes = [];
@@ -95,5 +104,38 @@ class MedicamentosController extends AppController{
 		return $this->redirect('/medicamentos/index');
 		
     }
+	
+	public function buscar($limit=30){
+		$this->layout 		= 'ajax';
+		$this->autoRender	= false;
+		
+		$busca = $this->request->query['busca'];
+		
+		$medicamento = $this->Medicamentos->find('list', [
+			'conditions' => [
+				'Medicamentos.nome LIKE' => '%'.$busca.'%',
+			],
+			'limit' => $limit,
+			'keyField' => 'id', 
+			'valueField' => 'nome',
+		])->hydrate(false);
+		
+		
+		
+		if ( $medicamento->count() > 0 ) {
+			$retorno	= [];
+			foreach ( $medicamento as $m_id => $m_nome ) {
+				$item['value']	= $m_id;
+				$item['label']	= $m_nome;
+				$retorno[]	= $item;
+			}
+		}
+
+		$json = json_encode($retorno);
+		//if ( $this->request->is('requested') ) {
+			$this->response->body($json);
+			return $this->response;
+		//}
+	}
 
 }

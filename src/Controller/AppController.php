@@ -227,6 +227,27 @@ class AppController extends Controller{
             '3' 	=> 'Baixa',
         );
         $this->set('combo_prioridades_pesquisa', $combo_prioridades_pesquisa);
+		
+		//array de uso
+		$combo_uso = array(
+			'1'		=> 'Uso Interno',	
+            '2' 	=> 'Uso Externo',
+        );
+        $this->set('combo_uso', $combo_uso);
+		
+		//array de tempo de us0
+		$combo_tempo = array(
+			'1'		=> '1 em 1 hora',	
+            '2' 	=> '2 em 2 horas',
+            '4' 	=> '4 em 4 horas',
+            '6' 	=> '6 em 6 horas',
+            '8' 	=> '8 em 8 horas',
+            '10' 	=> '10 em 10 horas',
+            '12' 	=> '12 em 12 horas',
+            '24' 	=> '24 em 24 horas',
+        );
+        $this->set('combo_tempo', $combo_tempo);
+		
     }
 	
 	public function beforeFilter(Event $event)
@@ -252,7 +273,11 @@ class AppController extends Controller{
 					'colaboradores/login',
 					'colaboradores/logout',
 					'pacientes/buscar',
-					'paginas/index'
+					'medicamentos/buscar',
+					'medicamentos/inserir',
+					'exames/buscar',
+					'paginas/index',
+					'AtendimentosMedicamentos/inserir'
 				];
 				$local	= strtolower($this->request->controller) . '/' . $this->request->action;
 				

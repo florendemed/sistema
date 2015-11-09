@@ -11,7 +11,7 @@
 			<?php  endforeach; ?>
 		</ul>
 		<div class="row">
-			<div class="col-md-3 dados">
+			<div class="col-md-2 dados">
 				<?php foreach ($paciente as $pc): ?>
 					<p class="text-center"><img src='/img/sem_foto.png' /></p>
 					<p><strong>Nome: </strong><?= h($pc->nome) ?></p>
@@ -23,7 +23,7 @@
 					</p>
 				<?php  endforeach; ?>
 			</div>
-			<div class='col-md-9'>
+			<div class='col-md-10'>
 				<?php if( count($atendimento) > 0 ) { ?>
 					<ul id='timeline'>
 						<?php foreach ($atendimento as $i => $at): ?>
