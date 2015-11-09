@@ -149,6 +149,10 @@ footer {
 	font-size: 12px;
 }
 
+.dados img {
+	width:100%;
+}
+
 tr.emergencia{
 	background:#F5A9BC !important;
 }
@@ -171,4 +175,9 @@ tr.baixa:hover {
 
 .fa-4 {
 	font-size: 2em !important;
+}
+
+.input-group input{
+	border-top-left-radius:4px !important;
+	border-bottom-left-radius:4px !important;
 }
