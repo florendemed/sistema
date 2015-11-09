@@ -128,21 +128,21 @@ echo $this->Html->scriptBlock("
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group required">
-								<?php echo $this->Form->label('anamnese', 'Anamnese', ['class' => 'col-md-3 control-label']); ?>
-								<div class="col-md-9">
+								<?php echo $this->Form->label('anamnese', 'Anamnese', ['class' => 'col-md-2 control-label']); ?>
+								<div class="col-md-10">
 									<?php echo $this->Form->input('anamnese', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
 								</div>
 							</div>
 							<div class="form-group required">
-								<?php echo $this->Form->label('diagnostico', 'Diagnóstico', ['class' => 'col-md-3 control-label']); ?>
-								<div class="col-md-9">
-									<?php echo $this->Form->input('diagnostico', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
+								<?php echo $this->Form->label('queixa', 'Queixa', ['class' => 'col-md-2 control-label']); ?>
+								<div class="col-md-10">
+									<?php echo $this->Form->input('queixa', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
 								</div>
 							</div>
 							<div class="form-group required">
-								<?php echo $this->Form->label('queixa', 'Queixa', ['class' => 'col-md-3 control-label']); ?>
-								<div class="col-md-9">
-									<?php echo $this->Form->input('queixa', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
+								<?php echo $this->Form->label('diagnostico', 'Diagnóstico', ['class' => 'col-md-2 control-label']); ?>
+								<div class="col-md-10">
+									<?php echo $this->Form->input('diagnostico', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
 								</div>
 							</div>
 						</div>
@@ -150,7 +150,7 @@ echo $this->Html->scriptBlock("
 					<hr />
 					<h4>Medicamentos</h4>
 					<div class="row">
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<?php echo $this->Form->input('medicamentos_busca', array('label' => false, 'escape' => false, 'class' => 'form-control', 'placeholder' => 'Digite o nome para buscar o medicamento')); ?>
 							<?php echo $this->Form->input('medicamentos_id', array('type' => 'hidden')); ?>
 						</div>
@@ -158,13 +158,13 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->input('uso', array('label' => false, 'class' => 'col-md-2 form-control', 'options' => $combo_uso)); ?>
 						</div>
 						<div class="col-md-1">
-							<?php echo $this->Form->input('quantidade', array('label' => false, 'type' => 'text', 'placeholder' => 'Qtde.', 'class' => 'col-md-2 form-control numero')); ?>
+							<?php echo $this->Form->input('quantidade', array('label' => false, 'type' => 'text', 'placeholder' => 'Qtde.', 'class' => 'col-md-2 form-control')); ?>
 						</div>
 						<div class="col-md-2">
-							<?php echo $this->Form->input('intervalo', array('label' => false, 'class' => 'col-md-2 form-control', 'options' => $combo_tempo)); ?>
+							<?php echo $this->Form->input('intervalo', array('label' => false, 'class' => 'col-md-2 form-control', 'placeholder' => 'intervalo',)); ?>
 						</div>
 						<div class="col-md-2">
-							<?php echo $this->Form->input('dias', array('label' => false, 'type' => 'text', 'placeholder' => 'dias', 'class' => 'col-md-2 form-control numero')); ?>
+							<?php echo $this->Form->input('dias', array('label' => false, 'type' => 'text', 'placeholder' => 'dias', 'class' => 'col-md-2 form-control')); ?>
 						</div>
 						<div class="col-md-1">
 							<button class="btn btn-primary inserir-medicamento" type="button"><span class="fa fa-plus"></span></button>
