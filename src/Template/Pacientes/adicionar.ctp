@@ -74,7 +74,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->label('tipo_sanguinio', 'Tipo Sanguinio', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-2">
 								<?php
-									echo $this->Form->input('sexo', array('label' => false, 'class' => 'form-control', 'options' => $combo_tipo_sanguinio));		
+									echo $this->Form->input('tipo_sanguinio', array('label' => false, 'class' => 'form-control', 'options' => $combo_tipo_sanguinio));		
 								?>
 							</div>
 							<?php echo $this->Form->label('sexo', 'Sexo', ['class' => 'col-md-1 control-label']); ?>

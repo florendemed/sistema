@@ -36,6 +36,9 @@ echo $this->Html->scriptBlock("
 						dias: $('#dias').val()
 					}
 				})
+				.done(function(){
+					$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
+				})
 			}
 			$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
 		});
