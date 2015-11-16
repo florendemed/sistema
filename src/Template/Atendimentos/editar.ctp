@@ -1,5 +1,30 @@
 <?php
 echo $this->Html->scriptBlock("
+	function inserir_medicamento() {
+		if ( $('#medicamentos-id').val() != '' ) {
+			//inserir medicamento atendimento
+			$.ajax({
+				method: 'POST',
+				url: '/AtendimentosMedicamentos/inserir',
+				data: { 
+					atendimentos_id: " . $this->request->params['pass']['0'] . ",
+					medicamentos_id: $('#medicamentos-id').val(),
+					uso: $('#uso').val(),
+					quantidade: $('#quantidade').val(),
+					intervalo: $('#intervalo').val(),
+					dias: $('#dias').val(),
+				},
+				success: function(data){
+					$('#medicamentos-id').val('');
+					$('#medicamentos-busca').val('');
+					$('#quantidade').val('');
+					$('#intervalo').val('');
+					$('#dias').val('');
+					$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
+				}
+			})
+		}
+	}
 	$(document).ready(function() {
 		$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
 		$('.inserir-medicamento').click(function(){
@@ -11,34 +36,16 @@ echo $this->Html->scriptBlock("
 						$.ajax({
 							method: 'POST',
 							url: '/Medicamentos/inserir',
-							data: { nome: $('#medicamentos-busca').val() }
+							data: { nome: $('#medicamentos-busca').val() },
+							success: function(data) {
+								$('#medicamentos-id').val(data);
+								inserir_medicamento();
+							},
 						})
-						.done(function( id ) {
-							$('#medicamentos-id').val(id);
-							var medicamento_id	= id;
-						});
 					}
-				} else {
-					return false;
 				}
-			}
-			if ( medicamento_id != '' ) {
-				//inserir medicamento atendimento
-				$.ajax({
-					method: 'POST',
-					url: '/AtendimentosMedicamentos/inserir',
-					data: { 
-						atendimentos_id: " . $this->request->params['pass']['0'] . ",
-						medicamentos_id: medicamento_id,
-						uso: $('#uso').val(),
-						quantidade: $('#quantidade').val(),
-						intervalo: $('#intervalo').val(),
-						dias: $('#dias').val()
-					}
-				})
-				.done(function(){
-					$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
-				})
+			} else {
+				inserir_medicamento();
 			}
 			$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
 		});

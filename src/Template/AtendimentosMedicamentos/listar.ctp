@@ -15,7 +15,7 @@ if ( $medicamentos->count() == 0 ) {
 			$uso = 'uso externo';			
 		}
 		
-	echo('<p><a href="" title="Remover" onclick=""><span class="glyphicon glyphicon-remove"></span></a> '.$lm['medicamento']['nome'].' - '.$uso.' - Tomar '.$lm['quantidade'].' '.$lm['intervalo'].' por '.$lm['dias'].'</p>');
+	echo('<p><a href="/AtendimentosMedicamentos/excluir/'.$lm['medicamentos_id'].'" title="Remover" onclick=""><span class="glyphicon glyphicon-remove"></span></a> '.$lm['medicamento']['nome'].' - '.$uso.' - Tomar '.$lm['quantidade'].' '.$lm['intervalo'].' por '.$lm['dias'].'</p>');
 	
 	}
 	
