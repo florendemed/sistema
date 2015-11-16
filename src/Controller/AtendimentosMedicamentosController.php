@@ -27,5 +27,22 @@ class AtendimentosMedicamentosController extends AppController{
 		
 		$this->set(compact('medicamentos'));
 	}
+	
+	public function excluir($id){
+		$this->layout 	  = 'ajax';
+		$this->autoRender = false;
+		
+		/*if ($id != null) {
+			$atendimento = $this->Atendimentos->get($id);
+			$atendimento->status = 'd';
+			$this->Atendimentos->save($atendimento);
+			$this->Flash->success('Registro removido com sucesso.');
+		} else {
+			$this->Flash->error('Não foi possível excluir o registro.');
+		}
+		
+		return $this->redirect('/atendimentos/index');*/
+		
+    }
 
 }
