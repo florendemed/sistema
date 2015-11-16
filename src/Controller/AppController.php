@@ -296,6 +296,7 @@ class AppController extends Controller{
 						]
 					]);
 					$permissaoLocal = $permissaoLocal->first();
+					
 					$gruposId = $this->GruposColaboradores->find('all',[
 						'conditions' => [
 							'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
@@ -323,6 +324,7 @@ class AppController extends Controller{
 							$permissoes_ids[] = $permissaoId->permissoes_id;
 						}
 					}
+					
 					if ( !isset($permissaoLocal->id) ) {
 						$retornoPermissoes	= 0;
 					} else {
@@ -344,7 +346,7 @@ class AppController extends Controller{
 				$this->redirect('/entrar');
 			}
 		}
-		$this->set(compact('logado'));
+		$this->set(compact('logado', 'retornoPermissoes'));
 	}
 	
 	public function busca_cep($cep){

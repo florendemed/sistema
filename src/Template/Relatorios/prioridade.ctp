@@ -1,10 +1,10 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Relatórios / Atendimentos por Perído</li>
+			<li class="active">Dados / Relatórios / Atendimentos por Prioridade</li>
 		</ul>
 		<div class="well filtros">
-			<form action="/Relatorios/atendimentos" class="form-horizontal" id="colaboradorIndexForm" method="get" accept-charset="utf-8">	
+			<form action="/Relatorios/prioridade" class="form-horizontal" id="colaboradorIndexForm" method="get" accept-charset="utf-8">	
 				<fieldset>
 					<div class="row">
 						<div class="col-md-2">
@@ -31,44 +31,22 @@
 				</fieldset>
 			</form>
 		</div>
-		<?php if( count($atendimento) > 0 ) { ?>
+		<?php if( count($query) > 0 ) { ?>
 		<div class="table-responsive">
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Paciente</th>
-						<th>Colaborador</th>
-						<th>Status</th>
 						<th>Prioridade</th>
-						<th>Data Atendimento</th>
+						<th>Total</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php foreach ($atendimento as $at): 
-						if ( h($at->status) == 'a' ){
-							$status = "Ativo";
-						} else {
-							$status = "Inativo";
-						}
-						
-						if ( h($at->prioridade) == '1' ){
-							$prioridade = "Emergencia";
-						} else if ( h($at->prioridade) == '3' ) {
-							$prioridade = "Baixa";
-						}else {
-							$prioridade = "Normal";
-						}
-					?>
 					<tr>
-						<td><?= h($at->id) ?></td>
-						<td><?= h($at->paciente->nome) ?></td>
-						<td><?= h($at->colaborador->nome) ?></td>
-						<td><?= h($status) ?></td>
-						<td><?= h($prioridade) ?></td>
-						<td><?= h($at->created) ?></td>
+						<td><?= h($query->id) ?></td>
+						<td><?= h($query->atendimentos_status_id) ?></td>
+						<td><?= h($query->total) ?></td>
 					</tr>
-					<?php endforeach; ?>
 				</tbody>
 			</table>
 		</div>
