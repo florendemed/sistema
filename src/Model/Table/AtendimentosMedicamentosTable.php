@@ -11,6 +11,7 @@ class AtendimentosMedicamentosTable extends AppTable{
 		$this->belongsTo('Medicamentos', [
 			'foreignKey' => 'medicamentos_id',
 			'joinType' => 'INNER',
+			'className' => 'Medicamentos',
 		]);
 	}
 	
