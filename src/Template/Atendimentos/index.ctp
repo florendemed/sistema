@@ -22,17 +22,17 @@ echo $this->Html->scriptBlock("
 					<div class="row">
 						<div class="col-md-2">
 							<?php 
-								echo $this->Form->text('dataInicio', ['class' => 'form-control date', 'placeholder' => 'Data Inicial']);
+								echo $this->Form->text('dataInicio', ['class' => 'form-control date', 'placeholder' => 'Data Inicial', 'value' => @$this->request->query['dataInicio']]);
 							?>
 						</div>
 						<div class="col-md-2">
 							<?php 
-								echo $this->Form->text('dataFim', ['class' => 'form-control date', 'placeholder' => 'Data Final']);
+								echo $this->Form->text('dataFim', ['class' => 'form-control date', 'placeholder' => 'Data Final', 'value' => @$this->request->query['dataFim']]);
 							?>
 						</div>
 						<div class="col-md-2">
 							<?php
-								echo $this->Form->input('prioridade', array('label' => false, 'first' => 'Todos', 'class' => 'form-control', 'options' => $combo_prioridades_pesquisa));
+								echo $this->Form->input('prioridade', array('label' => false, 'first' => 'Todos', 'class' => 'form-control', 'options' => $combo_prioridades, 'empty' => 'Todos', 'value' => @$this->request->query['prioridade']));
 							?>
 						</div>
 						<div class="col-md-1">
