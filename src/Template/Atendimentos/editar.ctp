@@ -25,6 +25,26 @@ echo $this->Html->scriptBlock("
 			})
 		}
 	}
+	
+	function inserir_exame() {
+		if ( $('#exames-id').val() != '' ) {
+			//inserir exame atendimento
+			$.ajax({
+				method: 'POST',
+				url: '/AtendimentosExames/inserir',
+				data: { 
+					atendimentos_id: " . $this->request->params['pass']['0'] . ",
+					exames_id: $('#exames-id').val(),
+				},
+				success: function(data){
+					$('#exames-id').val('');
+					$('#exames-busca').val('');
+					$('.panel-exames').load('/AtendimentosExames/listar/" . $this->request->params['pass']['0'] . "');
+				}
+			})
+		}
+	}
+	
 	$(document).ready(function() {
 		$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
 		$('.inserir-medicamento').click(function(){
@@ -64,7 +84,7 @@ echo $this->Html->scriptBlock("
 					}
 				});
 			},
-			minLength: 5,
+			minLength: 4,
 			select: function( event, ui ) {
 				$('#medicamentos-id').val(ui.item.value);
 				$('#medicamentos-busca').val(ui.item.label);
@@ -73,6 +93,30 @@ echo $this->Html->scriptBlock("
 			return false;
 		});
 	
+		$('.panel-exames').load('/AtendimentosExames/listar/" . $this->request->params['pass']['0'] . "');
+		$('.inserir-exame').click(function(){
+			var exames_id	= $('#exames-id').val();
+			if ( exames_id == '' ) {
+				if ( $('#exames-busca').val() != '' ) {
+					if ( confirm('Este exame não foi encontrado, deseja cadastrá-lo?') ) {
+						//cadastra o exame e insere
+						$.ajax({
+							method: 'POST',
+							url: '/Exames/inserir',
+							data: { nome: $('#exames-busca').val() },
+							success: function(data) {
+								$('#exames-id').val(data);
+								inserir_exame();
+							},
+						})
+					}
+				}
+			} else {
+				inserir_exame();
+			}
+			$('.panel-exames').load('/AtendimentosExames/listar/" . $this->request->params['pass']['0'] . "');
+		});
+
 		$('#exames-busca').autocomplete({
 			source: function( request, response ) {
 				$.ajax({
@@ -155,6 +199,21 @@ echo $this->Html->scriptBlock("
 									<?php echo $this->Form->input('diagnostico', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
 								</div>
 							</div>
+						</div>
+					</div>
+					<hr />
+					<h4>Exames</h4>
+					<div class="row">
+						<div class="col-md-4">
+							<?php echo $this->Form->input('exames_busca', array('label' => false, 'escape' => false, 'class' => 'form-control', 'placeholder' => 'Digite o nome para buscar o exame')); ?>
+						</div>
+						<div class="col-md-1">
+							<button class="btn btn-primary inserir-exame" type="button"><span class="fa fa-plus"></span></button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel-exames"></div>
 						</div>
 					</div>
 					<hr />

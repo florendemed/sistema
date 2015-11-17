@@ -46,6 +46,7 @@
 								<li class=""><a href="/relatorios/prioridades_atendimento">Prioridades de Atendimento</a></li>
 								<li class=""><a href="/relatorios/status_atendimento">Status de Atendimento</a></li>
 								<li class=""><a href="/relatorios/medicamentos">Medicamentos</a></li>
+								<li class=""><a href="/relatorios/exames">Exames</a></li>
 							</ul>
 						</li>
 					</ul>

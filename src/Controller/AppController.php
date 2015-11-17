@@ -267,8 +267,10 @@ class AppController extends Controller{
 					'medicamentos/buscar',
 					'medicamentos/inserir',
 					'exames/buscar',
+					'exames/inserir',
 					'paginas/index',
-					'AtendimentosMedicamentos/inserir'
+					'AtendimentosMedicamentos/inserir',
+					'AtendimentosExames/inserir'
 				];
 				$local	= strtolower($this->request->controller) . '/' . $this->request->action;
 				

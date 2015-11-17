@@ -13,6 +13,15 @@ class ExamesController extends AppController{
         'limit' => 10
     ];
 	
+	public function inserir(){
+		if ($this->request->is('post')) {
+			$exame = $this->Exames->newEntity($this->request->data);
+			$exame = $this->Exames->save($exame);
+			$this->response->body($exame->id);
+			return $this->response;
+		}
+    }
+	
 	public function index(){
 		
 		$condicoes = [];
