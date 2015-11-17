@@ -41,7 +41,13 @@
 								<li class=""><a href="/grupos/index">Grupos</a></li>
 							</ul>
 						</li>
-						<li><a href="/relatorios/index">Relatorios</a></li>
+						<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown">Relatórios<b class="caret"></b></a>
+							<ul class="dropdown-menu" role="menu">
+								<li class=""><a href="/relatorios/prioridades_atendimento">Prioridades de Atendimento</a></li>
+								<li class=""><a href="/relatorios/status_atendimento">Status de Atendimento</a></li>
+								<li class=""><a href="/relatorios/medicamentos">Medicamentos</a></li>
+							</ul>
+						</li>
 					</ul>
 				</div>
 			</div>
