@@ -219,15 +219,6 @@ class AppController extends Controller{
         );
         $this->set('combo_prioridades', $combo_prioridades);
 		
-		//array de prioridades pesquisa
-		$combo_prioridades_pesquisa = array(
-			''		=> 'Todos',	
-			'2'		=> 'Normal',	
-            '1' 	=> 'Emergência',
-            '3' 	=> 'Baixa',
-        );
-        $this->set('combo_prioridades_pesquisa', $combo_prioridades_pesquisa);
-		
 		//array de uso
 		$combo_uso = array(
 			'1'		=> 'Uso Interno',	
