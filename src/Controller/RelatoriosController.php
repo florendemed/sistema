@@ -12,11 +12,12 @@ class RelatoriosController extends AppController{
 	public function status_atendimento(){
 		
 		$this->loadModel('Atendimentos');
+		$this->loadModel('Atendimentos_status');
 		
 		$condicoes = [];
 		
-		$atendimentos_status = $this->AtendimentosStatus->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
-		$atendimentos_status = $AtendimentosStatus->toArray();
+		$atendimentos_status = $this->Atendimentos_status->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
+		$atendimentos_status = $atendimentos_status->toArray();
 		
 		if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != '' &&
 			isset($this->request->query['dataFim']) && $this->request->query['dataFim'] != ''){
