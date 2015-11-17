@@ -182,7 +182,8 @@ tr.baixa:hover {
 	border-bottom-left-radius:4px !important;
 }
 
-.panel-medicamentos {
+.panel-medicamentos, 
+.panel-exames {
 	margin-top:20px;
 	font-size:12px;
 }
