@@ -163,7 +163,7 @@ class AtendimentosController extends AppController{
 			'conditions' => [ 'Pacientes.id' => $pacientes_id],
 		]);
 		$paciente = $paciente->toArray();
-		
+
 		$atendimento = $this->Atendimentos->find('all',[
 			'conditions' => [ 'Atendimentos.pacientes_id' => $pacientes_id],
 			'contain' => ['Pacientes', 'Colaborador'],

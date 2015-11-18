@@ -103,14 +103,6 @@ class PacientesController extends AppController{
 			
 			$paciente = $this->Pacientes->patchEntity($paciente, $this->request->data);
 
-			if ($paciente['envio_sms'] == '0'){
-				$paciente['envio_sms'] = 'n';
-			}
-			
-			if ($paciente['status'] == '0'){
-				$paciente['status'] = 'i';
-			}
-			
 			if ($this->Pacientes->save($paciente)) {
 				
 				//pegar idPaciente

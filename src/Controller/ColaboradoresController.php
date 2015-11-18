@@ -58,6 +58,7 @@ class ColaboradoresController extends AppController{
 			
 			if ( $colaborador->count() == '0'){
 				$this->Flash->error(__('Usuário ou senha inválidos.'));
+				$this->request->data['senha'] = '';
 			} else {
 				$colaborador	= $colaborador->toArray();
 				$this->request->session()->write('logado_id', $colaborador['0']->id);
@@ -191,14 +192,6 @@ class ColaboradoresController extends AppController{
 				}
 			}
 			
-			if ($this->request->data['envio_sms'] == '0'){
-				$this->request->data['envio_sms'] = 'n';
-			}
-			
-			if ($this->request->data['status'] == '0'){
-				$this->request->data['status'] = 'i';
-			}
-
 			$colaborador = $this->Colaboradores->patchEntity($colaborador, $this->request->data);
 			
 			$colaborador->errors($erros); 
