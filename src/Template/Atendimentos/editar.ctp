@@ -46,6 +46,24 @@ echo $this->Html->scriptBlock("
 	}
 	
 	$(document).ready(function() {
+		$('.fone').mask('00 000000009');
+		$('.enviar-sms').click(function(){
+			if ( $('#telefone').val() != '' ) {
+				if ( confirm('Esta receita será enviada por SMS para o telefone \"' + $('#telefone').val() + '\", tem certeza?') ) {
+					$.ajax({
+						method: 'POST',
+						url: '/Atendimentos/sms',
+						data: { 
+							telefone: $('#telefone').val(),
+							atendimentos_id: " . $this->request->params['pass']['0'] . ",
+						},
+						success: function(data) {
+						},
+					})
+				}
+			}
+		});
+		
 		$('.panel-medicamentos').load('/AtendimentosMedicamentos/listar/" . $this->request->params['pass']['0'] . "');
 		$('.inserir-medicamento').click(function(){
 			var medicamento_id	= $('#medicamentos-id').val();
@@ -166,6 +184,26 @@ echo $this->Html->scriptBlock("
 						echo($nascimento);
 					?>
 					</p>
+					<p><strong>Idade: </strong>
+					<?php					
+						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
+						$nascimento = explode('/',$nascimento);
+						$anoNascimento = '19'.$nascimento[2];
+						$anoAtual = date('Y');
+						$idade = $anoAtual - $anoNascimento;
+						echo($idade.' ano(s)');
+					?>
+					</p>
+					<p><strong>Sexo: </strong>
+					<?php
+						if( $atendimento->paciente->sexo == 'F'){
+							$sexo = "Feminino";
+						} else {
+							$sexo = "Masculino";
+						}
+						echo($sexo); 
+					?>
+					</p>
 					<p><strong>Data Consulta: </strong>
 					<?php
 						$consulta = substr($atendimento['created'], 0, 8);
@@ -242,6 +280,17 @@ echo $this->Html->scriptBlock("
 					<div class="row">
 						<div class="col-md-12">
 							<div class="panel-medicamentos"></div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Enviar receita via SMS</h4>
+						</div>
+						<div class="col-md-2">
+							<?php echo $this->Form->input('telefone', array('label' => false, 'type' => 'text', 'placeholder' => 'Celular', 'class' => 'col-md-3 fone form-control')); ?>
+						</div>
+						<div class="col-md-2">
+							<a href="javascript:void(0);" class="enviar-sms btn btn-danger btn-sm"><span class="fa fa-plane"></span> Enviar SMS</a>
 						</div>
 					</div>
 				</div>

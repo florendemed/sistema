@@ -13,6 +13,15 @@ class AtendimentosController extends AppController{
         'limit' => 10
     ];
 	
+	public function sms($id) {
+		$this->autoRender	= false;
+		$this->loadComponent('Sms');
+		
+		
+		pr($id);
+		pr($this->request->data);
+	}
+	
 	public function index(){
 
 		$condicoes = [];

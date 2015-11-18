@@ -29,20 +29,11 @@ class AtendimentosMedicamentosController extends AppController{
 	}
 	
 	public function excluir($id){
-		$this->layout 	  = 'ajax';
 		$this->autoRender = false;
-		
-		/*if ($id != null) {
-			$atendimento = $this->Atendimentos->get($id);
-			$atendimento->status = 'd';
-			$this->Atendimentos->save($atendimento);
-			$this->Flash->success('Registro removido com sucesso.');
-		} else {
-			$this->Flash->error('Não foi possível excluir o registro.');
+		if ($id != null) {
+			$am = $this->AtendimentosMedicamentos->get($id);
+			$this->AtendimentosMedicamentos->delete($am);
 		}
-		
-		return $this->redirect('/atendimentos/index');*/
-		
     }
 
 }
