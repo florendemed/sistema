@@ -183,7 +183,19 @@ tr.baixa:hover {
 }
 
 .panel-medicamentos, 
-.panel-exames {
+.panel-exames,
+.panel-doencas {
 	margin-top:20px;
 	font-size:12px;
+}
+
+.capitalize,
+g {
+	text-transform: capitalize;
+}
+
+.dados-paciante,
+.dados-data,
+.dados-colaborador {
+	padding:20px 0;
 }
