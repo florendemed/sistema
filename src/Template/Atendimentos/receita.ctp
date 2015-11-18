@@ -28,7 +28,7 @@
 						}
 						if ( $dr->quantidade != ''){ $quantidade = 'Tomar '.$dr->quantidade;}
 						if ( $dr->intervalo != ''){ $intervalo = ' de '.$dr->intervalo; }
-						echo(mb_strtolower($dr->medicamento->nome).' - Uso '.$uso.'<br />'.$quantidade.' '.$intervalo.' - '.$dr->dias);
+						echo(mb_strtolower($dr->medicamento->nome).' - Uso '.$uso.'<br />'.$quantidade.' '.$intervalo.'<br/>'.$dr->dias);
 					?>
 				</p>
 				<?php 	endforeach; ?>
@@ -41,7 +41,7 @@
 		<div class="col-md-12">
 			<p class='dados-data'>
 				<?php 
-					echo('Curitiba, '.date('d/m/Y')); 
+					echo(date('d/m/Y')); 
 				?>
 			</p>
 		</div>

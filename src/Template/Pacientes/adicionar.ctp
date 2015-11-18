@@ -134,12 +134,6 @@ echo $this->Html->scriptBlock("
 								<?php echo $this->Form->input('email', ['label' => false, 'class' => 'form-control']); ?>
 							</div>
 						</div>	
-						<div class="form-group">
-							<?php echo $this->Form->label('envio_sms', 'Envio SMS', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('envio_sms', ['label' => false, 'class' => '']); ?>
-							</div>
-						</div>
 					</fieldset>
 				</div>
 				<div class="col-md-6">
