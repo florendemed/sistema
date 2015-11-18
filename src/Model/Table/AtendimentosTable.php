@@ -23,8 +23,7 @@ class AtendimentosTable extends AppTable{
 			'foreignKey' => 'atendimentos_status_id',
 			'joinType' => 'INNER',
 			'className' => 'AtendimentosStatus',
-		]);
-		
+		]);		
 	}
 	
 }

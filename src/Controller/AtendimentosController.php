@@ -17,9 +17,26 @@ class AtendimentosController extends AppController{
 		$this->autoRender	= false;
 		$this->loadComponent('Sms');
 		
+		$this->loadModel('AtendimentosMedicamentos');
+		$this->loadModel('Medicamentos');
 		
+		$m = $this->Medicamentos->find('all');
+		$m = $m->toArray();
+		
+		$am = $this->AtendimentosMedicamentos->find('all');
+		$am = $am->toArray();
+		
+		$medicamentos = $this->AtendimentosMedicamentos->find('all', [
+			'conditions' => [
+				'AtendimentosMedicamentos.atendimentos_id' => $id,
+			],
+			'contain' => 'Medicamentos',
+		])->hydrate(false);
+		
+		$this->set(compact('medicamentos'));
+			
 		pr($id);
-		pr($this->request->data);
+		pr($this->request->data);	
 	}
 	
 	public function index(){
@@ -61,6 +78,7 @@ class AtendimentosController extends AppController{
 			'conditions' => $condicoes,
 			'contain' => ['Pacientes', 'Colaborador', 'Situacao'],
 			'order' => array(
+				'Atendimentos.id' => 'DESC',
 				'Atendimentos.prioridade' => 'ASC'
 			),
 		];		
@@ -157,5 +175,24 @@ class AtendimentosController extends AppController{
 		
 		$this->set(compact('atendimento', 'paciente'));
 	}
+	
+	public function receita($id) {
+		$this->layout = 'receita';
+		
+		$this->loadModel('AtendimentosMedicamentos');
+		
+		$dadosConsulta = $this->Atendimentos->get($id, [
+			'contain' => ['Pacientes', 'Colaborador']
+		]);
+		$dadosConsulta = $dadosConsulta->toArray();
+		
+		$dadosReceita = $this->AtendimentosMedicamentos->find('all',[
+			'conditions' => [ 'AtendimentosMedicamentos.atendimentos_id' => $id],
+			'contain' => ['Medicamentos'],
+		]);
+		$dadosReceita = $dadosReceita->toArray();
+						
+		$this->set(compact('dadosConsulta', 'dadosReceita'));
+    }
 	
 }

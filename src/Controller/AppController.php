@@ -226,18 +226,23 @@ class AppController extends Controller{
         );
         $this->set('combo_uso', $combo_uso);
 		
-		//array de tempo de us0
-		$combo_tempo = array(
-			'1'		=> '1 em 1 hora',	
-            '2' 	=> '2 em 2 horas',
-            '4' 	=> '4 em 4 horas',
-            '6' 	=> '6 em 6 horas',
-            '8' 	=> '8 em 8 horas',
-            '10' 	=> '10 em 10 horas',
-            '12' 	=> '12 em 12 horas',
-            '24' 	=> '24 em 24 horas',
+		//array de intervalo de uso medicamentos receita
+		$combo_intervalo = array(
+			'1 em 1 hora'		=> '1 em 1 hora',	
+            '2 em 2 horas' 	=> '2 em 2 horas',
+            '3 em 3 horas' 	=> '3 em 3 horas',
+            '4 em 4 horas' 	=> '4 em 4 horas',
+            '5 em 5 horas' 	=> '5 em 5 horas',
+            '6 em 6 horas' 	=> '6 em 6 horas',
+            '7 em 7 horas' 	=> '7 em 7 horas',
+            '8 em 8 horas' 	=> '8 em 8 horas',
+            '9 em 9 horas' 	=> '9 em 9 horas',
+            '10 em 10 horas' 	=> '10 em 10 horas',
+            '11 em 11 horas' 	=> '11 em 11 horas',
+            '12 em 12 horas' 	=> '12 em 12 horas',
+            '24 em 24 horas' 	=> '24 em 24 horas',
         );
-        $this->set('combo_tempo', $combo_tempo);
+        $this->set('combo_intervalo', $combo_intervalo);
 		
     }
 	

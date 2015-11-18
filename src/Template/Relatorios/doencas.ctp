@@ -4,9 +4,8 @@
 		$total_geral	= 0;
 		$chart 			= null;
 		foreach ($resultado as $qr): 
-			$total_geral		= $total_geral + $qr->count;
-			$medicamentoNome	= mb_strtolower($qr->medicamento->nome);
-			$chart = $chart."\n['".$medicamentoNome."',".$qr->count."],";	
+			$total_geral	= $total_geral + $qr->count;
+			$chart = $chart."\n['".$qr->doenca->nome."',".$qr->count."],";	
 		endforeach; 
 
 		echo $this->Html->scriptBlock("
@@ -14,12 +13,12 @@
 			google.setOnLoadCallback(drawChart);
 			function drawChart() {
 				var data = google.visualization.arrayToDataTable([
-					['Status', 'Total'],
+					['Doenças', 'Total'],
 					".$chart."
 				]);
 
 				var options = {
-					title: 'Medicamentos',
+					title: 'Doenças',
 					is3D: true,
 				};
 
@@ -32,10 +31,10 @@
 <div class="row">
 	<div class="col-md-12" id="mensagem_header_default">
 		<ul class="breadcrumb">
-			<li class="active">Dados / Relatórios / Medicamentos</li>
+			<li class="active">Dados / Relatórios / Doenças</li>
 		</ul>
 		<div class="well filtros">
-			<form action="/Relatorios/medicamentos" class="form-horizontal" method="get" accept-charset="utf-8">	
+			<form action="/Relatorios/doencas" class="form-horizontal" method="get" accept-charset="utf-8">	
 				<fieldset>
 					<div class="row">
 						<div class="col-md-2">
@@ -62,7 +61,7 @@
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
-						<th>Medicamentos</th>
+						<th>Doenças</th>
 						<th>Total</th>
 					</tr>
 				</thead>
@@ -73,7 +72,7 @@
 						$total_geral	= $total_geral + $qr->count;
 						?>
 						<tr>
-							<td class='capitalize'><?= mb_strtolower(substr($qr->medicamento->nome, 0, 40)) ?></td>
+							<td><?= substr($qr->doenca->nome, 0, 40) ?></td>
 							<td><?= $qr->count ?></td>
 						</tr>
 						<?php 
@@ -91,6 +90,6 @@
 		<?php } else { ?>
 			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
 		<?php }?>
-		<div id="chart" style="width: 1200px; height: 500px;"></div>
+		<div id="chart" style="width: 900px; height: 500px;"></div>
 	</div>
 </div>

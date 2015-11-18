@@ -15,18 +15,10 @@
 				<?php foreach ($paciente as $pc): ?>
 					<p class="text-center"><img src='/img/sem_foto.png' /></p>
 					<p><strong>Nome: </strong><?= $pc->nome ?></p>
-					<p><strong>Data Nascimento: </strong><?php
+					<p><strong>Nascimento: </strong>
+					<?php
 						$nascimento = substr($pc->data_nascimento, 0, 8);
 						echo($nascimento);
-					?></p>
-					<p><strong>Idade: </strong>
-					<?php					
-						$nascimento = substr($pc->data_nascimento, 0, 8);
-						$nascimento = explode('/',$nascimento);
-						$anoNascimento = '19'.$nascimento[2];
-						$anoAtual = date('Y');
-						$idade = $anoAtual - $anoNascimento;
-						echo($idade.' ano(s)');
 					?>
 					</p>
 					<p><strong>Sexo: </strong>
@@ -66,6 +58,7 @@
 										Queixa: <span><?= $at->queixa ?></span><br />
 										Diagnóstico: <span><?= $at->diagnostico ?></span><br />
 										Prescrição: <span><?= $at->prescricao ?></span><br />
+										Exames: <span><?= $at->prescricao ?></span><br />
 									</p>
 								</div>
 							</li>

@@ -15,11 +15,21 @@
 			<div class="row">
 				<div class="col-md-2 dados">
 					<p class="text-center"><img src='/img/sem_foto.png' /></p>
-					<p><strong>Nome: </strong><?= h($atendimento->paciente->nome) ?></p>
+					<p><strong>Nome: </strong><?= $atendimento->paciente->nome ?></p>
 					<p><strong>Nascimento: </strong>
 					<?php
 						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
 						echo($nascimento);
+					?>
+					</p>
+					<p><strong>Sexo: </strong>
+					<?php
+						if( $atendimento->paciente->sexo == 'F'){
+							$sexo = "Feminino";
+						} else {
+							$sexo = "Masculino";
+						}
+						echo($sexo); 
 					?>
 					</p>
 					<p><strong>Data Consulta: </strong>
@@ -28,12 +38,12 @@
 						echo($consulta);
 					?>
 					</p>
-					<p><strong>Médico(a): </strong><?= h($atendimento->colaborador->nome) ?></p>
+					<p><strong>Médico(a): </strong><?= $atendimento->colaborador->nome ?></p>
 				</div>
 				<div class="col-md-10 atendimentos">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>">Triagem</a></li>
-						<li><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>/editar">Atendimento Médico</a></li>
+						<li class="active"><a href="/atendimentos/editar/<?= $atendimento->id ?>">Triagem</a></li>
+						<li><a href="/atendimentos/editar/<?= $atendimento->id ?>/editar">Atendimento Médico</a></li>
 					</ul>
 					<div class='col-md-7'>
 						<fieldset>

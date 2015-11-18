@@ -3,14 +3,14 @@ namespace App\Model\Table;
 
 use Cake\ORM\Table;
 
-class AtendimentosExamesTable extends AppTable{
+class AtendimentosDoencasTable extends AppTable{
 	
 	public function initialize(array $config)
     {
-		$this->belongsTo('Exames', [
-			'foreignKey' => 'exames_id',
+		$this->belongsTo('Doencas', [
+			'foreignKey' => 'doencas_id',
 			'joinType' => 'INNER',
-			'className' => 'Exames',
+			'className' => 'Doencas',
 		]);
 	}
 	

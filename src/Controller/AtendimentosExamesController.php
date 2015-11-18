@@ -31,8 +31,8 @@ class AtendimentosExamesController extends AppController{
 	public function excluir($id){
 		$this->autoRender = false;
 		if ($id != null) {
-			$am = $this->AtendimentosExames->get($id);
-			$this->AtendimentosExames->delete($am);
+			$ae = $this->AtendimentosExames->get($id);
+			$this->AtendimentosExames->delete($ae);
 		}
     }
 

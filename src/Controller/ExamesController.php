@@ -35,7 +35,10 @@ class ExamesController extends AppController{
 		}
 			
 		$this->paginate = [
-			'conditions' => $condicoes
+			'conditions' => $condicoes,
+			'order' => array(
+				'Exames.id' => 'ASC'
+			),
 		];		
 		$exames = $this->paginate($this->Exames);
 		$this->set(compact('exames'));
@@ -115,9 +118,7 @@ class ExamesController extends AppController{
 			'keyField' => 'id', 
 			'valueField' => 'nome',
 		])->hydrate(false);
-		
-		
-		
+
 		if ( $exame->count() > 0 ) {
 			$retorno	= [];
 			foreach ( $exame as $e_id => $e_nome ) {

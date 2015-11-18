@@ -27,10 +27,7 @@ if ( $medicamentos->count() == 0 ) {
 		} else {
 			$uso = 'uso externo';			
 		}
-		echo('<p><a class="remover-medicamento" href="javascript:void(0);" data-id="' . $lm['id'] . '" title="Remover" onclick=""><span class="glyphicon glyphicon-remove"></span></a> '.mb_strtolower($lm['medicamento']['nome']).' - '.$uso.' - Tomar '.$lm['quantidade'].' '.$lm['intervalo'].' por '.$lm['dias'].'</p>');
+		echo('<p><a class="remover-medicamento" href="javascript:void(0);" data-id="' . $lm['id'] . '" title="Remover" onclick=""><span class="glyphicon glyphicon-remove"></span></a> '.mb_strtolower($lm['medicamento']['nome']).' - '.$uso.' - '.$lm['quantidade'].' - '.$lm['intervalo'].' - '.$lm['dias'].'</p>');
 	
 	}
-	
-	
-
 }

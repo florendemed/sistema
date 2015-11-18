@@ -47,6 +47,7 @@
 								<li class=""><a href="/relatorios/status_atendimento">Status de Atendimento</a></li>
 								<li class=""><a href="/relatorios/medicamentos">Medicamentos</a></li>
 								<li class=""><a href="/relatorios/exames">Exames</a></li>
+								<li class=""><a href="/relatorios/doencas">Doenças</a></li>
 							</ul>
 						</li>
 					</ul>

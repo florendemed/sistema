@@ -36,7 +36,7 @@ class PacientesController extends AppController{
 		$this->paginate = [
 			'conditions' => $condicoes,
 			'order' => array(
-				'Pacientes.id' => 'asc'
+				'Pacientes.id' => 'DESC'
 			),
 		];		
 		$pacientes = $this->paginate($this->Pacientes);

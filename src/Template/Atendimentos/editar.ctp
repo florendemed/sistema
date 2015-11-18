@@ -45,6 +45,25 @@ echo $this->Html->scriptBlock("
 		}
 	}
 	
+	function inserir_doenca() {
+		if ( $('#doencas-id').val() != '' ) {
+			//inserir doenca atendimento
+			$.ajax({
+				method: 'POST',
+				url: '/AtendimentosDoencas/inserir',
+				data: { 
+					atendimentos_id: " . $this->request->params['pass']['0'] . ",
+					doencas_id: $('#doencas-id').val(),
+				},
+				success: function(data){
+					$('#doencas-id').val('');
+					$('#doencas-busca').val('');
+					$('.panel-doencas').load('/AtendimentosDoencas/listar/" . $this->request->params['pass']['0'] . "');
+				}
+			})
+		}
+	}
+	
 	$(document).ready(function() {
 		$('.fone').mask('00 000000009');
 		$('.enviar-sms').click(function(){
@@ -157,6 +176,38 @@ echo $this->Html->scriptBlock("
 		}).on( 'autocompleteselect', function( event, ui ) {
 			return false;
 		});
+		
+		$('.panel-doencas').load('/AtendimentosDoencas/listar/" . $this->request->params['pass']['0'] . "');
+		$('.inserir-doenca').click(function(){
+			var doencas_id	= $('#doencas-id').val();
+			if ( doencas_id != '' ) {
+				inserir_doenca();
+			}
+			$('.panel-doencas').load('/AtendimentosDoencas/listar/" . $this->request->params['pass']['0'] . "');
+		});
+
+		$('#doencas-busca').autocomplete({
+			source: function( request, response ) {
+				$.ajax({
+					url: '/Doencas/buscar',
+					dataType: 'json',
+					delay: 30,
+					data: {
+						busca: request.term
+					},
+					success: function( data ) {
+						response( data );
+					}
+				});
+			},
+			minLength: 3,
+			select: function( event, ui ) {
+				$('#doencas-id').val(ui.item.value);
+				$('#doencas-busca').val(ui.item.label);
+			},
+		}).on( 'autocompleteselect', function( event, ui ) {
+			return false;
+		});
 	});
 ");
 ?>
@@ -177,21 +228,11 @@ echo $this->Html->scriptBlock("
 			<div class="row">
 				<div class="col-md-2 dados">
 					<p class="text-center"><img src='/img/sem_foto.png' /></p>
-					<p><strong>Nome: </strong><?= h($atendimento->paciente->nome) ?></p>
+					<p><strong>Nome: </strong><?= $atendimento->paciente->nome ?></p>
 					<p><strong>Nascimento: </strong>
 					<?php
 						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
 						echo($nascimento);
-					?>
-					</p>
-					<p><strong>Idade: </strong>
-					<?php					
-						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
-						$nascimento = explode('/',$nascimento);
-						$anoNascimento = '19'.$nascimento[2];
-						$anoAtual = date('Y');
-						$idade = $anoAtual - $anoNascimento;
-						echo($idade.' ano(s)');
 					?>
 					</p>
 					<p><strong>Sexo: </strong>
@@ -210,33 +251,43 @@ echo $this->Html->scriptBlock("
 						echo($consulta);
 					?>
 					</p>
-					<p><strong>Médico(a): </strong><?= h($atendimento->colaborador->nome) ?></p>
+					<p><strong>Médico(a): </strong><?= $atendimento->colaborador->nome ?></p>
 				</div>
 				<div class="col-md-10 atendimentos">
 					<ul class="nav nav-tabs">
-						<li><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>">Triagem</a></li>
-						<li class="active"><a href="/atendimentos/editar/<?= $this->request->params['pass']['0'] ?>/editar">Atendimento Médico</a></li>
+						<li><a href="/atendimentos/editar/<?= $atendimento->id; ?>">Triagem</a></li>
+						<li class="active"><a href="/atendimentos/editar/<?= $atendimento->id; ?>/editar">Atendimento Médico</a></li>
 					</ul>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group required">
-								<?php echo $this->Form->label('anamnese', 'Anamnese', ['class' => 'col-md-2 control-label']); ?>
-								<div class="col-md-10">
+								<?php echo $this->Form->label('anamnese', 'Anamnese', ['class' => 'col-md-1 control-label']); ?>
+								<div class="col-md-11">
 									<?php echo $this->Form->input('anamnese', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
 								</div>
 							</div>
 							<div class="form-group required">
-								<?php echo $this->Form->label('queixa', 'Queixa', ['class' => 'col-md-2 control-label']); ?>
-								<div class="col-md-10">
+								<?php echo $this->Form->label('queixa', 'Queixa', ['class' => 'col-md-1 control-label']); ?>
+								<div class="col-md-11">
 									<?php echo $this->Form->input('queixa', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
 								</div>
 							</div>
-							<div class="form-group required">
-								<?php echo $this->Form->label('diagnostico', 'Diagnóstico', ['class' => 'col-md-2 control-label']); ?>
-								<div class="col-md-10">
-									<?php echo $this->Form->input('diagnostico', array('label' => false, 'type' => 'textarea', 'escape' => false, 'class' => 'form-control')); ?>
-								</div>
-							</div>
+						</div>
+					</div>
+					<hr />
+					<h4>Diagnóstico</h4>
+					<div class="row">
+						<div class="col-md-4">
+							<?php echo $this->Form->input('doencas_busca', array('label' => false, 'escape' => false, 'class' => 'form-control', 'placeholder' => 'Digite o nome para buscar a doença')); ?>
+							<?php echo $this->Form->input('doencas_id', array('type' => 'hidden')); ?>
+						</div>
+						<div class="col-md-1">
+							<button class="btn btn-primary inserir-doenca" type="button"><span class="fa fa-plus"></span></button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel-doencas capitalize"></div>
 						</div>
 					</div>
 					<hr />
@@ -251,7 +302,7 @@ echo $this->Html->scriptBlock("
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel-exames"></div>
+							<div class="panel-exames capitalize"></div>
 						</div>
 					</div>
 					<hr />
@@ -268,7 +319,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->input('quantidade', array('label' => false, 'type' => 'text', 'placeholder' => 'Qtde.', 'class' => 'col-md-2 form-control')); ?>
 						</div>
 						<div class="col-md-2">
-							<?php echo $this->Form->input('intervalo', array('label' => false, 'class' => 'col-md-2 form-control', 'placeholder' => 'intervalo',)); ?>
+							<?php echo $this->Form->input('intervalo', array('label' => false, 'class' => 'col-md-2 form-control', 'options' => $combo_intervalo)); ?>
 						</div>
 						<div class="col-md-2">
 							<?php echo $this->Form->input('dias', array('label' => false, 'type' => 'text', 'placeholder' => 'dias', 'class' => 'col-md-2 form-control')); ?>
@@ -279,9 +330,19 @@ echo $this->Html->scriptBlock("
 					</div>
 					<div class="row">
 						<div class="col-md-12">
-							<div class="panel-medicamentos"></div>
+							<div class="panel-medicamentos capitalize"></div>
 						</div>
 					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Gerar e imprimir receita</h4>
+						</div>
+						<div class="col-md-2">
+							<a href="/atendimentos/receita/<?= $atendimento->id ?>/<?= $atendimento->paciente->id ?>/<?= $atendimento->colaborador->id; ?>" target="_blank" class="gerar-receita btn btn-danger btn-sm"><span class="fa fa-medkit"></span> Gerar receita</a>
+						</div>
+					</div>
+					<hr />
 					<div class="row">
 						<div class="col-md-12">
 							<h4>Enviar receita via SMS</h4>
@@ -290,7 +351,7 @@ echo $this->Html->scriptBlock("
 							<?php echo $this->Form->input('telefone', array('label' => false, 'type' => 'text', 'placeholder' => 'Celular', 'class' => 'col-md-3 fone form-control')); ?>
 						</div>
 						<div class="col-md-2">
-							<a href="javascript:void(0);" class="enviar-sms btn btn-danger btn-sm"><span class="fa fa-plane"></span> Enviar SMS</a>
+							<a href="javascript:void(0);" class="enviar-sms btn btn-danger btn-sm"><span class="fa fa-paper-plane"></span> Enviar SMS</a>
 						</div>
 					</div>
 				</div>

@@ -13,6 +13,15 @@ class DoencasController extends AppController{
         'limit' => 10
     ];
 	
+	public function inserir(){
+		if ($this->request->is('post')) {
+			$doenca = $this->Doencas->newEntity($this->request->data);
+			$doenca = $this->Doencas->save($doenca);
+			$this->response->body($doenca->id);
+			return $this->response;
+		}
+    }
+	
 	public function index(){
 		
 		$condicoes = [];
@@ -147,6 +156,37 @@ class DoencasController extends AppController{
 				
 		}
 		
+	}
+	
+	public function buscar($limit=30){
+		$this->layout 		= 'ajax';
+		$this->autoRender	= false;
+				
+		$busca = $this->request->query['busca'];
+		
+		$doenca = $this->Doencas->find('list', [
+			'conditions' => [
+				'Doencas.nome LIKE' => '%'.$busca.'%',
+			],
+			'limit' => $limit,
+			'keyField' => 'id', 
+			'valueField' => 'nome',
+		])->hydrate(false);
+		
+		if ( $doenca->count() > 0 ) {
+			$retorno	= [];
+			foreach ( $doenca as $d_id => $d_nome ) {
+				$item['value']	= $d_id;
+				$item['label']	= $d_nome;
+				$retorno[]	= $item;
+			}
+		}
+
+		$json = json_encode($retorno);
+		//if ( $this->request->is('requested') ) {
+			$this->response->body($json);
+			return $this->response;
+		//}
 	}
 
 }
