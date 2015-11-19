@@ -22,6 +22,39 @@
 						echo($nascimento);
 					?>
 					</p>
+					<p><strong>Idade: </strong>
+					<?php
+						function idade ($dataNascimento){
+							
+							$dataNascimento = explode('/', $dataNascimento);
+						
+							$diaNascimento = $dataNascimento[0];
+							$mesNascimento = $dataNascimento[1];
+							$anoNascimento = '19'.$dataNascimento[2];
+							
+							$anoAtual = '20'.date('y');
+							$mesAtual = date('m');
+							$diaAtual = date('d');
+							
+							if ( $mesAtual < $mesNascimento ){
+								$idade = ($anoAtual - $anoNascimento) - 1;
+								echo($idade.' Anos');
+							} else if ( $mesAtual > $mesNascimento ) {
+								$idade = $anoAtual - $anoNascimento;
+								echo($idade.' Anos');
+							} else {
+								if ( $diaAtual < $diaNascimento ){
+									$idade = ($anoAtual - $anoNascimento) - 1;	
+									echo($idade.' Anos');
+								} else if ( $diaAtual >= $diaNascimento ) {
+									$idade = $anoAtual - $anoNascimento;
+									echo($idade.' Anos');
+								}
+							}
+						}
+						idade($nascimento);
+					?>
+					</p>
 					<p><strong>Sexo: </strong>
 					<?php
 						if( $atendimento->paciente->sexo == 'F'){
