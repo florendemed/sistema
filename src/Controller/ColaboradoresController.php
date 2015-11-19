@@ -82,8 +82,8 @@ class ColaboradoresController extends AppController{
 		
 		$grupos = $this->Grupos->find('all');
 		$grupos = $grupos->toArray();
-
-		$colaborador	= $this->Colaboradores->newEntity();
+		
+		$colaborador = $this->Colaboradores->newEntity();
 		
 		if ($this->request->is('post')) {
 
@@ -177,7 +177,11 @@ class ColaboradoresController extends AppController{
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
-
+			
+			if ( $this->request->data['status'] == '0' ){
+				$this->request->data['status'] = 'i';				
+			}
+			
 			$erros = [];
 			
 			if ($this->request->data['senha'] == ''){

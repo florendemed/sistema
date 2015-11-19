@@ -12,11 +12,13 @@ class AppTable extends Table{
 	}
 	
 	public function beforeSave($event, $entity, $options) {
-		if ( ( in_array('created', $this->schema()->columns()) ) && $entity->isNew() == 1 ) {
-			$entity->created	= date("Y-m-d H:i:s");
+        if ( ( in_array('created', $this->schema()->columns()) ) && $entity->isNew() == 1 ) {
+            if ( !isset($entity->created) )
+                $entity->created	= date("Y-m-d H:i:s");
 		}
 		if ( in_array('modified', $this->schema()->columns()) ) {
-			$entity->modified	= date("Y-m-d H:i:s");
+            if ( !isset($entity->modified) )
+                $entity->modified	= date("Y-m-d H:i:s");
 		}
 	}
 	

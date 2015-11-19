@@ -24,6 +24,7 @@ class AtendimentosTable extends AppTable{
 			'joinType' => 'INNER',
 			'className' => 'AtendimentosStatus',
 		]);		
+		
 	}
 	
 }

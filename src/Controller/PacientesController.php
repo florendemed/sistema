@@ -53,7 +53,7 @@ class PacientesController extends AppController{
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
-						
+			
 			$paciente = $this->Pacientes->newEntity($this->request->data);
 			if ($this->Pacientes->save($paciente)) {
 				
@@ -77,13 +77,14 @@ class PacientesController extends AppController{
 						
 					}
 				}
-
+				
 				$this->Flash->success(__('Registro inserido com sucesso.'));
 				return $this->redirect('/pacientes/index');
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
 		$paciente	= $this->Pacientes->newEntity();
+		
 		$this->set(compact('paciente'));
     }
 	
@@ -100,11 +101,15 @@ class PacientesController extends AppController{
 			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
 			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
+	
+			if ( $this->request->data['status'] == '0' ){
+				$this->request->data['status'] = 'i';				
+			}
 			
 			$paciente = $this->Pacientes->patchEntity($paciente, $this->request->data);
-
+			
 			if ($this->Pacientes->save($paciente)) {
-				
+
 				//pegar idPaciente
 				$this->request->data['endereco']['paciente_id']	= $paciente->id;
 				$this->request->data['telefone']['paciente_id']	= $paciente->id;
@@ -127,13 +132,10 @@ class PacientesController extends AppController{
 						
 						$telefone = $this->Telefones->newEntity($salvarTelefone);
 						$this->Telefones->save($telefone);
-						
 					}
-				}
-	
+				}				
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
-				
 				
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
@@ -146,10 +148,6 @@ class PacientesController extends AppController{
 		$endereco	= $endereco['0'];
 		$telefone 	= $telefone->toArray();
 		
-		if ( $paciente->data_nascimento != null){
-			$this->request->data['data_nascimento']	= $paciente->data_nascimento->i18nFormat('dd/MM/YYYY');
-		}
-	
 		$this->set(compact('paciente', 'endereco', 'telefone'));
 
     }

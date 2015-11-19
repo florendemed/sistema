@@ -6,5 +6,6 @@ use Cake\Validation\Validator;
 
 class MedicamentosTable extends AppTable{
 
+	
 }
 ?>

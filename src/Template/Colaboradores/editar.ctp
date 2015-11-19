@@ -128,12 +128,6 @@ echo $this->Html->scriptBlock("
 							</div>
 						</div>	
 						<div class="form-group">
-							<?php echo $this->Form->label('envio_sms', 'Envio SMS', ['class' => 'col-md-3 control-label']); ?>
-							<div class="col-md-8">
-								<?php echo $this->Form->checkbox('envio_sms', ['class' => '', 'value' => 's']); ?>
-							</div>
-						</div>
-						<div class="form-group">
 							<?php echo $this->Form->label('status', 'Status', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
 								<?php echo $this->Form->checkbox('status', ['label' => false, 'class' => '', 'value' => 'a']); ?>

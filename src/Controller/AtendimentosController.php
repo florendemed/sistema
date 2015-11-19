@@ -171,14 +171,13 @@ class AtendimentosController extends AppController{
 				'Atendimentos.created' => 'DESC'
 			),
 		]);
-		$atendimento = $atendimento->toArray();
-		
+
 		$this->set(compact('atendimento', 'paciente'));
 	}
 	
 	public function receita($id) {
-		$this->layout = 'receita';
 		
+		$this->layout = 'receita';
 		$this->loadModel('AtendimentosMedicamentos');
 		
 		$dadosConsulta = $this->Atendimentos->get($id, [
@@ -191,7 +190,7 @@ class AtendimentosController extends AppController{
 			'contain' => ['Medicamentos'],
 		]);
 		$dadosReceita = $dadosReceita->toArray();
-						
+		
 		$this->set(compact('dadosConsulta', 'dadosReceita'));
     }
 	

@@ -18,7 +18,7 @@
 					<p><strong>Nome: </strong><?= $atendimento->paciente->nome ?></p>
 					<p><strong>Nascimento: </strong>
 					<?php
-						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
+						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 10);
 						echo($nascimento);
 					?>
 					</p>
@@ -30,9 +30,9 @@
 						
 							$diaNascimento = $dataNascimento[0];
 							$mesNascimento = $dataNascimento[1];
-							$anoNascimento = '19'.$dataNascimento[2];
+							$anoNascimento = $dataNascimento[2];
 							
-							$anoAtual = '20'.date('y');
+							$anoAtual = date('Y');
 							$mesAtual = date('m');
 							$diaAtual = date('d');
 							
@@ -67,7 +67,7 @@
 					</p>
 					<p><strong>Data Consulta: </strong>
 					<?php
-						$consulta = substr($atendimento['created'], 0, 8);
+						$consulta = substr($atendimento['created'], 0, 10);
 						echo($consulta);
 					?>
 					</p>

@@ -12,6 +12,12 @@ class AtendimentosExamesTable extends AppTable{
 			'joinType' => 'INNER',
 			'className' => 'Exames',
 		]);
+		
+		$this->belongsTo('Atendimentos', [
+			'foreignKey' => 'atendimentos_id',
+			'joinType' => 'INNER',
+			'className' => 'Atendimentos',
+		]);
 	}
 	
 }

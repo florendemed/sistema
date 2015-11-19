@@ -231,8 +231,41 @@ echo $this->Html->scriptBlock("
 					<p><strong>Nome: </strong><?= $atendimento->paciente->nome ?></p>
 					<p><strong>Nascimento: </strong>
 					<?php
-						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 8);
+						$nascimento = substr($atendimento->paciente->data_nascimento, 0, 10);
 						echo($nascimento);
+					?>
+					</p>
+					<p><strong>Idade: </strong>
+					<?php
+						function idade ($dataNascimento){
+							
+							$dataNascimento = explode('/', $dataNascimento);
+						
+							$diaNascimento = $dataNascimento[0];
+							$mesNascimento = $dataNascimento[1];
+							$anoNascimento = $dataNascimento[2];
+							
+							$anoAtual = date('Y');
+							$mesAtual = date('m');
+							$diaAtual = date('d');
+							
+							if ( $mesAtual < $mesNascimento ){
+								$idade = ($anoAtual - $anoNascimento) - 1;
+								echo($idade.' Anos');
+							} else if ( $mesAtual > $mesNascimento ) {
+								$idade = $anoAtual - $anoNascimento;
+								echo($idade.' Anos');
+							} else {
+								if ( $diaAtual < $diaNascimento ){
+									$idade = ($anoAtual - $anoNascimento) - 1;	
+									echo($idade.' Anos');
+								} else if ( $diaAtual >= $diaNascimento ) {
+									$idade = $anoAtual - $anoNascimento;
+									echo($idade.' Anos');
+								}
+							}
+						}
+						idade($nascimento);
 					?>
 					</p>
 					<p><strong>Sexo: </strong>
@@ -247,7 +280,7 @@ echo $this->Html->scriptBlock("
 					</p>
 					<p><strong>Data Consulta: </strong>
 					<?php
-						$consulta = substr($atendimento['created'], 0, 8);
+						$consulta = substr($atendimento['created'], 0, 10);
 						echo($consulta);
 					?>
 					</p>

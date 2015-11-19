@@ -6,20 +6,21 @@
 	</div>
 	<div id="row">
 		<div class="col-md-12">
-			<p class='dados-paciante'>
+			<p class='dados-paciente'>
 				<?php 
-					echo($dadosConsulta['paciente']['nome'].'<br /> CPF: '.$dadosConsulta['paciente']['cpf'].'<br /> Nascimento: '.$dadosConsulta['paciente']['data_nascimento']); 
+					$nascimento = substr($dadosConsulta['paciente']['data_nascimento'], 0, 10);					
+					echo($dadosConsulta['paciente']['nome'].'<br /> CPF: '.$dadosConsulta['paciente']['cpf'].'<br /> Nascimento: '.$nascimento); 
 				?>
 			</p>
 		</div>
 	</div>
 	<div id="row">
-		<div class="col-md-12">
+		<div class="col-md-12 dados-medicamentos">
 			<?php 
 			if( count($dadosReceita) > 0 ) {
 				foreach ($dadosReceita as $dr): 
 			?>
-				<p class="capitalize dados-medicamentos">
+				<p class="capitalize">
 					<?php
 						if ( $dr->uso == '1' ){
 							$uso = 'Interno';
@@ -28,7 +29,7 @@
 						}
 						if ( $dr->quantidade != ''){ $quantidade = 'Tomar '.$dr->quantidade;}
 						if ( $dr->intervalo != ''){ $intervalo = ' de '.$dr->intervalo; }
-						echo(mb_strtolower($dr->medicamento->nome).' - Uso '.$uso.'<br />'.$quantidade.' '.$intervalo.'<br/>'.$dr->dias);
+						echo('<strong>'.mb_strtolower($dr->medicamento->nome).'</strong> - Uso '.$uso.'<br />'.$quantidade.' '.$intervalo.'<br/>'.$dr->dias);
 					?>
 				</p>
 				<?php 	endforeach; ?>
@@ -41,7 +42,7 @@
 		<div class="col-md-12">
 			<p class='dados-data'>
 				<?php 
-					echo(date('d/m/Y')); 
+					echo(date('l').', '.date('d').' de '.date('F').' de '.date('Y')); 
 				?>
 			</p>
 		</div>
@@ -50,7 +51,7 @@
 		<div class="col-md-12">
 			<p class='dados-colaborador'>
 				<?php 
-					echo($dadosConsulta['colaborador']['nome'].'<br />'.$dadosConsulta['colaborador']['conselho_regional'].': '.$dadosConsulta['colaborador']['numero_conselho_regional']); 
+					echo($dadosConsulta['colaborador']['nome'].'<br />'.$dadosConsulta['colaborador']['conselho_regional'].$dadosConsulta['colaborador']['numero_conselho_regional']); 
 				?>
 			</p>
 		</div>
