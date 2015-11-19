@@ -194,8 +194,19 @@ g {
 	text-transform: capitalize;
 }
 
-.dados-paciante,
 .dados-data,
 .dados-colaborador {
 	padding:20px 0;
+}
+
+.dados-paciente {
+	padding:40px 0;
+}
+
+.receita {
+	font-size:13px;
+}
+
+.dados-medicamentos {
+	min-height: 250px;
 }
