@@ -44,7 +44,6 @@ use Cake\Core\App;
 use Cake\Core\Configure;
 use Cake\Core\Configure\Engine\PhpConfig;
 use Cake\Core\Plugin;
-use Cake\Database\Type;
 use Cake\Datasource\ConnectionManager;
 use Cake\Error\ErrorHandler;
 use Cake\Log\Log;
@@ -53,7 +52,7 @@ use Cake\Network\Request;
 use Cake\Routing\DispatcherFactory;
 use Cake\Utility\Inflector;
 use Cake\Utility\Security;
-use Cake\I18n\Time;
+
 /**
  * Read configuration file and inject configuration into various
  * CakePHP classes.
@@ -86,8 +85,7 @@ if (!Configure::read('debug')) {
  * Set server timezone to UTC. You can change it to another timezone of your
  * choice but using UTC makes time calculations / conversions easier.
  */
-//date_default_timezone_set('UTC');
-date_default_timezone_set("Brazil/East");
+date_default_timezone_set('UTC');
 
 /**
  * Configure the mbstring extension to use the correct encoding.
@@ -98,14 +96,14 @@ mb_internal_encoding(Configure::read('App.encoding'));
  * Set the default locale. This controls how dates, number and currency is
  * formatted and sets the default language to use for translations.
  */
-//ini_set('intl.default_locale', 'pt-BR');
+ini_set('intl.default_locale', 'pt_BR');
 
 /**
  * Register application error and exception handlers.
  */
 $isCli = php_sapi_name() === 'cli';
 if ($isCli) {
-    (new ConsoleErrorHandler(Configure::read('Error')))->register();
+    @(new ConsoleErrorHandler(Configure::read('Error')))->register();
 } else {
     (new ErrorHandler(Configure::read('Error')))->register();
 }
@@ -180,8 +178,9 @@ Request::addDetector('tablet', function ($request) {
  * Plugin::load('Migrations'); //Loads a single plugin named Migrations
  *
  */
-Plugin::loadAll();
+
 Plugin::load('Migrations');
+
 // Only try to load DebugKit in development mode
 // Debug Kit should not be installed on a production system
 if (Configure::read('debug')) {
@@ -194,14 +193,3 @@ if (Configure::read('debug')) {
 DispatcherFactory::add('Asset');
 DispatcherFactory::add('Routing');
 DispatcherFactory::add('ControllerFactory');
-
-/**
- * Enable default locale format parsing.
- * This is needed for matching the auto-localized string output of Time() class when parsing dates.
- */
-//Type::build('date')->setLocaleFormat('dd-y');//useLocaleParser()->
-//Type::build('datetime')->useLocaleParser();
-Type::build('date')->useLocaleParser()->setLocaleFormat('dd/MM/yyyy');
-Type::build('datetime')->useLocaleParser()->setLocaleFormat('dd/MM/yyyy HH:mm:ss');
-Time::setToStringFormat('dd/MM/yyyy HH:mm:ss');
-//$time->i18nFormat('yyyy-MM-dd HH:mm:ss'); // outputs '2014-04-20 22:10
