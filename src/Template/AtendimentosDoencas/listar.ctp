@@ -1,7 +1,7 @@
 <?php
 if ( $doencas->count() == 0 ) {
 	?>
-	<p class="alert alert-info">Nenhum medicamento inserido</p>
+	<p class="alert alert-info">Nenhum diagnóstico inserido</p>
 	<?php
 } else {
 	echo $this->Html->scriptBlock("

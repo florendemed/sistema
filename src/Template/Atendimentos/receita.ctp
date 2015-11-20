@@ -8,8 +8,8 @@
 		<div class="col-md-12">
 			<p class='dados-paciente'>
 				<?php 
-					$nascimento = substr($dadosConsulta['paciente']['data_nascimento'], 0, 10);					
-					echo($dadosConsulta['paciente']['nome'].'<br /> CPF: '.$dadosConsulta['paciente']['cpf'].'<br /> Nascimento: '.$nascimento); 
+					$nascimento = substr($dadosReceita['paciente']['data_nascimento'], 0, 10);	
+					echo($dadosReceita['paciente']['nome'].'<br />Endereço: '.$dadosReceita['paciente']['endereco']['endereco'].', '.$dadosReceita['paciente']['endereco']['numero'].' - CEP: '.$dadosReceita['paciente']['endereco']['cep'].'<br /> Telefone: '.$dadosReceita['paciente']['telefone']['numero']);
 				?>
 			</p>
 		</div>
@@ -17,19 +17,19 @@
 	<div id="row">
 		<div class="col-md-12 dados-medicamentos">
 			<?php 
-			if( count($dadosReceita) > 0 ) {
-				foreach ($dadosReceita as $dr): 
+			if( count($dadosReceita['atendimentos_medicamentos']) > 0 ) {
+				foreach ($dadosReceita['atendimentos_medicamentos'] as $med): 
 			?>
 				<p class="capitalize">
 					<?php
-						if ( $dr->uso == '1' ){
+						if ( $med['uso'] == '1' ){
 							$uso = 'Interno';
 						} else {
 							$uso = 'Externo';
 						}
-						if ( $dr->quantidade != ''){ $quantidade = 'Tomar '.$dr->quantidade;}
-						if ( $dr->intervalo != ''){ $intervalo = ' de '.$dr->intervalo; }
-						echo('<strong>'.mb_strtolower($dr->medicamento->nome).'</strong> - Uso '.$uso.'<br />'.$quantidade.' '.$intervalo.'<br/>'.$dr->dias);
+						if ( $med['quantidade'] != ''){ $quantidade = 'Tomar '.$med['quantidade'];}
+						if ( $med['intervalo'] != ''){ $intervalo = ' de '.$med['intervalo']; }
+						echo('<strong>'.mb_strtolower($med['medicamento']['nome']).'</strong> - Uso '.$uso.'<br />'.$quantidade.' '.$intervalo.'<br/>'.$med['dias']);
 					?>
 				</p>
 				<?php 	endforeach; ?>
@@ -51,7 +51,7 @@
 		<div class="col-md-12">
 			<p class='dados-colaborador'>
 				<?php 
-					echo($dadosConsulta['colaborador']['nome'].'<br />'.$dadosConsulta['colaborador']['conselho_regional'].$dadosConsulta['colaborador']['numero_conselho_regional']); 
+					echo($dadosReceita['colaborador']['nome'].'<br />'.$dadosReceita['colaborador']['conselho_regional'].$dadosReceita['colaborador']['numero_conselho_regional']); 
 				?>
 			</p>
 		</div>

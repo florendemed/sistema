@@ -8,7 +8,7 @@ class AtendimentosDoencasTable extends AppTable{
 	public function initialize(array $config)
     {
 		$this->belongsTo('Doencas', [
-			'foreignKey' => 'doencas_id',
+			'foreignKey' => 'id',
 			'joinType' => 'INNER',
 			'className' => 'Doencas',
 		]);

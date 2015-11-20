@@ -35,8 +35,8 @@ class AtendimentosController extends AppController{
 		
 		$this->set(compact('medicamentos'));
 			
-		pr($id);
-		pr($this->request->data);	
+		$this->Sms->enviar('55' . $this->request->data['telefone'], 'texticulo do sms');
+		pr($id); // <--- esse id ai é o atendimento_id zézona
 	}
 	
 	public function index(){
@@ -159,39 +159,34 @@ class AtendimentosController extends AppController{
 		
 		$this->loadModel('Pacientes');
 		
-		$paciente = $this->Pacientes->find('all',[
+		$paciente = $this->Pacientes->get($pacientes_id,[
 			'conditions' => [ 'Pacientes.id' => $pacientes_id],
 		]);
 		$paciente = $paciente->toArray();
 
-		$atendimento = $this->Atendimentos->find('all',[
+		$dadosProntuario = $this->Atendimentos->find('all',[
 			'conditions' => [ 'Atendimentos.pacientes_id' => $pacientes_id],
-			'contain' => ['Pacientes', 'Colaborador'],
-			'order' => array(
-				'Atendimentos.created' => 'DESC'
-			),
+			'contain' => ['Pacientes', 'Colaborador', 'AtendimentosMedicamentos.Medicamentos', 'AtendimentosDoencas.Doencas',  'AtendimentosExames.Exames'],
 		]);
-
-		$this->set(compact('atendimento', 'paciente'));
+		$dadosProntuario->hydrate(false)->toArray();
+		
+		$this->set(compact('dadosProntuario', 'paciente'));
 	}
 	
 	public function receita($id) {
 		
 		$this->layout = 'receita';
-		$this->loadModel('AtendimentosMedicamentos');
 		
-		$dadosConsulta = $this->Atendimentos->get($id, [
-			'contain' => ['Pacientes', 'Colaborador']
+		$dadosReceita = $this->Atendimentos->get($id,[
+			'conditions' => [ 'Atendimentos.id' => $id],
+			'contain' => ['Pacientes.Enderecos', 'Pacientes.Telefones', 'Colaborador', 'AtendimentosMedicamentos.Medicamentos'],
+			'order' => array(
+				'Atendimentos.created' => 'DESC'
+			),
 		]);
-		$dadosConsulta = $dadosConsulta->toArray();
+		$dadosReceita->toArray();
 		
-		$dadosReceita = $this->AtendimentosMedicamentos->find('all',[
-			'conditions' => [ 'AtendimentosMedicamentos.atendimentos_id' => $id],
-			'contain' => ['Medicamentos'],
-		]);
-		$dadosReceita = $dadosReceita->toArray();
-		
-		$this->set(compact('dadosConsulta', 'dadosReceita'));
+		$this->set(compact('dadosReceita'));
     }
 	
 }

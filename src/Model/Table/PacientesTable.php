@@ -12,10 +12,26 @@ class PacientesTable extends AppTable{
 			->notEmpty('nome', 'nome inválido')
 			->add('email', 'email', ['rule' => 'email', 'message' => 'e-mail inválido'])
 			->allowEmpty('email')
-			->add('data_nascimento', 'data_nascimento', ['rule' => 'date', 'message' => 'data de nascimento inválida'])
+			//->add('data_nascimento', 'data_nascimento', ['rule' => 'date', 'message' => 'data de nascimento inválida'])
 			->allowEmpty('data_nascimento');
 	 
 		return $validator;
+	}
+	
+	public function initialize(array $config)
+    {
+		$this->hasOne('Enderecos', [
+			'foreignKey' => 'paciente_id',
+			'joinType' => 'INNER',
+			'className' => 'Enderecos',
+		]);		
+
+		$this->hasOne('Telefones', [
+			'foreignKey' => 'paciente_id',
+			'joinType' => 'INNER',
+			'className' => 'Telefones',
+		]);			
+		
 	}
 	
 }

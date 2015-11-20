@@ -25,6 +25,25 @@ class AtendimentosTable extends AppTable{
 			'className' => 'AtendimentosStatus',
 		]);		
 		
+		
+		$this->hasMany('AtendimentosMedicamentos', [
+			'foreignKey' => 'atendimentos_id',
+			'joinType' => 'LEFT',
+			'className' => 'AtendimentosMedicamentos',
+		]);		
+		
+		$this->hasMany('AtendimentosDoencas', [
+			'foreignKey' => 'atendimentos_id',
+			'joinType' => 'LEFT',
+			'className' => 'AtendimentosDoencas',
+		]);		
+		
+		$this->hasMany('AtendimentosExames', [
+			'foreignKey' => 'atendimentos_id',
+			'joinType' => 'LEFT',
+			'className' => 'AtendimentosExames',
+		]);	
+		
 	}
 	
 }

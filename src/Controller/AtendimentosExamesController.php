@@ -10,7 +10,7 @@ class AtendimentosExamesController extends AppController{
 		if ($this->request->is('post')) {
 			$exame = $this->AtendimentosExames->newEntity($this->request->data);
 			$exame = $this->AtendimentosExames->save($exame);
-			$this->response->body($exame->id);
+			$this->response->body($exames->id);
 			return $this->response;
 		}
     }

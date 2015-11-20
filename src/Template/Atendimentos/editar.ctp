@@ -71,7 +71,7 @@ echo $this->Html->scriptBlock("
 				if ( confirm('Esta receita será enviada por SMS para o telefone \"' + $('#telefone').val() + '\", tem certeza?') ) {
 					$.ajax({
 						method: 'POST',
-						url: '/Atendimentos/sms',
+						url: '/Atendimentos/sms/" . $this->request->params['pass']['0'] . "',
 						data: { 
 							telefone: $('#telefone').val(),
 							atendimentos_id: " . $this->request->params['pass']['0'] . ",
