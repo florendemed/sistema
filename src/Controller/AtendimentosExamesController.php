@@ -15,16 +15,15 @@ class AtendimentosExamesController extends AppController{
 		}
     }
 	
-	public function listar($exames_id){
+	public function listar($atendimentos_id){
 		$this->layout 		= 'ajax';
 		
 		$exames = $this->AtendimentosExames->find('all', [
 			'conditions' => [
-				'AtendimentosExames.atendimentos_id' => $exames_id,
+				'AtendimentosExames.atendimentos_id' => $atendimentos_id,
 			],
 			'contain' => 'Exames',
 		])->hydrate(false);
-		
 		$this->set(compact('exames'));
 	}
 	

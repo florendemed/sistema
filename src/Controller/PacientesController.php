@@ -31,6 +31,10 @@ class PacientesController extends AppController{
 			if (isset($this->request->query['cartaoSUS']) && $this->request->query['cartaoSUS'] != ''){
 				$condicoes['numero_sus LIKE'] = '%'.$this->request->query['cartaoSUS'].'%';
 			} 
+			
+			if (isset($this->request->query['status']) && $this->request->query['status'] != ''){
+				$condicoes['status ='] = $this->request->query['status'];
+			} 
 		}
 			
 		$this->paginate = [
@@ -50,10 +54,6 @@ class PacientesController extends AppController{
 		
 		if ($this->request->is('post')) {
 
-			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
-			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
-			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
-			
 			$paciente = $this->Pacientes->newEntity($this->request->data);
 			if ($this->Pacientes->save($paciente)) {
 				

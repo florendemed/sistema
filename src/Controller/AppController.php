@@ -244,6 +244,13 @@ class AppController extends Controller{
         );
         $this->set('combo_intervalo', $combo_intervalo);
 		
+		//array de status
+		$combo_status = array(
+			'a'		=> 'Ativo',	
+			'i'		=> 'Inativo',	
+        );
+        $this->set('combo_status', $combo_status);
+		
     }
 	
 	public function beforeFilter(Event $event)

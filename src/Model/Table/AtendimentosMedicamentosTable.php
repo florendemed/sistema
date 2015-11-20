@@ -12,6 +12,7 @@ class AtendimentosMedicamentosTable extends AppTable{
 			'joinType' => 'INNER',
 			'className' => 'Medicamentos',
 		]);
+
 	}
 	
 }

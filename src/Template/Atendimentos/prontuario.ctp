@@ -93,7 +93,14 @@
 											Prescrição: <span class='capitalize'><br />
 											<?php
 												foreach ($dp['atendimentos_medicamentos'] as $med):
-													echo('- '.mb_strtolower($med['medicamento']['nome']).'<br />');
+												
+													if ( $med['uso'] == '1' ){
+														$uso = 'Interno';
+													} else {
+														$uso = 'Externo';
+													}
+																				
+													echo('- '.mb_strtolower($med['medicamento']['nome']).' - Uso '.$uso.' - '.$med['quantidade'].' - '.$med['intervalo'].' - '.$med['dias'].'<br />');
 												endforeach;
 											?></span>
 										<?php } ?>

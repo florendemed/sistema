@@ -122,6 +122,14 @@ class AtendimentosController extends AppController{
 			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
 		]);
 		
+		$dadosSMS = $this->Atendimentos->get($id, [
+			'conditions' => [
+				'Atendimentos.id' => $id,
+			],
+			'contain' => ['Pacientes.Telefones']
+		]);
+		$dadosSMS = $dadosSMS->toArray();
+		
 		if ($this->request->is('put')) {
 				
 			$atendimento = $this->Atendimentos->patchEntity($atendimento, $this->request->data);
@@ -133,7 +141,7 @@ class AtendimentosController extends AppController{
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
-		$this->set(compact('atendimento'));
+		$this->set(compact('atendimento', 'dadosSMS'));
 		$this->render($render);
 		
     }

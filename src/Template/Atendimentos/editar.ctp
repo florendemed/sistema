@@ -380,8 +380,10 @@ echo $this->Html->scriptBlock("
 						<div class="col-md-12">
 							<h4>Enviar receita via SMS</h4>
 						</div>
-						<div class="col-md-2">
-							<?php echo $this->Form->input('telefone', array('label' => false, 'type' => 'text', 'placeholder' => 'Celular', 'class' => 'col-md-3 fone form-control')); ?>
+						<div class="col-md-12">
+							<?php 
+								echo $this->Form->input('telefone', array('label' => false, 'type' => 'text', 'placeholder' => 'Celular', 'class' => 'col-md-3 fone form-control', 'value' => '')); 
+							?>
 						</div>
 						<div class="col-md-2">
 							<a href="javascript:void(0);" class="enviar-sms btn btn-danger btn-sm"><span class="fa fa-paper-plane"></span> Enviar SMS</a>

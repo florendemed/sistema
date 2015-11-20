@@ -17,7 +17,7 @@ class ColaboradoresTable extends AppTable{
 			->notEmpty('senha', 'senha inválida')
 			->add('email', 'email', ['rule' => 'email', 'message' => 'e-mail inválido'])
 			->allowEmpty('email')
-			->add('data_nascimento', 'data_nascimento', ['rule' => 'date', 'message' => 'data de nascimento inválida'])
+			//->add('data_nascimento', 'data_nascimento', ['rule' => 'date', 'message' => 'data de nascimento inválida'])
 			->allowEmpty('data_nascimento');
 	 
 		return $validator;

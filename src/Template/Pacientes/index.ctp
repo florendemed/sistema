@@ -21,6 +21,9 @@
 						<div class="col-md-2">
 							<?php echo $this->Form->input('cartaoSUS', ['label' => false, 'class' => 'form-control', 'id' => 'cartaoSUS', 'placeholder' => 'Cartão SUS', 'value' => @$this->request->query['cartaoSUS']]); ?>
 						</div>
+						<div class="col-md-2">
+							<?php echo $this->Form->input('status', ['label' => false, 'class' => 'form-control', 'value' => @$this->request->query['status'], 'options' => $combo_status, 'empty' => 'Todos']); ?>
+						</div>
 						<div class="col-md-1">
 							<?php echo $this->Form->submit('Filtrar', ['class' => 'btn btn-primary btn', 'value' => 'Filtrar']); ?>
 						</div>
@@ -35,7 +38,7 @@
 					<tr>
 						<th><?= $this->Paginator->sort('id') ?></th>
 						<th><?= $this->Paginator->sort('nome') ?></th>
-						<th><?= $this->Paginator->sort('numero_prontuario') ?></th>
+						<th><?= $this->Paginator->sort('numero_prontuario', 'Nº Prontuário') ?></th>
 						<th><?= $this->Paginator->sort('numero_sus', 'Cartão SUS') ?></th>
 						<th><?= $this->Paginator->sort('cpf', 'CPF') ?></a></th>
 						<th><?= $this->Paginator->sort('data_nascimento') ?></th>

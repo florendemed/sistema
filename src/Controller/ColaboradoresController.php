@@ -87,10 +87,6 @@ class ColaboradoresController extends AppController{
 		
 		if ($this->request->is('post')) {
 
-			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
-			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
-			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
-			
 			$colaborador 	= $this->Colaboradores->patchEntity($colaborador, $this->request->data);
 			
 			if ( $this->request->data['senha'] != $this->request->data['senha_repetir']) {
@@ -173,10 +169,6 @@ class ColaboradoresController extends AppController{
 		
 		//Dados postados
 		if ($this->request->is('put')) {
-			
-			$this->request->data['data_nascimento'] = explode('/',$this->request->data['data_nascimento']);
-			$this->request->data['data_nascimento'] = array_reverse($this->request->data['data_nascimento']);
-			$this->request->data['data_nascimento'] = implode("-", $this->request->data['data_nascimento']);
 			
 			if ( $this->request->data['status'] == '0' ){
 				$this->request->data['status'] = 'i';				
