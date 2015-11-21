@@ -26,7 +26,7 @@ class PacientesTable extends AppTable{
 			'className' => 'Enderecos',
 		]);		
 
-		$this->hasOne('Telefones', [
+		$this->hasMany('Telefones', [
 			'foreignKey' => 'paciente_id',
 			'joinType' => 'INNER',
 			'className' => 'Telefones',

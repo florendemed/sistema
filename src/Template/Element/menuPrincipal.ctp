@@ -21,7 +21,36 @@
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a href="/colaboradores/editar/<?= h($logado[0]->id); ?>" title="Colaborador - Alterar Dados"><?= $logado[0]->nome; ?> <span class="glyphicon glyphicon-user"></span></a></li>
-						<!--li><a href="" title="Configurações"><span class="glyphicon glyphicon-cog"></span></a></li-->
+						<li><a href="/sair"><button type="button" class="btn btn-default btn-sm btn-danger">Sair</button></a></li>
+					</ul>
+					<ul class="nav navbar-nav">
+						<?php
+						foreach ( $menus as $m ) {
+							if ( count($m['filhos']) == 0 ) {
+								//sem submenu
+								$url	= ucfirst($m['controlador']) . '/' . strtolower($m['acao']);
+								echo '<li><a href="/' . $url . '">' . $m['nome'] . '</a></li>';
+							} else {
+								//com submenu
+								echo '<li class="dropdown"><a href="/' . @$url . '" class="dropdown-toggle" data-toggle="dropdown">' . $m['nome'] . '<b class="caret"></b></a>';
+									echo '<ul class="dropdown-menu" role="menu">';
+									foreach ( $m['filhos'] as $f ) {
+										$url	= ucfirst($f['controlador']) . '/' . strtolower($f['acao']);
+										echo '<li class=""><a href="/' . $url . '">' . $f['nome'] . '</a></li>';
+									}	
+								echo '</ul>
+								</li>';
+							}
+							//$m['filhos']
+						}
+						?>
+					</ul>
+				</div>
+				
+				<!--
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/colaboradores/editar/<?= h($logado[0]->id); ?>" title="Colaborador - Alterar Dados"><?= $logado[0]->nome; ?> <span class="glyphicon glyphicon-user"></span></a></li>
 						<li><a href="/sair"><button type="button" class="btn btn-default btn-sm btn-danger">Sair</button></a></li>
 					</ul>
 					<ul class="nav navbar-nav">
@@ -52,6 +81,7 @@
 						</li>
 					</ul>
 				</div>
+				-->
 			</div>
 		</div>	
 	</div>

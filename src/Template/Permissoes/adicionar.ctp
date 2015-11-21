@@ -28,7 +28,7 @@
 							<?php echo $this->Form->label('permissao_id', 'Permissão Pai', ['class' => 'col-md-3 control-label']); ?>
 							<div class="col-md-8">
 								<?php
-									echo $this->Form->input('permissao_id', array('empty' => 'Nenhum', 'label' => false, 'class' => 'form-control', 'options' => $permissaoPai));
+									echo $this->Form->input('permissao_id', array('label' => false, 'class' => 'form-control', 'options' => $permissaoPai, 'empty' => 'Nenhum'));
 								?>
 							</div>
 						</div>

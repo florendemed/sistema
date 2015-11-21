@@ -102,7 +102,7 @@
 		?>
 		</p>
 		<ul class="pagination">
-			<?php echo $this->Paginator->numbers(['first' => 'First page']); ?>
+			<?php echo $this->Paginator->numbers(['first' => 'Primeira Página']); ?>
 		</ul>
 		<?php } else { ?>
 			<p class="alert alert-warning">Nenhum resultado encontrado.</p>

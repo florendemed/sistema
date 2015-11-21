@@ -2,6 +2,7 @@
 namespace App\Controller;
 
 use App\Controller\AppController;
+use Cake\I18n\Time;
 
 class AtendimentosController extends AppController{
 	
@@ -19,24 +20,30 @@ class AtendimentosController extends AppController{
 		
 		$this->loadModel('AtendimentosMedicamentos');
 		$this->loadModel('Medicamentos');
-		
-		$m = $this->Medicamentos->find('all');
-		$m = $m->toArray();
-		
-		$am = $this->AtendimentosMedicamentos->find('all');
-		$am = $am->toArray();
+		$this->loadModel('Telefones');
 		
 		$medicamentos = $this->AtendimentosMedicamentos->find('all', [
 			'conditions' => [
 				'AtendimentosMedicamentos.atendimentos_id' => $id,
 			],
-			'contain' => 'Medicamentos',
-		])->hydrate(false);
+			'contain' => ['Medicamentos', 'Atendimentos'],
+		])->hydrate(false)->toArray();
 		
-		$this->set(compact('medicamentos'));
-			
-		$this->Sms->enviar('55' . $this->request->data['telefone'], 'texticulo do sms');
-		pr($id); // <--- esse id ai é o atendimento_id zézona
+		if ( count($medicamentos) > 0 ) {
+			$mensagem	= 'Receituário: ';
+			foreach ( $medicamentos as $i => $m ) {
+				$mensagem	.= $m['medicamento']['nome'] . ' - ';
+			}
+			$mensagem	= substr($mensagem,0,-3);
+		}
+		$this->Sms->enviar('55' . $this->request->data['telefone'], $mensagem);
+		$this->Telefones->deleteAll(['paciente_id' => $medicamentos['0']['atendimento']['pacientes_id'], 'tipo' => 'celular']);
+		$telefone = $this->request->data['telefone'];
+		$salvarTelefone['tipo'] = 'celular';
+		$salvarTelefone['numero'] = $telefone;
+		$salvarTelefone['paciente_id'] = $medicamentos['0']['atendimento']['pacientes_id'];
+		$telefone = $this->Telefones->newEntity($salvarTelefone);
+		$this->Telefones->save($telefone);
 	}
 	
 	public function index(){
@@ -81,6 +88,7 @@ class AtendimentosController extends AppController{
 				'Atendimentos.id' => 'DESC',
 				'Atendimentos.prioridade' => 'ASC'
 			),
+			'lang' => 'pt_BR',
 		];		
 		$atendimento = $this->paginate($this->Atendimentos);
 	
@@ -118,18 +126,14 @@ class AtendimentosController extends AppController{
 	
 	public function editar($id, $render = 'triagem'){
 		
+		$this->loadModel('AtendimentosStatus');
+		
+		$atendimentoStatus = $this->AtendimentosStatus->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
+		$atendimentoStatus = $atendimentoStatus->toArray();
+		
 		$atendimento = $this->Atendimentos->get($id, [
-			'contain' => ['Pacientes', 'Colaborador', 'Situacao']
+			'contain' => ['Pacientes.Telefones', 'Colaborador', 'Situacao']
 		]);
-		
-		$dadosSMS = $this->Atendimentos->get($id, [
-			'conditions' => [
-				'Atendimentos.id' => $id,
-			],
-			'contain' => ['Pacientes.Telefones']
-		]);
-		$dadosSMS = $dadosSMS->toArray();
-		
 		if ($this->request->is('put')) {
 				
 			$atendimento = $this->Atendimentos->patchEntity($atendimento, $this->request->data);
@@ -141,7 +145,7 @@ class AtendimentosController extends AppController{
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
-		$this->set(compact('atendimento', 'dadosSMS'));
+		$this->set(compact('atendimento', 'atendimentoStatus'));
 		$this->render($render);
 		
     }
@@ -194,7 +198,10 @@ class AtendimentosController extends AppController{
 		]);
 		$dadosReceita->toArray();
 		
-		$this->set(compact('dadosReceita'));
+		setlocale( LC_ALL, 'pt_BR', 'pt_BR.iso-8859-1', 'pt_BR.utf-8', 'portuguese' );
+		$data_extenso		= strftime( '%A, %d de %B de %Y', strtotime( date( 'Y-m-d' ) ) );
+		
+		$this->set(compact('dadosReceita', 'data_extenso'));
     }
 	
 }

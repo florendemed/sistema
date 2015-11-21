@@ -24,7 +24,6 @@ class AtendimentosMedicamentosController extends AppController{
 			],
 			'contain' => 'Medicamentos',
 		])->hydrate(false);
-		
 		$this->set(compact('medicamentos'));
 	}
 	

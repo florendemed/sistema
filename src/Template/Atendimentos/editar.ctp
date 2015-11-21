@@ -65,7 +65,7 @@ echo $this->Html->scriptBlock("
 	}
 	
 	$(document).ready(function() {
-		$('.fone').mask('00 000000009');
+		$('.fone').mask('(00) 000000009');
 		$('.enviar-sms').click(function(){
 			if ( $('#telefone').val() != '' ) {
 				if ( confirm('Esta receita será enviada por SMS para o telefone \"' + $('#telefone').val() + '\", tem certeza?') ) {
@@ -380,13 +380,31 @@ echo $this->Html->scriptBlock("
 						<div class="col-md-12">
 							<h4>Enviar receita via SMS</h4>
 						</div>
-						<div class="col-md-12">
+						<div class="col-md-2">
 							<?php 
-								echo $this->Form->input('telefone', array('label' => false, 'type' => 'text', 'placeholder' => 'Celular', 'class' => 'col-md-3 fone form-control', 'value' => '')); 
+							$telefonesms	= null;
+							if ( count($atendimento->paciente->telefones) > 0 ) {
+								foreach ( $atendimento->paciente->telefones as $tel ) {
+									if ( $tel['tipo'] == 'celular' ) {
+										$telefonesms	= $tel['numero'];
+										break;
+									}
+								}
+							}
+							echo $this->Form->input('telefone', array('value' => $telefonesms, 'label' => false, 'type' => 'text', 'placeholder' => 'Celular', 'class' => 'col-md-3 fone form-control')); 
 							?>
 						</div>
 						<div class="col-md-2">
 							<a href="javascript:void(0);" class="enviar-sms btn btn-danger btn-sm"><span class="fa fa-paper-plane"></span> Enviar SMS</a>
+						</div>
+					</div>
+					<hr />
+					<div class="row">
+						<div class="col-md-12">
+							<h4>Status do atendimento</h4>
+						</div>
+						<div class="col-md-4">
+							<?php echo $this->Form->input('atendimentos_status_id', array('options' => $atendimentoStatus, 'label' => false, 	'class' => 'form-control')); ?>
 						</div>
 					</div>
 				</div>

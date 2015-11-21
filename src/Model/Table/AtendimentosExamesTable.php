@@ -8,7 +8,7 @@ class AtendimentosExamesTable extends AppTable{
 	public function initialize(array $config)
     {
 		$this->belongsTo('Exames', [
-			'foreignKey' => 'atendimentos_id',
+			'foreignKey' => 'exames_id',
 			'joinType' => 'INNER',
 			'className' => 'Exames',
 		]);

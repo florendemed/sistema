@@ -75,7 +75,7 @@ class PermissoesController extends AppController{
 	
 	public function editar($id){
 		
-		$permissaoPai = $this->Permissoes->find('list', ['empty' => 'Nenhum', 'keyField' => 'id', 'valueField' => 'nome']);
+		$permissaoPai = $this->Permissoes->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
 		$permissaoPai = $permissaoPai->toArray();
 		
 		$permissao = $this->Permissoes->get($id);

@@ -262,75 +262,89 @@ class AppController extends Controller{
 		if ( $this->request->session()->read('logado_id') != ''){
 
 			if ($this->request->here != '/entrar'){
-			
+				
 				$logado = $this->Colaboradores->find('all',[
 					'conditions' => [
 						'Colaboradores.id' => $this->request->session()->read('logado_id')
 					]
-				]);
-				$logado = $logado->toArray();
+				])->toArray();
 				
 				/* aqui nunca cadastrar as rotas e sim o controller/action */
 				$excecoes	= [
 					'app/busca_cep',
 					'colaboradores/login',
 					'colaboradores/logout',
-					'pacientes/buscar',
-					'medicamentos/buscar',
-					'medicamentos/inserir',
-					'exames/buscar',
-					'exames/inserir',
 					'paginas/index',
-					'AtendimentosMedicamentos/inserir',
-					'atendimentos/sms',
-					'AtendimentosExames/inserir'
 				];
 				$local	= strtolower($this->request->controller) . '/' . $this->request->action;
 				
-				if ( !in_array(trim($local), $excecoes) ) {
-					
-					/* permissoes */
-					$this->loadModel('Permissoes');
-					$this->loadModel('GruposPermissoes');
-					$this->loadModel('GruposColaboradores');
-					$this->loadModel('Grupos');
-					
-					$permissaoLocal = $this->Permissoes->find('all',[
-						'conditions' => [
-							'Permissoes.controlador' => $this->request->controller,
-							'Permissoes.acao' => $this->request->action,
-						]
-					]);
-					$permissaoLocal = $permissaoLocal->first();
-					
-					$gruposId = $this->GruposColaboradores->find('all',[
-						'conditions' => [
-							'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
-						],
-						'fields' => 'GruposColaboradores.grupos_id'
-					]);
-					
-					if ( $gruposId->count() > 0 ){
-						$grupos_ids = [];
-						foreach ( $gruposId as $grupoId ){
-							$grupos_ids[] = $grupoId->grupos_id;
-						}
-					}	
-					
-					$permissoesId = $this->GruposPermissoes->find('all',[
-						'conditions' => [
-							'GruposPermissoes.grupos_id IN' => $grupos_ids
-						],
-						'group' => 'GruposPermissoes.permissoes_id'
-					]);
-					
-					if ( $permissoesId->count() > 0 ){
-						$permissoes_ids = [];
-						foreach ( $permissoesId as $permissaoId ){
-							$permissoes_ids[] = $permissaoId->permissoes_id;
-						}
+				/* permissoes */
+				$this->loadModel('Permissoes');
+				$this->loadModel('GruposPermissoes');
+				$this->loadModel('GruposColaboradores');
+				$this->loadModel('Grupos');
+				
+				$permissaoLocal = $this->Permissoes->find('all',[
+					'conditions' => [
+						'Permissoes.controlador' => $this->request->controller,
+						'Permissoes.acao' => $this->request->action,
+					]
+				]);
+				$permissaoLocal = $permissaoLocal->first();
+				
+				$gruposId = $this->GruposColaboradores->find('all',[
+					'conditions' => [
+						'GruposColaboradores.colaboradores_id' => $this->request->session()->read('logado_id')
+					],
+					'fields' => 'GruposColaboradores.grupos_id'
+				]);
+				
+				if ( $gruposId->count() > 0 ){
+					$grupos_ids = [];
+					foreach ( $gruposId as $grupoId ){
+						$grupos_ids[] = $grupoId->grupos_id;
 					}
-					
+				}else {
+					$this->request->session()->destroy();
+					$this->Flash->error(__('Você não possui grupo de acesso para utilizar o sistema.'));
+					return $this->redirect('/entrar');
+				}
+				$permissoesId = $this->GruposPermissoes->find('all',[
+					'conditions' => [
+						'GruposPermissoes.grupos_id IN' => $grupos_ids
+					],
+					'group' => 'GruposPermissoes.permissoes_id'
+				]);
+				
+				if ( $permissoesId->count() > 0 ){
+					$permissoes_ids = [];
+					foreach ( $permissoesId as $permissaoId ){
+						$permissoes_ids[] = $permissaoId->permissoes_id;
+					}
+				} 
+				$menus	= $this->Permissoes->find('all', [
+					'conditions' => [
+						'Permissoes.id IN' => $permissoes_ids,
+						'Permissoes.menu' => 's',
+						'Permissoes.permissao_id' => '0'
+					],
+					'order' => 'Permissoes.ordem'
+				])->hydrate(false)->toArray();
+				
+				foreach ( $menus as $i => $menu ) {
+					//pegar filhos com permissao
+					$filhos	= $this->Permissoes->find('all', [
+						'conditions' => [
+							'Permissoes.id IN' => $permissoes_ids,
+							'Permissoes.menu' => 's',
+							'Permissoes.permissao_id' => $menu['id']
+						],
+						'order' => 'Permissoes.ordem'
+					])->hydrate(false)->toArray();
+					$menus[$i]['filhos']	= $filhos;
+				}
+				$this->set(compact('menus'));
+				if ( !in_array(trim($local), $excecoes) ) {
 					if ( !isset($permissaoLocal->id) ) {
 						$retornoPermissoes	= 0;
 					} else {
@@ -341,18 +355,16 @@ class AppController extends Controller{
 						return $this->redirect('/index');
 					}
 				}
-			}else {
-				
+			} else {
 				$this->redirect('/index');
 			}
-			
 		} else {
 			if ($this->request->here != '/entrar' && $this->request->here != '/esqueci-minha-senha'){	
 				$this->Flash->error(__('É necessário estar logado para acessar esta área.'));
 				$this->redirect('/entrar');
 			}
 		}
-		$this->set(compact('logado', 'retornoPermissoes'));
+		$this->set(compact('logado', 'retornoPermissoes', 'permissoes_ids'));
 	}
 	
 	public function busca_cep($cep){

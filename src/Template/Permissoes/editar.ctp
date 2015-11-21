@@ -35,7 +35,7 @@
 									//encontrou no array e marca como checado
 									$selected = true;
 								}
-									echo $this->Form->input('permissao_id', array('label' => false, 'selected' => $selected, 'class' => 'form-control', 'options' => $permissaoPai));
+									echo $this->Form->input('permissao_id', array('label' => false, 'selected' => $selected, 'class' => 'form-control', 'options' => $permissaoPai, 'empty' => 'Nenhum'));
 								?>
 							</div>
 						</div>

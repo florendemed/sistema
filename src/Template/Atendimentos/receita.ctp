@@ -8,8 +8,8 @@
 		<div class="col-md-12">
 			<p class='dados-paciente'>
 				<?php 
-					$nascimento = substr($dadosReceita['paciente']['data_nascimento'], 0, 10);	
-					echo($dadosReceita['paciente']['nome'].'<br />Endereço: '.$dadosReceita['paciente']['endereco']['endereco'].', '.$dadosReceita['paciente']['endereco']['numero'].' - CEP: '.$dadosReceita['paciente']['endereco']['cep'].'<br /> Telefone: '.$dadosReceita['paciente']['telefone']['numero']);
+				$nascimento = substr($dadosReceita['paciente']['data_nascimento'], 0, 10);	
+				echo($dadosReceita['paciente']['nome'].'<br />Endereço: '.$dadosReceita['paciente']['endereco']['endereco'].', '.$dadosReceita['paciente']['endereco']['numero'].' - CEP: '.$dadosReceita['paciente']['endereco']['cep'].'<br /> Telefone: '.$dadosReceita['paciente']['telefones']['0']['numero']);
 				?>
 			</p>
 		</div>
@@ -41,9 +41,7 @@
 	<div id="row">
 		<div class="col-md-12">
 			<p class='dados-data'>
-				<?php 
-					echo(date('l').', '.date('d').' de '.date('F').' de '.date('Y')); 
-				?>
+				<?= $data_extenso ?>
 			</p>
 		</div>
 	</div>				

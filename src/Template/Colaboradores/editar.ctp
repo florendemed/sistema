@@ -227,6 +227,7 @@ echo $this->Html->scriptBlock("
 						</div>
 					</fieldset>
 				</div>
+				<?php if ( in_array('81', $permissoes_ids) == true ) { ?>
 				<div class="col-md-12">
 					<hr />
 					<h3>Grupos de Acesso</h3>
@@ -246,6 +247,7 @@ echo $this->Html->scriptBlock("
 						?>
 					</fieldset>
 				</div>
+				<?php } ?>
 			</div>
 			<hr />
 			<div class="row">

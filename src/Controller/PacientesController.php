@@ -129,7 +129,7 @@ class PacientesController extends AppController{
 						$telefone = $this->Telefones->newEntity($salvarTelefone);
 						$this->Telefones->save($telefone);
 					}
-				}				
+				}
 				$this->Flash->success(__('Registro alterado com sucesso.'));
 				return $this->redirect(['action' => 'index']);
 				
