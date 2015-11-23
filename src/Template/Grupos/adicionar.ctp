@@ -20,12 +20,6 @@
 								<?php echo $this->Form->text('nome', ['label' => false, 'class' => 'form-control']); ?>
 							</div>
 						</div>	
-						<div class="form-group">
-							<?php echo $this->Form->label('restrito', 'Público', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-10">
-								<?php echo $this->Form->checkbox('restrito', ['label' => false]); ?>
-							</div>
-						</div>	
 					</fieldset>
 				</div>
 				<div class="col-md-6">

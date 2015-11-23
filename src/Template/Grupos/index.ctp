@@ -13,7 +13,7 @@
 				<fieldset>
 					<div class="row">
 						<div class="col-md-2">
-							<?php echo $this->Form->text('nome', ['class' => 'form-control', 'placeholder' => 'Nome grupo']); ?>
+							<?php echo $this->Form->text('nome', ['class' => 'form-control', 'placeholder' => 'Nome grupo', 'value' => @$this->request->query['nome']]); ?>
 						</div>
 						<div class="col-md-1">
 							<?php echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']); ?>

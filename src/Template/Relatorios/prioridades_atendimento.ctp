@@ -18,8 +18,11 @@
 				]);
 
 				var options = {
-					title: 'Prioridades de Atendimento',
+					title: '',
+					width: 500,
+					height: 500,
 					is3D: true,
+					chartArea: {left:20,top:0,width:'80%',height:'60%'},
 				};
 
 				var chart = new google.visualization.PieChart(document.getElementById('chart'));
@@ -95,6 +98,9 @@
 		<?php } else { ?>
 			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
 		<?php }?>
-		<div id="chart" style="width: 900px; height: 500px;"></div>
+		<hr />
+		<div class="col-md-4">
+			<div id="chart"></div>
+		</div>
 	</div>
 </div>

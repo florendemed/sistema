@@ -48,7 +48,15 @@ class AtendimentosController extends AppController{
 	
 	public function index(){
 
+		$this->loadModel('AtendimentosStatus');
+	
+		$atendimentoStatus = $this->AtendimentosStatus->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
+		$atendimentoStatus = $atendimentoStatus->toArray();
+	
 		$condicoes = [];
+		
+		$this->request->query['dataInicio'] = date('d/m/Y', mktime(null, null, null, date('m'), date('d')-1, date('Y'), null));
+		$this->request->query['dataFim'] = date('d/m/Y');
 		
 		if (!empty($this->request->query)){
 				
@@ -75,6 +83,10 @@ class AtendimentosController extends AppController{
 				$this->request->query['dataFim'] = implode("/", $this->request->query['dataFim']);
 			} 
 			
+			if (isset($this->request->query['situacao']) && $this->request->query['situacao'] != ''){
+				$condicoes['atendimentos_status_id ='] = $this->request->query['situacao'];
+			} 
+			
 			if (isset($this->request->query['prioridade']) && $this->request->query['prioridade'] != ''){
 				$condicoes['prioridade ='] = $this->request->query['prioridade'];
 			} 
@@ -92,20 +104,20 @@ class AtendimentosController extends AppController{
 		];		
 		$atendimento = $this->paginate($this->Atendimentos);
 	
-		$this->set(compact('atendimento'));
+		$this->set(compact('atendimento', 'atendimentoStatus'));
 		
     }
 	
 	public function adicionar(){
 		
+		//$this->loadModel('Pacientes');
 		$this->loadModel('Colaboradores');
-		$this->loadModel('Pacientes');
 		
 		$colaborador = $this->Colaboradores->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
 		$colaborador = $colaborador->toArray();
 		
-		$paciente = $this->Pacientes->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
-		$paciente = $paciente->toArray();
+		//$paciente = $this->Pacientes->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
+		//$paciente = $paciente->toArray();
 
 		if ($this->request->is('post')) {
 			
@@ -120,11 +132,58 @@ class AtendimentosController extends AppController{
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
 		$atendimento = $this->Atendimentos->newEntity();
-		$this->set(compact('atendimento', 'paciente', 'colaborador'));
+		$this->set(compact('atendimento', 'colaborador'));//, 'paciente'
 
     }
 	
-	public function editar($id, $render = 'triagem'){
+	public function editar($id){
+
+		$atendimento = $this->Atendimentos->get($id, ['contain' => 'Pacientes']);
+		$this->loadModel('Colaboradores');
+		
+		$colaborador = $this->Colaboradores->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
+		$colaborador = $colaborador->toArray();
+		
+		//Dados postados
+		if ($this->request->is('put')) {
+			
+			$atendimento = $this->Atendimentos->patchEntity($atendimento, $this->request->data);
+
+			if ($atendimento['status'] == '0'){
+				$atendimento['status'] = 'i';
+			}
+			
+			if ($this->Atendimentos->save($atendimento)) {
+				
+				$this->Flash->success(__('Registro alterado com sucesso.'));
+				return $this->redirect(['action' => 'index']);
+
+			}
+			$this->Flash->error(__('Não foi possível salvar o registro.'));
+		} 
+		
+		$this->set(compact('atendimento', 'colaborador'));
+
+    }
+	
+	public function excluir($id){
+		
+		$this->autoRender = false;
+		
+		if ($id != null) {
+			$atendimento = $this->Atendimentos->get($id);
+			$atendimento->status = 'd';
+			$this->Atendimentos->save($atendimento);
+			$this->Flash->success('Registro removido com sucesso.');
+		} else {
+			$this->Flash->error('Não foi possível excluir o registro.');
+		}
+		
+		return $this->redirect('/atendimentos/index');
+		
+    }
+	
+	public function atendimento($id){
 		
 		$this->loadModel('AtendimentosStatus');
 		
@@ -145,25 +204,28 @@ class AtendimentosController extends AppController{
 			}
 			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
+		
 		$this->set(compact('atendimento', 'atendimentoStatus'));
-		$this->render($render);
 		
     }
 	
-	public function excluir($id){
+	public function triagem($id){
 		
-		$this->autoRender = false;
-		
-		if ($id != null) {
-			$atendimento = $this->Atendimentos->get($id);
-			$atendimento->status = 'd';
-			$this->Atendimentos->save($atendimento);
-			$this->Flash->success('Registro removido com sucesso.');
-		} else {
-			$this->Flash->error('Não foi possível excluir o registro.');
+		$atendimento = $this->Atendimentos->get($id, [
+			'contain' => ['Pacientes.Telefones', 'Colaborador', 'Situacao']
+		]);
+		if ($this->request->is('put')) {
+				
+			$atendimento = $this->Atendimentos->patchEntity($atendimento, $this->request->data);
+
+			if ($this->Atendimentos->save($atendimento)) {
+				
+				$this->Flash->success(__('Registro inserido com sucesso.'));
+				return $this->redirect('/atendimentos/index');
+			}
+			$this->Flash->error(__('Não foi possível salvar o registro.'));
 		}
-		
-		return $this->redirect('/atendimentos/index');
+		$this->set(compact('atendimento'));
 		
     }
 	

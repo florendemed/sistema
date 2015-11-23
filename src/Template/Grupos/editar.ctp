@@ -23,12 +23,6 @@
 							</div>
 						</div>	
 						<div class="form-group">
-							<?php echo $this->Form->label('restrito', 'Público', ['class' => 'col-md-2 control-label']); ?>
-							<div class="col-md-10">
-								<?php echo $this->Form->checkbox('restrito', ['label' => false, 'value' => 's']); ?>
-							</div>
-						</div>	
-						<div class="form-group">
 							<?php echo $this->Form->label('status', 'Status', ['class' => 'col-md-2 control-label']); ?>
 							<div class="col-md-10">
 								<?php echo $this->Form->checkbox('status', ['label' => false, 'value' => 'a']); ?>

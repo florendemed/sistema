@@ -19,7 +19,10 @@
 
 				var options = {
 					title: 'Status de Atendimento',
+					width: 500,
+					height: 500,
 					is3D: true,
+					chartArea: {left:20,top:0,width:'90%',height:'60%'},
 				};
 
 				var chart = new google.visualization.PieChart(document.getElementById('chart'));

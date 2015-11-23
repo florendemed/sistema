@@ -20,7 +20,10 @@
 
 				var options = {
 					title: 'Medicamentos',
+					width: 500,
+					height: 500,
 					is3D: true,
+					chartArea: {left:20,top:0,width:'100%',height:'60%'},
 				};
 
 				var chart = new google.visualization.PieChart(document.getElementById('chart'));

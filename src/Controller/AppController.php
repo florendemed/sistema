@@ -379,7 +379,15 @@ class AppController extends Controller{
 		$retorno			= curl_exec($ch);
 		curl_close($ch);
 		$this->response->body($retorno);
-	}	
+	}
 
+	function encripta($senha){
+		$salt = md5("#florence_med#14111983");
+
+		$codifica = crypt($senha,$salt);
+		$codifica = hash('sha512',$codifica);
+
+		return $codifica;
+	}	
 	
 }

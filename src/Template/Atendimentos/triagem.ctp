@@ -5,7 +5,8 @@
 		</ul>
 		<ul class="nav nav-tabs">
 			<li><a href="/atendimentos/adicionar">Novo</a></li>
-			<li class="active"><a href="/atendimentos/editar/<?= $atendimento->id; ?>">Editar</a></li>
+			<li class="active"><a href="/atendimentos/atendimento/<?= $atendimento->id; ?>">Atendimento</a></li>
+			<li><a href="/atendimentos/editar/<?= $atendimento->id; ?>">Editar</a></li>
 			<li><a href="/atendimentos/index">Listar</a></li>
 		</ul>
 		<?php
@@ -75,8 +76,8 @@
 				</div>
 				<div class="col-md-10 atendimentos">
 					<ul class="nav nav-tabs">
-						<li class="active"><a href="/atendimentos/editar/<?= $atendimento->id ?>">Triagem</a></li>
-						<li><a href="/atendimentos/editar/<?= $atendimento->id ?>/editar">Atendimento Médico</a></li>
+						<li class="active"><a href="/atendimentos/triagem/<?= $atendimento->id ?>">Triagem</a></li>
+						<li><a href="/atendimentos/atendimento/<?= $atendimento->id ?>">Atendimento Médico</a></li>
 					</ul>
 					<div class='col-md-7'>
 						<fieldset>

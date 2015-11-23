@@ -46,7 +46,7 @@ class ColaboradoresController extends AppController{
 		
 		if ($this->request->is('post')) {			
 					
-			$senha = md5($this->request->data['senha']);
+			$senha = $this->encripta($this->request->data['senha']);
 
 			$colaborador = $this->Colaboradores->find('all',[
 				'conditions' => [
@@ -98,7 +98,7 @@ class ColaboradoresController extends AppController{
 				
 			} else {
 
-				$colaborador->senha = md5($this->request->data['senha']);
+				$colaborador->senha = $this->encripta($this->request->data['senha']);
 			}
 
 			if ($this->Colaboradores->save($colaborador)) {
@@ -184,7 +184,7 @@ class ColaboradoresController extends AppController{
 					$this->request->data['senha'] = '';
 					$this->request->data['senha_repetir'] = '';
 				} else {
-					$this->request->data['senha'] = md5($this->request->data['senha']);
+					$this->request->data['senha'] = $this->encripta($this->request->data['senha']);
 				}
 			}
 			

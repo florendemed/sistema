@@ -18,7 +18,7 @@ class RelatoriosController extends AppController{
 		
 		$atendimentos_status = $this->Atendimentos_status->find('list', ['keyField' => 'id', 'valueField' => 'nome']);
 		$atendimentos_status = $atendimentos_status->toArray();
-		
+				
 		if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != '' &&
 			isset($this->request->query['dataFim']) && $this->request->query['dataFim'] != ''){
 			
@@ -29,9 +29,9 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('/',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("-", $this->request->query['dataFim']);
-				
-			$condicoes['Atendimentos.created >='] = $this->request->query['dataInicio'].' 00:00:00';
-			$condicoes['Atendimentos.created <='] = $this->request->query['dataFim'].' 23:59:59';
+						
+			$condicoes['Atendimentos.created >='] = $this->request->query['dataInicio'];
+			$condicoes['Atendimentos.created <='] = $this->request->query['dataFim'];
 			
 			$this->request->query['dataInicio'] = explode('-',$this->request->query['dataInicio']);
 			$this->request->query['dataInicio'] = array_reverse($this->request->query['dataInicio']);
@@ -40,6 +40,7 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('-',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("/", $this->request->query['dataFim']);
+			
 		} 
 		
 		if (isset($this->request->query['status']) && $this->request->query['status'] != ''){
@@ -78,7 +79,7 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('/',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("-", $this->request->query['dataFim']);
-				
+			
 			$condicoes['created >='] = $this->request->query['dataInicio'].' 00:00:00';
 			$condicoes['created <='] = $this->request->query['dataFim'].' 23:59:59';
 			
@@ -89,6 +90,7 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('-',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("/", $this->request->query['dataFim']);
+			
 		} 
 		
 		if (isset($this->request->query['prioridade']) && $this->request->query['prioridade'] != ''){
@@ -126,9 +128,9 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('/',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("-", $this->request->query['dataFim']);
-				
-			$condicoes['AtendimentosMedicamentos.created >='] = $this->request->query['dataInicio'].' 00:00:00';
-			$condicoes['AtendimentosMedicamentos.created <='] = $this->request->query['dataFim'].' 23:59:59';
+			
+			$condicoes['AtendimentosMedicamentos.created >='] = $this->request->query['dataInicio'];
+			$condicoes['AtendimentosMedicamentos.created <='] = $this->request->query['dataFim'];
 			
 			$this->request->query['dataInicio'] = explode('-',$this->request->query['dataInicio']);
 			$this->request->query['dataInicio'] = array_reverse($this->request->query['dataInicio']);
@@ -137,6 +139,7 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('-',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("/", $this->request->query['dataFim']);
+			
 		} 
 		
 		//SELECT m.nome, count(m.id) as total FROM `atendimentos_medicamentos` as am inner join medicamentos as m where am.medicamentos_id = m.id group by medicamentos_id order by count(m.id) Desc 
@@ -172,9 +175,9 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('/',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("-", $this->request->query['dataFim']);
-				
-			$condicoes['AtendimentosExames.created >='] = $this->request->query['dataInicio'].' 00:00:00';
-			$condicoes['AtendimentosExames.created <='] = $this->request->query['dataFim'].' 23:59:59';
+			
+			$condicoes['AtendimentosExames.created >='] = $this->request->query['dataInicio'];
+			$condicoes['AtendimentosExames.created <='] = $this->request->query['dataFim'];
 			
 			$this->request->query['dataInicio'] = explode('-',$this->request->query['dataInicio']);
 			$this->request->query['dataInicio'] = array_reverse($this->request->query['dataInicio']);
@@ -217,9 +220,9 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('/',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("-", $this->request->query['dataFim']);
-				
-			$condicoes['AtendimentosDoencas.created >='] = $this->request->query['dataInicio'].' 00:00:00';
-			$condicoes['AtendimentosDoencas.created <='] = $this->request->query['dataFim'].' 23:59:59';
+			
+			$condicoes['AtendimentosDoencas.created >='] = $this->request->query['dataInicio'];
+			$condicoes['AtendimentosDoencas.created <='] = $this->request->query['dataFim'];
 			
 			$this->request->query['dataInicio'] = explode('-',$this->request->query['dataInicio']);
 			$this->request->query['dataInicio'] = array_reverse($this->request->query['dataInicio']);
@@ -228,6 +231,7 @@ class RelatoriosController extends AppController{
 			$this->request->query['dataFim'] = explode('-',$this->request->query['dataFim']);
 			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
 			$this->request->query['dataFim'] = implode("/", $this->request->query['dataFim']);
+			
 		} 
 		
 		//SELECT ad.doencas_id, count(ad.id) as total FROM `atendimentos_doencas` as ad join cid_subcategorias as cs WHERE ad.doencas_id = cs.id GROUP BY ad.doencas_id 

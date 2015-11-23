@@ -37,7 +37,11 @@ class GruposController extends AppController{
 		$this->loadModel('Permissoes');
 		$this->loadModel('GruposPermissoes');
 
-		$permissoes = $this->Permissoes->find('all');
+		$permissoes = $this->Permissoes->find('all',[
+			'order' => array(
+				'Permissoes.nome' => 'ASC'
+			),
+		]);
 		$permissoes = $permissoes->toArray();
 		
 		if ($this->request->is('post')) {
@@ -79,7 +83,11 @@ class GruposController extends AppController{
 		$this->loadModel('Permissoes');
 		$this->loadModel('GruposPermissoes');
 
-		$permissoes = $this->Permissoes->find('all');
+		$permissoes = $this->Permissoes->find('all',[
+			'order' => array(
+				'Permissoes.nome' => 'ASC'
+			),
+		]);
 		$permissoes = $permissoes->toArray();
 		
 		$gruposPermissoes = $this->GruposPermissoes->findAllByGruposId($id);

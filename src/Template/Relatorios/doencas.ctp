@@ -19,7 +19,10 @@
 
 				var options = {
 					title: 'Doenças',
+					width: 500,
+					height: 500,
 					is3D: true,
+					chartArea: {left:20,top:0,width:'80%',height:'60%'},
 				};
 
 				var chart = new google.visualization.PieChart(document.getElementById('chart'));
