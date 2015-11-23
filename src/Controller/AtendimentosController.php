@@ -93,8 +93,24 @@ class AtendimentosController extends AppController{
 			$this->request->query['dataInicio'] = date('d/m/Y', mktime(null, null, null, date('m'), date('d')-1, date('Y'), null));
 			$this->request->query['dataFim'] = date('d/m/Y');
 			
+			$this->request->query['dataInicio'] = explode('/',$this->request->query['dataInicio']);
+			$this->request->query['dataInicio'] = array_reverse($this->request->query['dataInicio']);
+			$this->request->query['dataInicio'] = implode("-", $this->request->query['dataInicio']);
+			
+			$this->request->query['dataFim'] = explode('/',$this->request->query['dataFim']);
+			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
+			$this->request->query['dataFim'] = implode("-", $this->request->query['dataFim']);		
+				
 			$condicoes['Atendimentos.created >='] = $this->request->query['dataInicio'].' 00:00:00';
 			$condicoes['Atendimentos.created <='] = $this->request->query['dataFim'].' 23:59:59';
+			
+			$this->request->query['dataInicio'] = explode('-',$this->request->query['dataInicio']);
+			$this->request->query['dataInicio'] = array_reverse($this->request->query['dataInicio']);
+			$this->request->query['dataInicio'] = implode("/", $this->request->query['dataInicio']);
+			
+			$this->request->query['dataFim'] = explode('-',$this->request->query['dataFim']);
+			$this->request->query['dataFim'] = array_reverse($this->request->query['dataFim']);
+			$this->request->query['dataFim'] = implode("/", $this->request->query['dataFim']);
 			
 		}
 
