@@ -55,9 +55,6 @@ class AtendimentosController extends AppController{
 	
 		$condicoes = [];
 		
-		$this->request->query['dataInicio'] = date('d/m/Y', mktime(null, null, null, date('m'), date('d')-1, date('Y'), null));
-		$this->request->query['dataFim'] = date('d/m/Y');
-		
 		if (!empty($this->request->query)){
 				
 			if (isset($this->request->query['dataInicio']) && $this->request->query['dataInicio'] != '' &&
@@ -91,6 +88,14 @@ class AtendimentosController extends AppController{
 				$condicoes['prioridade ='] = $this->request->query['prioridade'];
 			} 
 
+		} else {
+			
+			$this->request->query['dataInicio'] = date('d/m/Y', mktime(null, null, null, date('m'), date('d')-1, date('Y'), null));
+			$this->request->query['dataFim'] = date('d/m/Y');
+			
+			$condicoes['Atendimentos.created >='] = $this->request->query['dataInicio'].' 00:00:00';
+			$condicoes['Atendimentos.created <='] = $this->request->query['dataFim'].' 23:59:59';
+			
 		}
 
 		$this->paginate = [

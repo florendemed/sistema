@@ -153,7 +153,6 @@ class RelatoriosController extends AppController{
 			])
 			->contain('Medicamentos')
 			->group('AtendimentosMedicamentos.medicamentos_id');
-			//->order([$this->AtendimentosMedicamentos->find()->func()->count('AtendimentosMedicamentos.id') => 'DESC']);
 		
 		$this->set(compact('resultado'));
 

@@ -76,7 +76,7 @@
 						$total_geral	= $total_geral + $qr->count;
 						?>
 						<tr>
-							<td class='capitalize'><?= mb_strtolower(substr($qr->medicamento->nome, 0, 40)) ?></td>
+							<td class='capitalize'><?= mb_strtolower($qr->medicamento->nome) ?></td>
 							<td><?= $qr->count ?></td>
 						</tr>
 						<?php 
@@ -94,6 +94,7 @@
 		<?php } else { ?>
 			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
 		<?php }?>
-		<div id="chart" style="width: 1200px; height: 500px;"></div>
+		<hr />
+		<div id="chart"></div>
 	</div>
 </div>

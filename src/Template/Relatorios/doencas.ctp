@@ -75,7 +75,7 @@
 						$total_geral	= $total_geral + $qr->count;
 						?>
 						<tr>
-							<td><?= substr($qr->doenca->nome, 0, 40) ?></td>
+							<td><?= $qr->doenca->nome ?></td>
 							<td><?= $qr->count ?></td>
 						</tr>
 						<?php 
@@ -93,6 +93,7 @@
 		<?php } else { ?>
 			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
 		<?php }?>
+		<hr />
 		<div id="chart" style="width: 900px; height: 500px;"></div>
 	</div>
 </div>

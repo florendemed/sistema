@@ -93,6 +93,7 @@
 		<?php } else { ?>
 			<p class="alert alert-warning">Nenhum resultado encontrado.</p>
 		<?php }?>
+		<hr />
 		<div id="chart" style="width: 900px; height: 500px;"></div>
 	</div>
 </div>
