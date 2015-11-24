@@ -282,7 +282,7 @@ class AtendimentosController extends AppController{
 		$dadosReceita->toArray();
 		
 		setlocale( LC_ALL, 'pt_BR', 'pt_BR.iso-8859-1', 'pt_BR.utf-8', 'portuguese' );
-		$data_extenso		= strftime( '%A, %d de %B de %Y', strtotime( date( 'Y-m-d' ) ) );
+		$data_extenso		= utf8_encode(strftime( '%A, %d de %B de %Y', strtotime( date( 'Y-m-d' ) ) ));
 		
 		$this->set(compact('dadosReceita', 'data_extenso'));
     }
