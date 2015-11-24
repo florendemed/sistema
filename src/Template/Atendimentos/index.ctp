@@ -15,7 +15,7 @@ echo $this->Html->scriptBlock("
 			<li><a href="/atendimentos/adicionar">Novo</a></li>
 			<li class="active"><a href="/atendimentos/index">Listar</a></li>
 		</ul>
-		<p class="alert alert-info">Clique no <strong>paciente</strong> para editar os registros.</p>
+		<p class="alert alert-info">Clique no <strong>paciente</strong> para iniciar o atendimento.</p>
 		<div class="well filtros">
 			<form action="/atendimentos/index" class="form-horizontal" id="colaboradorIndexForm" method="get" accept-charset="utf-8">	
 				<fieldset>
