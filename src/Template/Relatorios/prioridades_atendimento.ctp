@@ -50,11 +50,6 @@
 								echo $this->Form->text('dataFim', ['class' => 'form-control date', 'placeholder' => 'Data Final', 'value' => @$this->request->query['dataFim']]);
 							?>
 						</div>
-						<div class="col-md-2">
-							<?php
-								echo $this->Form->input('prioridade', array('label' => false, 'class' => 'form-control', 'options' => $combo_prioridades, 'empty' => 'Todos', 'value' => @$this->request->query['prioridade']));
-							?>
-						</div>
 						<div class="col-md-1">
 							<?php 
 								echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']);

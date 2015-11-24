@@ -50,11 +50,6 @@
 								echo $this->Form->text('dataFim', ['class' => 'form-control date', 'placeholder' => 'Data Final', 'value' => @$this->request->query['dataFim']]);
 							?>
 						</div>
-						<div class="col-md-2">
-							<?php
-								echo $this->Form->input('status', array('label' => false, 'class' => 'form-control', 'options' => $atendimentos_status, 'empty' => 'Todos', 'value' => @$this->request->query['status']));
-							?>
-						</div>
 						<div class="col-md-1">
 							<?php 
 								echo $this->Form->submit('filtrar', ['class' => 'btn btn-primary btn', 'value' => 'filtrar']);
