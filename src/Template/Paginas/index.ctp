@@ -2,6 +2,9 @@
 <a class="btn btn-danger" href="/atendimentos/adicionar"><span class="fa fa-pencil-square-o"></span> Novo Atendimento</a>
 <a class="btn btn-danger" href="/pacientes/"><span class="fa fa-book"></span> Prontuário</a>
 <hr />
+<?php 
+if ( in_array('14', $permissoes_ids) == true ){
+?>
 <h3>Relatórios</h3>
 <div class='row'>
 	<div class='col-md-4'>
@@ -124,3 +127,4 @@
 	</div>
 </div>
 <hr />
+<?php }?>

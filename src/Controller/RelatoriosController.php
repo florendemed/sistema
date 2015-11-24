@@ -57,7 +57,8 @@ class RelatoriosController extends AppController{
 				$condicoes
 			])
 			->contain('Situacao')
-			->group('Atendimentos.atendimentos_status_id');
+			->group('Atendimentos.atendimentos_status_id')
+			->order(['count' => 'DESC']);
 		
 		$this->set(compact('resultado','atendimentos_status'));
 
@@ -97,16 +98,19 @@ class RelatoriosController extends AppController{
 			$condicoes['prioridade ='] = $this->request->query['prioridade'];
 		} 
 		
+		$funcCount = $this->Atendimentos->find()->func()->count('id');
+		
 		//$query = $this->Atendimentos->query('SELECT prioridade, count(id) FROM `atendimentos` where status = 'a' group by prioridade ');
 		$resultado = $this->Atendimentos->find()
 			->select([
 				'prioridade',
-				'count' => $this->Atendimentos->find()->func()->count('id'),
+				'count' => $funcCount,
 			])
 			->where([
 				$condicoes
 			])
-			->group('prioridade');
+			->group('prioridade')
+			->order(['count' => 'DESC']);
 		
 		$this->set(compact('resultado'));
 		
@@ -152,7 +156,8 @@ class RelatoriosController extends AppController{
 				$condicoes
 			])
 			->contain('Medicamentos')
-			->group('AtendimentosMedicamentos.medicamentos_id');
+			->group('AtendimentosMedicamentos.medicamentos_id')
+			->order(['count' => 'DESC']);
 		
 		$this->set(compact('resultado'));
 
@@ -197,7 +202,8 @@ class RelatoriosController extends AppController{
 				$condicoes
 			])
 			->contain('Exames')
-			->group('AtendimentosExames.exames_id');
+			->group('AtendimentosExames.exames_id')
+			->order(['count' => 'DESC']);
 		
 		$this->set(compact('resultado'));
 
@@ -243,7 +249,8 @@ class RelatoriosController extends AppController{
 				$condicoes
 			])
 			->contain('Doencas')
-			->group('AtendimentosDoencas.doencas_id');
+			->group('AtendimentosDoencas.doencas_id')
+			->order(['count' => 'DESC']);
 		
 		$this->set(compact('resultado'));
 

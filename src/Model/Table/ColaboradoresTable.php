@@ -18,7 +18,28 @@ class ColaboradoresTable extends AppTable{
 			->add('email', 'email', ['rule' => 'email', 'message' => 'e-mail inválido'])
 			->allowEmpty('email')
 			//->add('data_nascimento', 'data_nascimento', ['rule' => 'date', 'message' => 'data de nascimento inválida'])
-			->allowEmpty('data_nascimento');
+			->allowEmpty('data_nascimento')
+			->add('cpf','custom', [
+				'rule' => function ($data, $entity){
+					$condicoes = [];
+
+					if ( $entity['newRecord'] != '1' ){
+						$condicoes['id <>'] = $entity['data']['id'];
+					}
+					$retorno = $this->find('all',[
+						'conditions' => [
+							'Colaboradores.cpf' => $data,
+							$condicoes,
+						],
+					]);
+					if ($retorno->count() == 0){
+						return true;					
+					} else {
+						return false;
+					}
+				},
+				'message' => 'CPF já cadastrado',
+			]);
 	 
 		return $validator;
 
