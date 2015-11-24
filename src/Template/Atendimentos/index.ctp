@@ -78,24 +78,20 @@ echo $this->Html->scriptBlock("
 							$prioridade = "Normal";
 							$class		= "normal";
 						}
-																						
-						if ( in_array('53', $permissoes_ids) == true ){
-							$url = '/atendimentos/atendimento/'.$atendimentos->id;	
-						} else{
-							$url = '/atendimentos/triagem/'.$atendimentos->id;								
-						}
+
 					?>
 					<tr class="<?= $class ?>">
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->id) ?></a></td>
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->paciente->nome) ?></a></td>
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->colaborador->nome) ?></a></td>
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->situacao->nome) ?></a></td>
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= $prioridade ?></a></td>
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->created) ?></a></td>
-						<td><a href="/atendimentos/editar/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->modified) ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->id) ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->paciente->nome) ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->colaborador->nome) ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->situacao->nome) ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= $prioridade ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->created) ?></a></td>
+						<td><a href="/atendimentos/triagem/<?= h($atendimentos->id) ?>" title="Editar"><?= h($atendimentos->modified) ?></a></td>
 						<td class="actions">
 							<a href="/atendimentos/prontuario/<?= h($atendimentos->paciente->id) ?>" title="Prontuário"><span class="fa fa-book"></span></a>
-							<a href="<?= $url ?>" title="Iniciar Atendimento"><span class="glyphicon glyphicon-play"></span></a>
+							<a href="/atendimentos/triagem/<?= h($atendimentos->id)?>" title="Iniciar Atendimento"><span class="glyphicon glyphicon-play"></span></a>
+							<a href="/atendimentos/editar/<?= h($atendimentos->id)?>" title="Editar"><span class="glyphicon glyphicon-pencil"></span></a>
 							<a href="/atendimentos/excluir/<?= h($atendimentos->id) ?>" title="Remover" onclick="if (confirm(&quot;Tem certeza que deseja excluir este registro?&quot;)) { return true; } return false;"><span class="glyphicon glyphicon-remove"></span></a>
 						</td>
 					</tr>
